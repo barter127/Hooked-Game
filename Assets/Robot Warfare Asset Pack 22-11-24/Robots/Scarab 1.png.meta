@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: b00f1c2c719e82441b47a845512a11f5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 372622031870172341
+    second: Scarab_0
+  - first:
+      213: -5831119921745226977
+    second: Scarab_1
+  - first:
+      213: -509633119068516425
+    second: Scarab_2
+  - first:
+      213: 837786294858987567
+    second: Scarab_3
+  - first:
+      213: 5894700993271887926
+    second: Scarab_4
+  - first:
+      213: -6353616782675841699
+    second: Scarab_5
+  - first:
+      213: 7462357489550536158
+    second: Scarab_6
+  - first:
+      213: 1729394327092400296
+    second: Scarab_7
+  - first:
+      213: -4938190140845207852
+    second: Scarab_8
+  - first:
+      213: -2518418445511643430
+    second: Scarab_9
+  - first:
+      213: -3983721007543660762
+    second: Scarab_10
+  - first:
+      213: -2439385086012503889
+    second: Scarab_11
+  - first:
+      213: -5726071323620390219
+    second: Scarab_12
+  - first:
+      213: 4555319186464172555
+    second: Scarab_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8d7c7f2a650934c49a52e2c25624a12e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Scarab 1_0: -908465125
+      Scarab_0: 372622031870172341
+      Scarab_1: -5831119921745226977
+      Scarab_10: -3983721007543660762
+      Scarab_11: -2439385086012503889
+      Scarab_12: -5726071323620390219
+      Scarab_13: 4555319186464172555
+      Scarab_2: -509633119068516425
+      Scarab_3: 837786294858987567
+      Scarab_4: 5894700993271887926
+      Scarab_5: -6353616782675841699
+      Scarab_6: 7462357489550536158
+      Scarab_7: 1729394327092400296
+      Scarab_8: -4938190140845207852
+      Scarab_9: -2518418445511643430
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
