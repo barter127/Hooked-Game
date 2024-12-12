@@ -1,49 +1,13 @@
 fileFormatVersion: 2
-guid: b00f1c2c719e82441b47a845512a11f5
+guid: ae93dbeb9b866984da8038a55e3ba68a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 372622031870172341
-    second: Scarab_0
+      213: -3438905571476058607
+    second: Spider_0
   - first:
-      213: -5831119921745226977
-    second: Scarab_1
-  - first:
-      213: -509633119068516425
-    second: Scarab_2
-  - first:
-      213: 837786294858987567
-    second: Scarab_3
-  - first:
-      213: 5894700993271887926
-    second: Scarab_4
-  - first:
-      213: -6353616782675841699
-    second: Scarab_5
-  - first:
-      213: 7462357489550536158
-    second: Scarab_6
-  - first:
-      213: 1729394327092400296
-    second: Scarab_7
-  - first:
-      213: -4938190140845207852
-    second: Scarab_8
-  - first:
-      213: -2518418445511643430
-    second: Scarab_9
-  - first:
-      213: -3983721007543660762
-    second: Scarab_10
-  - first:
-      213: -2439385086012503889
-    second: Scarab_11
-  - first:
-      213: -5726071323620390219
-    second: Scarab_12
-  - first:
-      213: 4555319186464172555
-    second: Scarab_13
+      213: -3439666431560065214
+    second: Spider_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:

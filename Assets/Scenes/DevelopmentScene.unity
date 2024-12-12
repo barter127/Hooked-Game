@@ -184,7 +184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &644925681
 Transform:
   m_ObjectHideFlags: 0
@@ -4492,12 +4492,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 372622031870172341, guid: 5dac76fe3007aad4eb222633d2476cfd, type: 3}
+  m_Sprite: {fileID: 921497510, guid: 5dac76fe3007aad4eb222633d2476cfd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.875, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4614,10 +4614,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5cc8b0f19b0dce4fb50b69dc26427e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeForce: 225
-  rateOfCharges: 2.4
-  chargeRange: 7.5
-  obstacleLayer:
+  m_targetTransform: {fileID: 1618778962}
+  m_chargeForce: 225
+  m_rateOfCharges: 2.4
+  m_chargeRange: 7.5
+  m_obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
 --- !u!212 &1145514284
@@ -4780,12 +4781,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5538297496388433325, guid: d46a2179858207847b9e09a8329e03a7, type: 3}
+  m_Sprite: {fileID: 165578706, guid: d46a2179858207847b9e09a8329e03a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.625, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4803,7 +4804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0191c5d21f603224c9161bb7534e890f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  m_targetTransform: {fileID: 1618778962}
+  m_speed: 2
 --- !u!4 &1407629168
 Transform:
   m_ObjectHideFlags: 0
@@ -21001,7 +21003,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

@@ -139,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scarab_0
+      name: Scarab_Idle0
       rect:
         serializedVersion: 2
         x: 2
@@ -154,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a23052e56f64d745a92f6464317cbea
-      internalID: 372622031870172341
+      spriteID: d8a1cf7d4be6b784d9df12a62b5b4326
+      internalID: 921497510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scarab_1
+      name: Scarab_Idle1
       rect:
         serializedVersion: 2
         x: 17
@@ -176,8 +176,272 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f93343dd6cc2804282f5f50e9302e9b
-      internalID: -5831119921745226977
+      spriteID: 6db618b85d82ac342ad05432e66eafa8
+      internalID: 1334340647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarab_Walk0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 49
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3be2dd7c042d2e4db641a24a1cdb4b3
+      internalID: 1158857260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarab_Death0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 330bdb4c9a8024445a9ef3fc75f649f5
+      internalID: -586361872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarab_Walk1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 49
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fcf7b71dae5cac448a114215f1ddcc5
+      internalID: 1125612235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarab_Walk2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 49
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09b3d14858bcb0243b4721c0d56de20f
+      internalID: 83400487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarab_Walk3
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 49
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed543c5661e603468111029019c027f
+      internalID: 1699812782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarab_Shoot0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 33
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0d9f56754b01e545849497a23dd430f
+      internalID: -1182420457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarab_Shoot1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 33
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd956082892018479297f5d0b0bcc05
+      internalID: 798279581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarab_Melee0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 17
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2a1eedefeac9d648a77c8d9c3334634
+      internalID: 1013387928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarab_Melee1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 17
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4136ee18e9fc047adef97933c09904
+      internalID: 1109090326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarab_Melee2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 17
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 382e78024febf3a4d8b816f2eb5cdd32
+      internalID: -899773236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarab_Melee3
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 17
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecf0fa22769ea0941822d73c5f2e5b91
+      internalID: -385882407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scarab_Melee4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 17
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 058dd6e329e41cf41b0d7558e20ad34a
+      internalID: 1408471425
       vertices: []
       indices: 
       edges: []
@@ -197,20 +461,30 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Scarab 1_0: -908465125
-      Scarab_0: 372622031870172341
-      Scarab_1: -5831119921745226977
       Scarab_10: -3983721007543660762
       Scarab_11: -2439385086012503889
       Scarab_12: -5726071323620390219
       Scarab_13: 4555319186464172555
-      Scarab_2: -509633119068516425
-      Scarab_3: 837786294858987567
       Scarab_4: 5894700993271887926
       Scarab_5: -6353616782675841699
       Scarab_6: 7462357489550536158
       Scarab_7: 1729394327092400296
       Scarab_8: -4938190140845207852
       Scarab_9: -2518418445511643430
+      Scarab_Death0: 837786294858987567
+      Scarab_Idle0: 372622031870172341
+      Scarab_Idle1: -5831119921745226977
+      Scarab_Melee0: 1013387928
+      Scarab_Melee1: 1109090326
+      Scarab_Melee2: -899773236
+      Scarab_Melee3: -385882407
+      Scarab_Melee4: 1408471425
+      Scarab_Shoot0: -1182420457
+      Scarab_Shoot1: 798279581
+      Scarab_Walk0: -509633119068516425
+      Scarab_Walk1: 1125612235
+      Scarab_Walk2: 83400487
+      Scarab_Walk3: 1699812782
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
