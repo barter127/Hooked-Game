@@ -23,20 +23,20 @@ public class TopDownCharacterController : MonoBehaviour
    
 
     [Header("Movement parameters")]
-    //Rate the player accelerates at.
+    // Rate the player accelerates at.
     [SerializeField] private float m_playerAccelRate;
-    //The maximum speed the player can move
+    // The maximum speed the player can move.
     [SerializeField] private float m_playerMaxSpeed = 1000f;
 
     #endregion
 
     private void Awake()
     {
-        //bind movement inputs to variables
+        // Bind movement inputs to variables.
         m_moveAction = InputSystem.actions.FindAction("Move");
         m_attackAction = InputSystem.actions.FindAction("Attack");
         
-        //get components from Character game object so that we can use them later.
+        // Get components from Character game object so that we can use them later.
         m_animator = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody2D>();
     }
@@ -60,7 +60,7 @@ public class TopDownCharacterController : MonoBehaviour
     
     void Update()
     {
-        // store any movement inputs into m_playerDirection - this will be used in FixedUpdate to move the player.
+        // Store any movement inputs into m_playerDirection - this will be used in FixedUpdate to move the player.
         m_playerDirection = m_moveAction.ReadValue<Vector2>();
 
         // ~~ handle animator ~~
@@ -74,11 +74,9 @@ public class TopDownCharacterController : MonoBehaviour
             m_animator.SetFloat("Vertical", m_playerDirection.y);
         }
 
-        // check if an attack has been triggered.
+        // Check if an attack has been triggered.
         if (m_attackAction.IsPressed())
         {
-            // just log that an attack has been registered for now
-            // we will look at how to do this in future sessions.
             Debug.Log("Attack!");
         }
     }

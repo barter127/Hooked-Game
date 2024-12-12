@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// Move in a random direction each random direction of time.
+/// Clamp to minDistance so movement isn't negligible.
+/// </summary>
+
 [RequireComponent (typeof(Rigidbody2D))]
 public class RandomisedMovement : MonoBehaviour
 {

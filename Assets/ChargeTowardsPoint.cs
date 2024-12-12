@@ -1,61 +1,69 @@
 using UnityEngine;
 
+/// <summary>
+/// Perodically charge towards targetTransform.
+/// Only charge when chargeTimer is up.
+/// Only charge when in range.
+/// </summary>
+
 [RequireComponent (typeof(Rigidbody2D))]
 public class ChargeTowardsPoint : MonoBehaviour
 {
-    [SerializeField] float chargeForce;
-    [SerializeField] float rateOfCharges;
-    [SerializeField] float chargeRange;
+    [SerializeField] Transform m_targetTransform;
+    // Force of charge.
+    [SerializeField] float m_chargeForce;
+    // Time between each charge in seconds.
+    [SerializeField] float m_rateOfCharges;
+    // Furthest distance can charge from.
+    [SerializeField] float m_chargeRange;
 
-    float chargeTimer;
+    float m_chargeTimer;
 
-    Rigidbody2D rb;
-    Transform playerTrans;
-    [SerializeField] LayerMask obstacleLayer;
-    Vector3 targetPos;
+    Rigidbody2D m_rigidbody;
+    [SerializeField] LayerMask m_obstacleLayer;
+    Vector3 m_targetVector;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        playerTrans = GameObject.Find("Character").transform;
+        m_rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        targetPos = playerTrans.position - transform.position;
+        m_targetVector = m_targetTransform.position - transform.position;
 
-        DrawLOS(targetPos);
+        DrawLOS(m_targetVector);
 
         // Can charge.
-        if (chargeTimer <= 0 && targetPos.magnitude < chargeRange)
+        if (m_chargeTimer <= 0 && m_targetVector.magnitude < m_chargeRange)
         {
             // If has line of sight.
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, targetPos, targetPos.magnitude, obstacleLayer);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, m_targetVector, m_targetVector.magnitude, m_obstacleLayer);
             if (hit.collider == null)
             {
                 Charge();
             }
         }
-        else chargeTimer -= Time.deltaTime;
+        else m_chargeTimer -= Time.deltaTime;
     }
 
     void Charge()
     {
-        chargeTimer = rateOfCharges;
+        m_chargeTimer = m_rateOfCharges;
 
-        targetPos = playerTrans.position - transform.position;
-        rb.AddForce(targetPos * chargeForce);
+        m_targetVector = m_targetTransform.position - transform.position;
+        m_rigidbody.AddForce(m_targetVector * m_chargeForce);
     }
 
     // Suboptimal as resuses logic but is self contained.
     void DrawLOS(Vector3 targetPos)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetPos, targetPos.magnitude, obstacleLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetPos, targetPos.magnitude, m_obstacleLayer);
 
         // In range.
-        if (targetPos.magnitude < chargeRange)
+        if (targetPos.magnitude < m_chargeRange)
         {
             // Has Line of Sight.
             if (hit.collider == null)
