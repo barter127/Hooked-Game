@@ -4,7 +4,10 @@ using UnityEngine.InputSystem;
 public class PlayerShootLogic : MonoBehaviour
 {
     [SerializeField] GameObject m_projectile;
-    [SerializeField] Transform m_player;
+    [SerializeField] Transform m_playerTrans;
+
+    InputAction m_lookAction;
+    Vector2 m_mousePosition;
 
     bool m_hasFired;
     GameObject m_knifeReference;
@@ -14,14 +17,15 @@ public class PlayerShootLogic : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        m_attackAction = InputSystem.actions.FindAction("Attack");
+
+        m_lookAction = InputSystem.actions.FindAction("Look");
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (m_attackAction.IsPressed() && !m_hasFired)
+        if (m_attackAction.IsPressed())
         {
             if (!m_hasFired)
             {
@@ -30,12 +34,19 @@ public class PlayerShootLogic : MonoBehaviour
             }
             else
             {
-                //m_knifeReference.GetComponent<Rigidbody2D>().AddForce();
+
+                Debug.Log("HI!!!");
+                Vector3 knifeDirect = (m_knifeReference.transform.position - transform.position).normalized;
+                m_knifeReference.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                m_knifeReference.GetComponent<Rigidbody2D>().AddForce(knifeDirect * 10, ForceMode2D.Impulse);
             }
         }
 
+
+
         // Rotate weapon around Player.
-        transform.RotateAround(m_player.position, Vector3.forward, 100 * Time.deltaTime);
+        m_mousePosition = m_lookAction.ReadValue<Vector2>();
+        transform.RotateAround(m_playerTrans.position, Vector3.forward, 100 * Time.deltaTime);
 
         
     }
@@ -43,7 +54,7 @@ public class PlayerShootLogic : MonoBehaviour
     void Fire()
     {
         // Get direction bullet needs to travel.
-        Vector3 bulletDir = (transform.position - m_player.position).normalized;
+        Vector3 bulletDir = (transform.position - m_playerTrans.position).normalized;
 
         float radvalue = Mathf.Atan2(bulletDir.y, bulletDir.x);
         float angle = radvalue * (180 / Mathf.PI);
