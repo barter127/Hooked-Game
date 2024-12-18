@@ -18,6 +18,6 @@ public class KnifeStick : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        m_rigidbody.bodyType = RigidbodyType2D.Static;
+        //m_rigidbody.bodyType = RigidbodyType2D.Static;
     }
 }

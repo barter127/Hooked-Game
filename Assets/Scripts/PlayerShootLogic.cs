@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,7 +18,7 @@ public class PlayerShootLogic : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        m_attackAction = InputSystem.actions.FindAction("Attack");
         m_lookAction = InputSystem.actions.FindAction("Look");
     }
 
@@ -30,11 +31,10 @@ public class PlayerShootLogic : MonoBehaviour
             if (!m_hasFired)
             {
                 Fire();
-                m_hasFired = true;
+                //m_hasFired = true;
             }
             else
             {
-
                 Debug.Log("HI!!!");
                 Vector3 knifeDirect = (m_knifeReference.transform.position - transform.position).normalized;
                 m_knifeReference.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
@@ -42,13 +42,25 @@ public class PlayerShootLogic : MonoBehaviour
             }
         }
 
+        // Read mouse input. Use world position for extreme precision.
+        Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
 
+        // Calculate distance from the player to the mouse position.
+        Vector3 distanceFromMouse = mouseWorldPos - m_playerTrans.position;
 
-        // Rotate weapon around Player.
-        m_mousePosition = m_lookAction.ReadValue<Vector2>();
-        transform.RotateAround(m_playerTrans.position, Vector3.forward, 100 * Time.deltaTime);
+        // Find the position of the crosshair relative to the player.
+        Vector3 currentPos = transform.position - m_playerTrans.position;
 
-        
+        // Check crosshair still needs to move to reach desired location.
+        if (currentPos != distanceFromMouse)
+        {
+            Vector3 direction = mouseWorldPos - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 180; // Arbritrary 180 fixes incorrect rotation.
+
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+
     }
 
     void Fire()
@@ -56,12 +68,13 @@ public class PlayerShootLogic : MonoBehaviour
         // Get direction bullet needs to travel.
         Vector3 bulletDir = (transform.position - m_playerTrans.position).normalized;
 
+        // Find rotation for spawned bullet.
         float radvalue = Mathf.Atan2(bulletDir.y, bulletDir.x);
         float angle = radvalue * (180 / Mathf.PI);
 
-        // Fire projectile in direction. !! UPDATE FOR OBJECT POOLING !!
+        // Fire projectile in direction. Rotated to face direction.
         m_knifeReference = Instantiate(m_projectile, transform.position, Quaternion.identity);
-        m_knifeReference.transform.Rotate(Vector3.forward, angle - 90); // 90 is an arbitrary value to fix offset.
+        m_knifeReference.transform.Rotate(Vector3.forward, angle + 180); // 180 is an arbitrary value to fix offset.
         m_knifeReference.GetComponent<Rigidbody2D>().AddForce(bulletDir * 10, ForceMode2D.Impulse);
     }
 }
