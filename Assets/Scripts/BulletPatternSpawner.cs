@@ -1,12 +1,20 @@
+using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class BulletPatternSpawner : MonoBehaviour
 {
     [SerializeField] GameObject m_bullet;
-    [SerializeField] float m_angleScale;
+
+    [Header("Shot Properties")]
+    [Range(0, 359)] [SerializeField] float m_angleScale;
+    [Range(0, 100)][SerializeField] int m_bulletsPerShot;
     [SerializeField] float m_fireRate;
-    [SerializeField] float m_bulletsPerShot;
     [SerializeField] int m_offsetIncrease;
+
+    [Header("Attack Angle")] // Angle range which shots can be fire in.
+    [Range(0, 359)][SerializeField] float m_xAttackAngle;
+    [Range(0, 359)][SerializeField] float m_yAttackAngle;
 
     float m_rotationAngle = 0;
 
@@ -14,12 +22,9 @@ public class BulletPatternSpawner : MonoBehaviour
     void Start()
     {
         InvokeRepeating("Spiral", 0f, m_fireRate);
-        m_angleScale = 360 / m_bulletsPerShot;
-    }
 
-    void Update()
-    {
-        m_angleScale = 360 / m_bulletsPerShot;
+        if (m_bulletsPerShot > 0) m_angleScale = 360 / m_bulletsPerShot;
+        else Debug.Log("No Bullets Fired");
     }
 
     void Spiral()
@@ -89,5 +94,4 @@ public class BulletPatternSpawner : MonoBehaviour
             spawnedBull.GetComponent<BulletMovement>().SetDirection(bulletDir);
         }
     }
-
 }
