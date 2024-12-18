@@ -210,6 +210,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1084,7 +1110,46 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      obstacles-and-objects_0: -4367653541602271980
+      obstacles-and-objects_1: -4642123186905474919
+      obstacles-and-objects_10: 3757802479686670383
+      obstacles-and-objects_11: -6380774623968384237
+      obstacles-and-objects_12: -5892598794262099563
+      obstacles-and-objects_13: 5672137849380786785
+      obstacles-and-objects_14: 480628089569821820
+      obstacles-and-objects_15: 5904272716827458812
+      obstacles-and-objects_16: -6236590132068585261
+      obstacles-and-objects_17: 2816277233303225579
+      obstacles-and-objects_18: -176181720016959044
+      obstacles-and-objects_19: 3543566186968904080
+      obstacles-and-objects_2: 4162868570421437785
+      obstacles-and-objects_20: -942995750224566185
+      obstacles-and-objects_21: -6751096117216082015
+      obstacles-and-objects_22: -3527677048579007916
+      obstacles-and-objects_23: 2795704156136091543
+      obstacles-and-objects_24: 2263709498588622043
+      obstacles-and-objects_25: 3501885825790660761
+      obstacles-and-objects_26: 6055962218933107937
+      obstacles-and-objects_27: -1242589117957574033
+      obstacles-and-objects_28: 4163398973936744673
+      obstacles-and-objects_29: -660352583763123432
+      obstacles-and-objects_3: -6334900263745425739
+      obstacles-and-objects_30: 3158358200536241315
+      obstacles-and-objects_31: -1461982819140604620
+      obstacles-and-objects_32: -6291509272021095798
+      obstacles-and-objects_33: 8569614663185816551
+      obstacles-and-objects_34: 359239151362011344
+      obstacles-and-objects_35: 9187456940441860145
+      obstacles-and-objects_36: 5133702553111142137
+      obstacles-and-objects_37: 7498556054162982571
+      obstacles-and-objects_38: -1087453701824687674
+      obstacles-and-objects_4: 3617840469284878363
+      obstacles-and-objects_5: -4464905806321125599
+      obstacles-and-objects_6: -6783030585363619805
+      obstacles-and-objects_7: 2952003465006006050
+      obstacles-and-objects_8: 2108393580519943165
+      obstacles-and-objects_9: -3059676873935948999
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

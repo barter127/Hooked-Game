@@ -150,6 +150,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -584,7 +610,26 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Assault-Class_0: -6973976892767548302
+      Assault-Class_1: 8509381800993073089
+      Assault-Class_10: -7562194705256910332
+      Assault-Class_11: -9167116282404952558
+      Assault-Class_12: -8984616923273609000
+      Assault-Class_13: -1347900219587916866
+      Assault-Class_14: -3620984788324582655
+      Assault-Class_15: -3681470474746013787
+      Assault-Class_16: -5892032131471776186
+      Assault-Class_17: -9077654223564043318
+      Assault-Class_18: -5398626847322686276
+      Assault-Class_2: -7555987262282287735
+      Assault-Class_3: 6553309977531126943
+      Assault-Class_4: -1862086392823017361
+      Assault-Class_5: -3813807004152967250
+      Assault-Class_6: -6334559972768512570
+      Assault-Class_7: -1533730289814383062
+      Assault-Class_8: -3891630415765020728
+      Assault-Class_9: -2746214466029713098
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

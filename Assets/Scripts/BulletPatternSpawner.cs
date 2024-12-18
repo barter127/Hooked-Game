@@ -44,8 +44,8 @@ public class BulletPatternSpawner : MonoBehaviour
             bulletDir = new Vector3(bulletDirX, bulletDirY, 0);
 
             // Spawn bullet and set direction.
-            GameObject spawnedBull = Instantiate(m_bullet, transform.position, transform.rotation);
-            spawnedBull.GetComponent<BulletMovement>().SetDirection(bulletDir);
+            GameObject m_spawnedBull = Instantiate(m_bullet, transform.position, transform.rotation);
+            m_spawnedBull.GetComponent<BulletMovement>().SetDirection(bulletDir);
         }
 
         // Update rotation angle.

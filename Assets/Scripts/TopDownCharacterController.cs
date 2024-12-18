@@ -12,7 +12,6 @@ public class TopDownCharacterController : MonoBehaviour
 
     //The inputs that we need to retrieve from the input system.
     private InputAction m_moveAction;
-    private InputAction m_attackAction;
 
     //The components that we need to edit to make the player move smoothly.
     private Animator m_animator;
@@ -34,7 +33,6 @@ public class TopDownCharacterController : MonoBehaviour
     {
         // Bind movement inputs to variables.
         m_moveAction = InputSystem.actions.FindAction("Move");
-        m_attackAction = InputSystem.actions.FindAction("Attack");
         
         // Get components from Character game object so that we can use them later.
         m_animator = GetComponent<Animator>();
@@ -66,18 +64,12 @@ public class TopDownCharacterController : MonoBehaviour
         // ~~ handle animator ~~
         // Update the animator speed to ensure that we revert to idle if the player doesn't move.
         m_animator.SetFloat("Speed", m_playerDirection.magnitude);
-        
+
         // If there is movement, set the directional values to ensure the character is facing the way they are moving.
         if (m_playerDirection.magnitude > 0)
         {
             m_animator.SetFloat("Horizontal", m_playerDirection.x);
             m_animator.SetFloat("Vertical", m_playerDirection.y);
-        }
-
-        // Check if an attack has been triggered.
-        if (m_attackAction.IsPressed())
-        {
-            Debug.Log("Attack!");
         }
     }
 }
