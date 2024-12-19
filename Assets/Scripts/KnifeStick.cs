@@ -18,6 +18,13 @@ public class KnifeStick : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            transform.SetParent(collision.transform, true);
+            m_rigidbody.linearVelocity = Vector2.zero;
+            m_rigidbody.bodyType = RigidbodyType2D.Kinematic; 
+        }
+        
         //m_rigidbody.bodyType = RigidbodyType2D.Static;
     }
 }
