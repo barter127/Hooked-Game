@@ -11,6 +11,8 @@ public class PlayerShootLogic : MonoBehaviour
     // Point projectile spawns from.
     [SerializeField] Transform m_firePointTrans;
 
+    [SerializeField] LineRenderer m_lineRenderer;
+
     [Header ("Knife Return")]
 
     // Speed knife returns to player.
@@ -44,11 +46,21 @@ public class PlayerShootLogic : MonoBehaviour
 
     #endregion
 
+    private void Start()
+    {
+        m_lineRenderer.enabled = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
         RotateToMouse();
 
+
+        if (m_hasFired)
+        {
+            RenderRope();
+        }
 
         if (m_isReturning)
         {
@@ -85,6 +97,7 @@ public class PlayerShootLogic : MonoBehaviour
         if (!m_hasFired)
         {
             FireKnife();
+            m_lineRenderer.enabled = true;
         }
         else
         {
@@ -110,9 +123,23 @@ public class PlayerShootLogic : MonoBehaviour
         m_knifeReference.GetComponent<Rigidbody2D>().AddForce(bulletDir * 10, ForceMode2D.Impulse);
     }
 
+    void RenderRope()
+    {
+        m_lineRenderer.SetPosition(0, m_firePointTrans.position);
+        m_lineRenderer.SetPosition(1, m_knifeReference.transform.position);
+    }
+
     // Move towards player. Delete at destination.
     void ReturnKnife()
     {
+        // Get direction bullet needs to travel.
+        Vector3 bulletDir = (m_playerTrans.position - m_firePointTrans.position).normalized;
+
+        float angle = Mathf.Atan2(bulletDir.y, bulletDir.x) * Mathf.Rad2Deg + 90; // Arbritrary 180, fixes incorrect rotation.
+
+        m_knifeReference.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+
         // Knife hit destination
 
         // DEFINITLY SHORTEN THIS.
@@ -120,9 +147,12 @@ public class PlayerShootLogic : MonoBehaviour
         {
             Destroy(m_knifeReference.gameObject);
             m_knifeReference = null;
+            m_lineRenderer.enabled = false;
 
             m_isReturning = false;
             m_hasFired = false;
+
+            return;
         }
 
         m_knifeReference.transform.position = Vector3.MoveTowards(m_knifeReference.transform.position, m_playerTrans.position, m_returnSpeed * Time.deltaTime);
