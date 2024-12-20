@@ -23,10 +23,9 @@ public class PlayerShootLogic : MonoBehaviour
     bool m_hasFired;
     bool m_isReturning;
     GameObject m_knifeReference;
+    Rigidbody2D m_knifeRb;
 
     private InputAction m_attackAction;
-
-
 
     #region Handle Input Sys
 
@@ -120,7 +119,8 @@ public class PlayerShootLogic : MonoBehaviour
         // Fire projectile in direction. Rotated to face direction.
         m_knifeReference = Instantiate(m_knifeObject, m_firePointTrans.position, Quaternion.identity);
         m_knifeReference.transform.Rotate(Vector3.forward, angle - 90); // 90 is an arbitrary value to fix offset.
-        m_knifeReference.GetComponent<Rigidbody2D>().AddForce(bulletDir * 10, ForceMode2D.Impulse);
+        m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
+        m_knifeRb.AddForce(bulletDir * 10, ForceMode2D.Impulse);
     }
 
     void RenderRope()
@@ -143,7 +143,7 @@ public class PlayerShootLogic : MonoBehaviour
         // Knife hit destination
 
         // DEFINITLY SHORTEN THIS.
-        if (Mathf.Abs(m_knifeReference.transform.position.magnitude - m_playerTrans.position.magnitude) <= m_returnMagnitude)
+        if ((Vector3.Distance(m_knifeReference.transform.position, m_playerTrans.position) <= m_returnMagnitude))
         {
             Destroy(m_knifeReference.gameObject);
             m_knifeReference = null;
