@@ -151,10 +151,10 @@ public class PlayerShootLogic : MonoBehaviour
 
             m_isReturning = false;
             m_hasFired = false;
-
-            return;
         }
-
-        m_knifeReference.transform.position = Vector3.MoveTowards(m_knifeReference.transform.position, m_playerTrans.position, m_returnSpeed * Time.deltaTime);
+        else
+        {
+            m_knifeReference.transform.position = Vector3.MoveTowards(m_knifeReference.transform.position, m_playerTrans.position, m_returnSpeed * Time.deltaTime);
+        }
     }
 }
