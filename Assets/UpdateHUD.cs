@@ -8,9 +8,9 @@ public class UpdateHUD : MonoBehaviour
     // Holds public methods to update UI
 
     [Header ("Health Component Reference")]
-    public List<Image> m_UIHeartImages = new List<Image>();
+    [SerializeField] List<Image> m_uiHeartImages = new List<Image>();
     int m_currentUIHealth = 8;
-    int m_currentMaxUIHealth = 8;
+    int m_maxUIHealth = 8;
 
     [Header("Health Images")]
     [SerializeField] Sprite m_fullHeartImg;
@@ -19,32 +19,28 @@ public class UpdateHUD : MonoBehaviour
 
     [SerializeField] Sprite m_nullHeartImg; // Indicate health that can be gained.
 
-    private void Start()
-    {
-        // Get reference to every UI heart in scene.
-        foreach (GameObject heartObj in GameObject.FindGameObjectsWithTag("UI Heart"))
-        {
-            if (heartObj.GetComponent<Image>() != null)
-            {
-                m_UIHeartImages.Add(heartObj.GetComponent<Image>());
-            }
-            else
-            {
-                Debug.Log("UI Heart Image is null.");
-            }
-        }
-    }
-
     // Set Health UI based on parameter.
     public void SetHealthUI(int newHealth) // Floats don't match my game design ethos. Just use ints.
     {
-        for (int i = 0; i < m_UIHeartImages.Count; i++)
+        for (int i = 0; i < m_maxUIHealth; i++)
         {
+            int healthIndex = (i + 1) * 2;
 
+            if (newHealth >= healthIndex)
+            {
+                m_uiHeartImages[i].sprite = m_fullHeartImg;
+            }
+            else if (newHealth == healthIndex - 1)
+            {
+                m_uiHeartImages[i].sprite = m_halfHeartImg;
+            }
+            else
+            {
+                m_uiHeartImages[i].sprite = m_emptyHeartImg;
+            }
         }
-
-        //m_healthText.text = newHealth.ToString();
     }
+
 
     // Increase or decrease Health UI based on parameter.
     public void IncreaseHealthUI(int healthChange)

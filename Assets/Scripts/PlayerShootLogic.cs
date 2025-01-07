@@ -141,8 +141,6 @@ public class PlayerShootLogic : MonoBehaviour
 
 
         // Knife hit destination
-
-        // DEFINITLY SHORTEN THIS.
         if ((Vector3.Distance(m_knifeReference.transform.position, m_playerTrans.position) <= m_returnMagnitude))
         {
             Destroy(m_knifeReference.gameObject);
@@ -154,7 +152,10 @@ public class PlayerShootLogic : MonoBehaviour
         }
         else
         {
-            m_knifeReference.transform.position = Vector3.MoveTowards(m_knifeReference.transform.position, m_playerTrans.position, m_returnSpeed * Time.deltaTime);
+            m_knifeReference.transform.position = Vector3.MoveTowards(
+                m_knifeReference.transform.position, 
+                m_playerTrans.position, 
+                m_returnSpeed * Time.deltaTime);
         }
     }
 }
