@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class UpdateHUD : MonoBehaviour
 {
     // Holds public methods to update UI
+    // REMEMBER: health variables refer to amount of hits so 8 = the 4th heart.
 
     [Header ("Health Component Reference")]
     [SerializeField] List<Image> m_uiHeartImages = new List<Image>();
@@ -23,7 +24,46 @@ public class UpdateHUD : MonoBehaviour
     {
         // Initialise Health UI.
         m_currentUIHealth = m_maxUIHealth;
+
         SetHealthUI(m_maxUIHealth);
+        UpdateNullHearts();
+    }
+
+    public void UpdateHealthUI()
+    {
+        for (int i = 0; i < m_maxUIHealth / 2; i++)
+        {
+            Debug.Log("HI");
+
+            int healthIndex = (i + 1) * 2;
+
+            // Heart is full
+            if (m_currentUIHealth >= healthIndex)
+            {
+                m_uiHeartImages[i].sprite = m_fullHeartImg;
+            }
+            // Has half a heart
+            else if (m_currentUIHealth == healthIndex - 1)
+            {
+                m_uiHeartImages[i].sprite = m_halfHeartImg;
+            }
+            // Heart is empty but not null.
+            else
+            {
+                m_uiHeartImages[i].sprite = m_emptyHeartImg;
+            }
+        }
+
+        UpdateNullHearts();
+    }
+
+    // Set hearts to null sprite in UI.
+    public void UpdateNullHearts()
+    {
+        for (int i = m_maxUIHealth / 2; i < m_uiHeartImages.Count; i++)
+        {
+            m_uiHeartImages[i].sprite = m_nullHeartImg;
+        }
     }
 
     // Set Health UI based on parameter.
@@ -32,29 +72,44 @@ public class UpdateHUD : MonoBehaviour
         m_currentUIHealth = newHealth;
         m_currentUIHealth = Mathf.Clamp(m_currentUIHealth, 0, m_maxUIHealth);
 
-        for (int i = 0; i < m_maxUIHealth; i++)
-        {
-            int healthIndex = (i + 1) * 2;
-
-            if (m_currentUIHealth >= healthIndex)
-            {
-                m_uiHeartImages[i].sprite = m_fullHeartImg;
-            }
-            else if (m_currentUIHealth == healthIndex - 1)
-            {
-                m_uiHeartImages[i].sprite = m_halfHeartImg;
-            }
-            else
-            {
-                m_uiHeartImages[i].sprite = m_emptyHeartImg;
-            }
-        }
+        UpdateHealthUI();
     }
 
 
     // Increase or decrease Health UI based on parameter.
-    public void IncreaseHealthUI(int healthChange)
+    public void IncreaseHealthUI(int increase)
     {
-        SetHealthUI(m_currentUIHealth + healthChange);
+        SetHealthUI(m_currentUIHealth + increase);
+    }
+
+    // Set max health based on parametrer.
+    public void SetMaxHealthUI(int newMax, int newCurrentHealth)
+    {
+        // Ensure newMax is a multiple of 2.
+        if (newMax % 2 != 0)
+        {
+            newMax++;
+        }
+
+        // Update newMax.
+        newMax = Mathf.Clamp(newMax, 0, m_uiHeartImages.Count);
+        m_maxUIHealth = newMax;
+
+        // Update currentUIHealth.
+        m_currentUIHealth = newCurrentHealth;
+
+        UpdateHealthUI();
+    }
+
+    // Display the new max UI health
+    public void IncreaseMaxHealthUI(int maxIncrease, int currentIncrease)
+    {
+        // Ensure increase is multiple of 2.
+        if (maxIncrease % 2 != 0)
+        {
+            maxIncrease++;
+        }
+
+        SetMaxHealthUI(m_maxUIHealth + maxIncrease, m_currentUIHealth + currentIncrease);
     }
 }
