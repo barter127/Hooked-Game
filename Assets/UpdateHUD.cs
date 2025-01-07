@@ -9,7 +9,7 @@ public class UpdateHUD : MonoBehaviour
 
     [Header ("Health Component Reference")]
     [SerializeField] List<Image> m_uiHeartImages = new List<Image>();
-    int m_currentUIHealth = 8;
+    public int m_currentUIHealth;
     int m_maxUIHealth = 8;
 
     [Header("Health Images")]
@@ -19,18 +19,28 @@ public class UpdateHUD : MonoBehaviour
 
     [SerializeField] Sprite m_nullHeartImg; // Indicate health that can be gained.
 
+    private void Awake()
+    {
+        // Initialise Health UI.
+        m_currentUIHealth = m_maxUIHealth;
+        SetHealthUI(m_maxUIHealth);
+    }
+
     // Set Health UI based on parameter.
     public void SetHealthUI(int newHealth) // Floats don't match my game design ethos. Just use ints.
     {
+        m_currentUIHealth = newHealth;
+        m_currentUIHealth = Mathf.Clamp(m_currentUIHealth, 0, m_maxUIHealth);
+
         for (int i = 0; i < m_maxUIHealth; i++)
         {
             int healthIndex = (i + 1) * 2;
 
-            if (newHealth >= healthIndex)
+            if (m_currentUIHealth >= healthIndex)
             {
                 m_uiHeartImages[i].sprite = m_fullHeartImg;
             }
-            else if (newHealth == healthIndex - 1)
+            else if (m_currentUIHealth == healthIndex - 1)
             {
                 m_uiHeartImages[i].sprite = m_halfHeartImg;
             }
@@ -45,5 +55,6 @@ public class UpdateHUD : MonoBehaviour
     // Increase or decrease Health UI based on parameter.
     public void IncreaseHealthUI(int healthChange)
     {
+        SetHealthUI(m_currentUIHealth + healthChange);
     }
 }
