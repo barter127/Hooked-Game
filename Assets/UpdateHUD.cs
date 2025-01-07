@@ -27,14 +27,14 @@ public class UpdateHUD : MonoBehaviour
     }
 
     // Set Health UI based on parameter.
-    public void SetHealthUI(int newHealth) // Floats don't match my game desing ethos. Just use ints.
+    public void SetHealthUI(int newHealth) // Floats don't match my game design ethos. Just use ints.
     {
         //m_healthText.text = newHealth.ToString();
     }
 
     // Increase or decrease Health UI based on parameter.
-    public void IncreaseHealthUI()
+    public void IncreaseHealthUI(int healthChange)
     {
-
+        m_UIHeartImages
     }
 }
