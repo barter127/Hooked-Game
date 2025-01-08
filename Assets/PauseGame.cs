@@ -2,15 +2,7 @@ using UnityEngine;
 
 public class PauseGame : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    // Freezes game and brings up pause menu
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
