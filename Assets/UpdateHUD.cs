@@ -20,7 +20,8 @@ public class UpdateHUD : MonoBehaviour
 
     [SerializeField] Sprite m_nullHeartImg; // Indicate health that can be gained.
 
-    private void Awake()
+    // Start to ensure hearts are loaded.
+    private void Start()
     {
         // Initialise Health UI.
         m_currentUIHealth = m_maxUIHealth;
@@ -35,6 +36,7 @@ public class UpdateHUD : MonoBehaviour
         {
             Debug.Log("HI");
 
+            // Convert i to matching health value.
             int healthIndex = (i + 1) * 2;
 
             // Heart is full

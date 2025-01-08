@@ -5580,7 +5580,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b816102a03657248adc1564b3664ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_uiHeartImages: []
+  m_uiHeartImages:
+  - {fileID: 702017624}
+  - {fileID: 1928534833}
+  - {fileID: 396845673}
+  - {fileID: 685423334}
+  - {fileID: 1314123452}
+  - {fileID: 1449552616}
+  - {fileID: 1861891865}
+  - {fileID: 913965736}
   m_currentUIHealth: 0
   m_fullHeartImg: {fileID: 3052914872174502235, guid: 5a719744327b7c349bc7924086b5cb66, type: 3}
   m_halfHeartImg: {fileID: 1303164090119920912, guid: 5a719744327b7c349bc7924086b5cb66, type: 3}
@@ -23061,6 +23069,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1803052489}
+  - {fileID: 1178326287}
   - {fileID: 612632423}
   - {fileID: 1618778962}
   - {fileID: 787399130}
@@ -23069,5 +23078,4 @@ SceneRoots:
   - {fileID: 1407629168}
   - {fileID: 1167649415}
   - {fileID: 615537640}
-  - {fileID: 1178326287}
   - {fileID: 1659169397}
