@@ -34,8 +34,6 @@ public class UpdateHUD : MonoBehaviour
     {
         for (int i = 0; i < m_maxUIHealth / 2; i++)
         {
-            Debug.Log("HI");
-
             // Convert i to matching health value.
             int healthIndex = (i + 1) * 2;
 

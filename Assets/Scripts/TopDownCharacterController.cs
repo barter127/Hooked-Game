@@ -11,21 +11,21 @@ public class TopDownCharacterController : MonoBehaviour
     #region Framework Variables
 
     //The inputs that we need to retrieve from the input system.
-    private InputAction m_moveAction;
+    InputAction m_moveAction;
 
     //The components that we need to edit to make the player move smoothly.
-    private Animator m_animator;
-    private Rigidbody2D m_rigidbody;
+    Animator m_animator;
+    Rigidbody2D m_rigidbody;
     
     //The direction that the player is moving in.
-    private Vector2 m_playerDirection;
+    Vector2 m_playerDirection;
    
 
     [Header("Movement parameters")]
     // Rate the player accelerates at.
-    [SerializeField] private float m_playerAccelRate;
+    [SerializeField] float m_playerAccelRate;
     // The maximum speed the player can move.
-    [SerializeField] private float m_playerMaxSpeed = 1000f;
+    [SerializeField] float m_playerMaxSpeed = 1000f;
 
     #endregion
 
