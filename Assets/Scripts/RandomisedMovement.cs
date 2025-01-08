@@ -8,16 +8,17 @@ using UnityEngine;
 [RequireComponent (typeof(Rigidbody2D))]
 public class RandomisedMovement : MonoBehaviour
 {
-    public Rigidbody2D m_rigidbody;
-    public bool m_startCharge; // For animator.
+    [SerializeField] Rigidbody2D m_rigidbody;
+    [SerializeField] SpriteRenderer m_spriteRenderer;
+    [SerializeField] bool m_startCharge; // For animator.
     bool m_isFacingRight;
 
-    [SerializeField, Range(0, 10)] float minDistance;
-    [SerializeField, Range(0, 10)] float maxDistance;
+    [SerializeField, Range(0, 10)] float m_minDistance;
+    [SerializeField, Range(0, 10)] float m_maxDistance;
 
     // Time between attacks;
-    [SerializeField, Range(0, 10)] float minTime; //Arbitrary large value. 
-    [SerializeField, Range(0, 10)] float maxTime; //Arbitrary large value. 
+    [SerializeField, Range(0, 10)] float m_minTime; //Arbitrary large value. 
+    [SerializeField, Range(0, 10)] float m_maxTime; //Arbitrary large value. 
 
     // Randomised values.
     Vector2 movementDir;
@@ -25,9 +26,7 @@ public class RandomisedMovement : MonoBehaviour
 
     private void Start()
     {
-        m_isFacingRight = true;
-
-        m_rigidbody = GetComponent<Rigidbody2D>();
+        m_isFacingRight = false;
     }
 
     private void Update()
@@ -37,12 +36,13 @@ public class RandomisedMovement : MonoBehaviour
             m_startCharge = true;
 
             // Randomise timer.
-            nextMovement = Random.Range(minTime, maxTime);
+            nextMovement = Random.Range(m_minTime, m_maxTime);
 
             // Randomise movementDir.
-            movementDir.x = Random.Range(-maxDistance, maxDistance);
-            movementDir.y = Random.Range(-maxDistance, maxDistance);
+            movementDir.x = Random.Range(-m_maxDistance, m_maxDistance);
+            movementDir.y = Random.Range(-m_maxDistance, m_maxDistance);
 
+            // Clamp direction to not exceed set min and max.
             movementDir.x = ClampDirection(movementDir.x);
             movementDir.y = ClampDirection(movementDir.y);
 
@@ -56,21 +56,18 @@ public class RandomisedMovement : MonoBehaviour
     {
         if (distance > 0)
         {
-            return Mathf.Clamp(distance, minDistance, maxDistance);
+            return Mathf.Clamp(distance, m_minDistance, m_maxDistance);
         }
         else
         {
-            return Mathf.Clamp(distance, -maxDistance, -minDistance);
+            return Mathf.Clamp(distance, -m_maxDistance, -m_minDistance);
         }
     }
 
     void Turn()
     {
-        Vector2 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
-
         m_isFacingRight = !m_isFacingRight;
+        m_spriteRenderer.flipX = m_isFacingRight;
     }
 
     void CheckDirectionToFace(bool isMovingRight)
