@@ -5115,8 +5115,8 @@ MonoBehaviour:
   m_rigidbody: {fileID: 1139348553}
   m_spriteRenderer: {fileID: 1139348555}
   m_startCharge: 0
-  m_minDistance: 0.2
-  m_maxDistance: 0.8
+  m_minDistance: 0.4
+  m_maxDistance: 1.2
   m_minTime: 0.2
   m_maxTime: 0.8
 --- !u!212 &1139348555

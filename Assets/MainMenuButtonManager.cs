@@ -1,16 +1,32 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuButtonManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] int startScene;
+
+    public void StartButtonClicked()
     {
-        
+        SceneManager.LoadScene(startScene);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OptionsButtonClicked()
     {
-        
+
+    }
+
+    public void ControlsButtonClicked()
+    {
+
+    }
+
+    public void ExitButtonClicked()
+    {
+        #if UNITY_STANDALONE
+                Application.Quit();
+        #endif
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 }
