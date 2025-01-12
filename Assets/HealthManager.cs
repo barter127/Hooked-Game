@@ -10,6 +10,8 @@ public class HealthManager : MonoBehaviour
     // Reference to script controlling UI.
     [SerializeField] UpdatePlayerHealthUI m_healthScript;
 
+    [SerializeField] GameObject m_GameOverUI;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,7 +49,11 @@ public class HealthManager : MonoBehaviour
 
         if (m_currentHealth <= 0)
         {
-            Debug.Log("GAME OVER");
+            // Freeze Game
+            Time.timeScale = 0;
+
+            // Death behaviour.
+            m_GameOverUI.SetActive(true);
             Destroy(gameObject);
         }
     }
