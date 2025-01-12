@@ -46,11 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9eb989d7413194aa0733abdee8cc32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDir: {x: 0, y: 0, z: 0}
-  shotSpeed: 2.5
-  damage: 0
-  momentumPos: 0
-  momentumNeg: 0
+  m_shotSpeed: 0
 --- !u!114 &7859837157570520202
 MonoBehaviour:
   m_ObjectHideFlags: 0
