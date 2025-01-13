@@ -10,8 +10,6 @@ public class UpdatePlayerHealthUI : MonoBehaviour
 
     [Header ("Health Component Reference")]
     [SerializeField] List<Image> m_uiHeartImages = new List<Image>();
-    public int m_currentUIHealth;
-    int m_maxUIHealth = 8;
 
     [Header("Health Images")]
     [SerializeField] Sprite m_fullHeartImg;

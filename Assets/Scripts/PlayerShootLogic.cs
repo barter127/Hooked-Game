@@ -27,25 +27,7 @@ public class PlayerShootLogic : MonoBehaviour
 
     private InputAction m_attackAction;
 
-    #region Handle Input Sys
-
-    private void OnEnable()
-    {
-        m_attackAction = InputSystem.actions.FindAction("Attack");
-        m_attackAction.performed += Attack;
-        m_attackAction.Enable();
-        
-    }
-
-    private void OnDisable()
-    {
-        m_attackAction.performed -= Attack;
-        m_attackAction.Disable();
-    }
-
-    #endregion
-
-    private void Start()
+    void Start()
     {
         m_lineRenderer.enabled = false;
     }
@@ -66,6 +48,24 @@ public class PlayerShootLogic : MonoBehaviour
             ReturnKnife();
         }
     }
+
+    #region Handle Input Sys
+
+    void OnEnable()
+    {
+        m_attackAction = InputSystem.actions.FindAction("Attack");
+        m_attackAction.performed += Attack;
+        m_attackAction.Enable();
+
+    }
+
+    void OnDisable()
+    {
+        m_attackAction.performed -= Attack;
+        m_attackAction.Disable();
+    }
+
+    #endregion
 
     // Rotate cursor around player and point to current mouse position.
     void RotateToMouse()
@@ -125,6 +125,7 @@ public class PlayerShootLogic : MonoBehaviour
 
     void RenderRope()
     {
+        // Draw line from projectile point to player (to be updated).
         m_lineRenderer.SetPosition(0, m_firePointTrans.position);
         m_lineRenderer.SetPosition(1, m_knifeReference.transform.position);
     }

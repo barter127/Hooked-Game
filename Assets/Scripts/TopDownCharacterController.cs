@@ -41,6 +41,7 @@ public class TopDownCharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log("Update");
         // Get difference between targetSpeed and maxSpeed
         // Adjust velocity based off of this.
         float xTarget = m_playerDirection.x * m_playerMaxSpeed;
