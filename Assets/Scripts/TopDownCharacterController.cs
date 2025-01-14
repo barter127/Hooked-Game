@@ -62,31 +62,43 @@ public class TopDownCharacterController : MonoBehaviour
     {
         // Store any movement inputs into m_playerDirection - this will be used in FixedUpdate to move the player.
         m_playerDirection = m_moveAction.ReadValue<Vector2>();
-        Vector2 lookDirection = m_lookAction.ReadValue<Vector2>();
 
         // ~~ handle animator ~~
         // Update the animator speed to ensure that we revert to idle if the player doesn't move.
         m_animator.SetFloat("Speed", m_playerDirection.magnitude);
 
-        // If there is movement, set the directional values to ensure the character is facing the way they are moving.
-        if (m_playerDirection.magnitude > 0)
-        {
-            // Has not fired, face direction of mouse
-            if (!PlayerShootLogic.m_hasFired)
-            {
-                m_animator.SetFloat("Horizontal", lookDirection.x);
-                m_animator.SetFloat("Vertical", lookDirection.y);
+        Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos).normalized;
+        Vector2 v2 = new Vector2(mouseScreenPos.x, mouseScreenPos.y).normalized;
 
-                Debug.Log(lookDirection);
-            }
+        m_animator.SetFloat("Horizontal", v2.x);
+        m_animator.SetFloat("Vertical", v2.y);
 
-            // Else face movement direction.
-            else
-            {
-                m_animator.SetFloat("Horizontal", m_playerDirection.x);
-                m_animator.SetFloat("Vertical", m_playerDirection.y);
-            }
+        Debug.Log(worldPos);
 
-        }
+        //// If there is movement, set the directional values to ensure the character is facing the way they are moving.
+        //if (m_playerDirection.magnitude > 0)
+        //{
+        //    // Has not fired, face direction of mouse
+        //    if (!PlayerShootLogic.m_hasFired)
+        //    {
+        //        Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
+        //        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos).normalized;
+        //        Vector2 v2 = new Vector2 (worldPos.x, worldPos.y).normalized;
+
+        //        m_animator.SetFloat("Horizontal", v2.x);
+        //        m_animator.SetFloat("Vertical", v2.y);
+
+        //        Debug.Log(worldPos);
+        //    }
+
+        //    // Else face movement direction.
+        //    else
+        //    {
+        //        m_animator.SetFloat("Horizontal", m_playerDirection.x);
+        //        m_animator.SetFloat("Vertical", m_playerDirection.y);
+        //    }
+
+        //}
     }
 }
