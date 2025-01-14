@@ -12,6 +12,7 @@ public class TopDownCharacterController : MonoBehaviour
 
     //The inputs that we need to retrieve from the input system.
     InputAction m_moveAction;
+    InputAction m_lookAction;
 
     //The components that we need to edit to make the player move smoothly.
     Animator m_animator;
@@ -29,10 +30,11 @@ public class TopDownCharacterController : MonoBehaviour
 
     #endregion
 
-    private void Awake()
+    private void Start()
     {
         // Bind movement inputs to variables.
         m_moveAction = InputSystem.actions.FindAction("Move");
+        m_lookAction = InputSystem.actions.FindAction("Look");
         
         // Get components from Character game object so that we can use them later.
         m_animator = GetComponent<Animator>();
@@ -60,6 +62,7 @@ public class TopDownCharacterController : MonoBehaviour
     {
         // Store any movement inputs into m_playerDirection - this will be used in FixedUpdate to move the player.
         m_playerDirection = m_moveAction.ReadValue<Vector2>();
+        Vector2 lookDirection = m_lookAction.ReadValue<Vector2>();
 
         // ~~ handle animator ~~
         // Update the animator speed to ensure that we revert to idle if the player doesn't move.
@@ -68,8 +71,22 @@ public class TopDownCharacterController : MonoBehaviour
         // If there is movement, set the directional values to ensure the character is facing the way they are moving.
         if (m_playerDirection.magnitude > 0)
         {
-            m_animator.SetFloat("Horizontal", m_playerDirection.x);
-            m_animator.SetFloat("Vertical", m_playerDirection.y);
+            // Has not fired, face direction of mouse
+            if (!PlayerShootLogic.m_hasFired)
+            {
+                m_animator.SetFloat("Horizontal", lookDirection.x);
+                m_animator.SetFloat("Vertical", lookDirection.y);
+
+                Debug.Log(lookDirection);
+            }
+
+            // Else face movement direction.
+            else
+            {
+                m_animator.SetFloat("Horizontal", m_playerDirection.x);
+                m_animator.SetFloat("Vertical", m_playerDirection.y);
+            }
+
         }
     }
 }

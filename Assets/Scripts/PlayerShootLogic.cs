@@ -20,7 +20,7 @@ public class PlayerShootLogic : MonoBehaviour
     // Distance needed to destroy knife.
     [SerializeField] float m_returnMagnitude;
 
-    bool m_hasFired;
+    public static bool m_hasFired;
     bool m_isReturning;
     GameObject m_knifeReference;
     Rigidbody2D m_knifeRb;
@@ -30,6 +30,7 @@ public class PlayerShootLogic : MonoBehaviour
     void Start()
     {
         m_lineRenderer.enabled = false;
+        m_hasFired = false;
     }
 
     // Update is called once per frame
