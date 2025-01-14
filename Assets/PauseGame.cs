@@ -40,10 +40,9 @@ public class PauseGame : MonoBehaviour
         Pause();
     }
 
+    // Pause and display UI if not paused. Unpause and remove UI if paused.
     void Pause()
     {
-        Debug.Log("Pause");
-
         if (!m_isPaused)
         {
             m_isPaused = true;
@@ -76,6 +75,7 @@ public class PauseGame : MonoBehaviour
 
     public void ExitButtonClicked()
     {
+        // Load Main Menu Scene.
         SceneManager.LoadScene(m_mainMenu);
         Time.timeScale = 1.0f;
     }

@@ -6660,8 +6660,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pauseMenu: {fileID: 11659562}
   m_mainMenu: 0
-  m_currentScene:
-    m_Handle: 0
 --- !u!1 &1314123450
 GameObject:
   m_ObjectHideFlags: 0
