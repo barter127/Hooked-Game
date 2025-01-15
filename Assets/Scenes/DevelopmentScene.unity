@@ -312,7 +312,6 @@ GameObject:
   - component: {fileID: 99285443}
   - component: {fileID: 99285445}
   - component: {fileID: 99285444}
-  - component: {fileID: 99285446}
   m_Layer: 0
   m_Name: Stationary Anchor
   m_TagString: Untagged
@@ -329,7 +328,7 @@ Transform:
   m_GameObject: {fileID: 99285442}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -20.807312, y: 0.0651032, z: 0}
+  m_LocalPosition: {x: -0, y: -0.222, z: 0}
   m_LocalScale: {x: 0.3338585, y: 3.0464587, z: 3.0464585}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -351,7 +350,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.0000022262336, y: 0.0060001775}
-  m_ConnectedAnchor: {x: 34.079998, y: -0.72299814}
+  m_ConnectedAnchor: {x: -0.069998436, y: -0.5510086}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -369,7 +368,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99285442}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -388,18 +387,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &99285446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 99285442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a8e22cf2f0cac4448596c5e3eaff889, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &157157166
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,8 +556,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4997252389973276267, guid: 6b2948266690fbc48b1dbbaa4fa8fe6a, type: 3}
   m_PrefabInstance: {fileID: 1004643548}
   m_PrefabAsset: {fileID: 0}
---- !u!232 &376603972
-DistanceJoint2D:
+--- !u!233 &376603977
+HingeJoint2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -579,16 +566,22 @@ DistanceJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1618778966}
+  m_ConnectedRigidBody: {fileID: 99285445}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.0066502094, y: -0.35578358}
-  m_AutoConfigureDistance: 1
-  m_Distance: 6.0533757
-  m_MaxDistanceOnly: 1
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0.0060971146, y: -0.273942}
+  m_ConnectedAnchor: {x: 0.1555824, y: 0.0020013745}
+  m_UseConnectedAnchor: 1
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 1
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359
 --- !u!1 &396845671
 GameObject:
   m_ObjectHideFlags: 0
@@ -4054,7 +4047,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4192028081322790478, guid: 6b2948266690fbc48b1dbbaa4fa8fe6a, type: 3}
       propertyPath: m_Name
-      value: Knife Rope
+      value: Knife
       objectReference: {fileID: 0}
     - target: {fileID: 4997252389973276267, guid: 6b2948266690fbc48b1dbbaa4fa8fe6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4097,6 +4090,14 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7465824394601331277, guid: 6b2948266690fbc48b1dbbaa4fa8fe6a, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465824394601331277, guid: 6b2948266690fbc48b1dbbaa4fa8fe6a, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465824394601331277, guid: 6b2948266690fbc48b1dbbaa4fa8fe6a, type: 3}
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
@@ -4109,7 +4110,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4192028081322790478, guid: 6b2948266690fbc48b1dbbaa4fa8fe6a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 376603972}
+      addedObject: {fileID: 376603977}
   m_SourcePrefab: {fileID: 100100000, guid: 6b2948266690fbc48b1dbbaa4fa8fe6a, type: 3}
 --- !u!1 &1025052412
 GameObject:
