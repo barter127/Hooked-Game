@@ -67,19 +67,27 @@ public class TopDownCharacterController : MonoBehaviour
         // Update the animator speed to ensure that we revert to idle if the player doesn't move.
         m_animator.SetFloat("Speed", m_playerDirection.magnitude);
 
-        // Get mouse position in world space
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = Mathf.Abs(transform.position.z - transform.position.z); // Set z distance from the camera
-        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        if (!PlayerShootLogic.m_hasFired)
+        {
+            // Get mouse position in world space
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition.z = Mathf.Abs(transform.position.z - transform.position.z); // Set z distance from the camera
+            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        // Calculate direction to mouse
-        Vector3 direction = worldMousePosition - transform.position;
-        direction.z = 0; // Ignore z-axis
-        direction.Normalize();
+            // Calculate direction to mouse
+            Vector3 direction = worldMousePosition - transform.position;
+            direction.z = 0; // Ignore z-axis
+            direction.Normalize();
 
-        // Set Animator parameters
-        m_animator.SetFloat("Horizontal", direction.x);
-        m_animator.SetFloat("Vertical", direction.y);
+            // Set Animator parameters
+            m_animator.SetFloat("Horizontal", direction.x);
+            m_animator.SetFloat("Vertical", direction.y);
+        }
+        else
+        {
+            m_animator.SetFloat("Horizontal", m_playerDirection.x);
+            m_animator.SetFloat("Vertical", m_playerDirection.y);
+        }
 
         //// If there is movement, set the directional values to ensure the character is facing the way they are moving.
         //if (m_playerDirection.magnitude > 0)
