@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7465824394601331277}
   - component: {fileID: 4803390923998921417}
   - component: {fileID: 5036157939346275153}
-  - component: {fileID: -4487351477104711095}
   m_Layer: 0
   m_Name: Knife Rope
   m_TagString: Untagged
@@ -81,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -134,7 +133,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -167,23 +166,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719b3ce33547cbf4fad86312a6b00173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!232 &-4487351477104711095
-DistanceJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4192028081322790478}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.606, y: -0.199}
-  m_AutoConfigureDistance: 0
-  m_Distance: 12
-  m_MaxDistanceOnly: 1

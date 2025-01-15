@@ -9,9 +9,6 @@ public class KnifeStick : MonoBehaviour
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
-        m_distanceJoint = GetComponent<DistanceJoint2D>();
-
-        m_distanceJoint.connectedBody = GameObject.Find("Character").GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
