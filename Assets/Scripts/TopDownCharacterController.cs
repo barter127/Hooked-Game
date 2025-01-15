@@ -67,14 +67,19 @@ public class TopDownCharacterController : MonoBehaviour
         // Update the animator speed to ensure that we revert to idle if the player doesn't move.
         m_animator.SetFloat("Speed", m_playerDirection.magnitude);
 
-        Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos).normalized;
-        Vector2 v2 = new Vector2(mouseScreenPos.x, mouseScreenPos.y).normalized;
+        // Get mouse position in world space
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = Mathf.Abs(transform.position.z - transform.position.z); // Set z distance from the camera
+        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        m_animator.SetFloat("Horizontal", v2.x);
-        m_animator.SetFloat("Vertical", v2.y);
+        // Calculate direction to mouse
+        Vector3 direction = worldMousePosition - transform.position;
+        direction.z = 0; // Ignore z-axis
+        direction.Normalize();
 
-        Debug.Log(worldPos);
+        // Set Animator parameters
+        m_animator.SetFloat("Horizontal", direction.x);
+        m_animator.SetFloat("Vertical", direction.y);
 
         //// If there is movement, set the directional values to ensure the character is facing the way they are moving.
         //if (m_playerDirection.magnitude > 0)
