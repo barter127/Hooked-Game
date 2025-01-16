@@ -4,14 +4,12 @@ using UnityEngine.InputSystem;
 public class PlayerShootLogic : MonoBehaviour
 {
     // Knife Prefab.
-    [SerializeField] GameObject m_knifeObject;
+    [SerializeField] GameObject m_knifeReference;
     // Player Transform.
     [SerializeField] Transform m_playerTrans;
 
     // Point projectile spawns from.
     [SerializeField] Transform m_firePointTrans;
-
-    [SerializeField] LineRenderer m_lineRenderer;
 
     [Header ("Knife Return")]
 
@@ -22,27 +20,20 @@ public class PlayerShootLogic : MonoBehaviour
 
     public static bool m_hasFired;
     bool m_isReturning;
-    GameObject m_knifeReference;
     Rigidbody2D m_knifeRb;
 
     private InputAction m_attackAction;
 
     void Start()
     {
-        m_lineRenderer.enabled = false;
         m_hasFired = false;
+        m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         RotateToMouse();
-
-
-        if (m_hasFired)
-        {
-            RenderRope();
-        }
 
         if (m_isReturning)
         {
@@ -97,7 +88,6 @@ public class PlayerShootLogic : MonoBehaviour
         if (!m_hasFired)
         {
             FireKnife();
-            m_lineRenderer.enabled = true;
         }
         else
         {
@@ -117,19 +107,17 @@ public class PlayerShootLogic : MonoBehaviour
         float radvalue = Mathf.Atan2(bulletDir.y, bulletDir.x);
         float angle = radvalue * Mathf.Rad2Deg;
 
-        // Fire projectile in direction. Rotated to face direction.
-        m_knifeReference = Instantiate(m_knifeObject, m_firePointTrans.position, Quaternion.identity);
+        // Enable existing knife object and set its position and rotation.
+        m_knifeReference.SetActive(true);
+        m_knifeReference.transform.position = m_firePointTrans.position;
+        m_knifeReference.transform.rotation = Quaternion.identity;
         m_knifeReference.transform.Rotate(Vector3.forward, angle - 90); // 90 is an arbitrary value to fix offset.
-        m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
+
+        // Fire projectile in direction. Rotated to face direction.
+        m_knifeRb.linearVelocity = Vector3.zero; // Reset velocity to ensure accurate force application.
         m_knifeRb.AddForce(bulletDir * 10, ForceMode2D.Impulse);
     }
 
-    void RenderRope()
-    {
-        // Draw line from projectile point to player (to be updated).
-        m_lineRenderer.SetPosition(0, m_firePointTrans.position);
-        m_lineRenderer.SetPosition(1, m_knifeReference.transform.position);
-    }
 
     // Move towards player. Delete at destination.
     void ReturnKnife()
@@ -137,27 +125,26 @@ public class PlayerShootLogic : MonoBehaviour
         // Get direction bullet needs to travel.
         Vector3 bulletDir = (m_playerTrans.position - m_firePointTrans.position).normalized;
 
-        float angle = Mathf.Atan2(bulletDir.y, bulletDir.x) * Mathf.Rad2Deg + 90; // Arbritrary 180, fixes incorrect rotation.
+        float angle = Mathf.Atan2(bulletDir.y, bulletDir.x) * Mathf.Rad2Deg + 90; // Arbitrary 180, fixes incorrect rotation.
 
         m_knifeReference.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-
         // Knife hit destination
-        if ((Vector3.Distance(m_knifeReference.transform.position, m_playerTrans.position) <= m_returnMagnitude))
+        if (Vector3.Distance(m_knifeReference.transform.position, m_playerTrans.position) <= m_returnMagnitude)
         {
-            Destroy(m_knifeReference.gameObject);
+            m_knifeReference.SetActive(false);
             m_knifeReference = null;
-            m_lineRenderer.enabled = false;
 
             m_isReturning = false;
             m_hasFired = false;
         }
         else
         {
-            m_knifeReference.transform.position = Vector3.MoveTowards(
-                m_knifeReference.transform.position, 
-                m_playerTrans.position, 
-                m_returnSpeed * Time.deltaTime);
+            // Use Rigidbody2D to move knife
+            m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
+            Vector2 direction = (m_playerTrans.position - m_knifeReference.transform.position).normalized;
+            m_knifeRb.linearVelocity = direction * m_returnSpeed;
         }
+
     }
 }
