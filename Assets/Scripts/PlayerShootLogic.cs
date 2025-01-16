@@ -15,7 +15,7 @@ public class PlayerShootLogic : MonoBehaviour
 
     // Speed knife returns to player.
     [SerializeField] float m_returnSpeed;
-    // Distance needed to destroy knife.
+    // Distance needed to return knife.
     [SerializeField] float m_returnMagnitude;
 
     public static bool m_hasFired;
@@ -26,7 +26,7 @@ public class PlayerShootLogic : MonoBehaviour
 
     void Start()
     {
-        m_hasFired = false;
+        m_hasFired = true;
         m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
     }
 
@@ -109,7 +109,7 @@ public class PlayerShootLogic : MonoBehaviour
 
         // Enable existing knife object and set its position and rotation.
         m_knifeReference.SetActive(true);
-        m_knifeReference.transform.position = m_firePointTrans.position;
+        //m_knifeReference.transform.position = m_firePointTrans.position;
         m_knifeReference.transform.rotation = Quaternion.identity;
         m_knifeReference.transform.Rotate(Vector3.forward, angle - 90); // 90 is an arbitrary value to fix offset.
 
@@ -133,7 +133,6 @@ public class PlayerShootLogic : MonoBehaviour
         if (Vector3.Distance(m_knifeReference.transform.position, m_playerTrans.position) <= m_returnMagnitude)
         {
             m_knifeReference.SetActive(false);
-            m_knifeReference = null;
 
             m_isReturning = false;
             m_hasFired = false;
