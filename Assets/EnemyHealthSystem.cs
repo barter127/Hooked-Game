@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,19 +10,30 @@ public class EnemyHealthSystem : MonoBehaviour
     /// Destroy at health <= 0.
     /// </summary>
 
+
+    // --- Components ---
+    Rigidbody2D m_rigidbody;
+
+    // Inconsistent component referencing but GetComponent acts weirdly and can get the wrong Image. 
+    [SerializeField] Image m_healthBar;
+
+    // --- Gameplay Vars ---
     float m_currentHealth;
     [SerializeField] float m_maxHealth;
 
+    bool m_attached = false;
+    bool m_canTakeDamage = true;
+
     // Multiplies damage from rb velocity.
-    [SerializeField] float m_velocityDamageMultiplier;
+    float m_velocityDamageMultiplier;
 
     // Getting velocity after collision leads to improper values.
     // Late RB gets the nuber slightly after collision for more proper values
     float m_lateRBVelocity;
 
-    Rigidbody2D m_rigidbody;
-    // Inconsistent component referencing but GetComponent acts weirdly and can get the wrong Image. 
-    [SerializeField] Image m_healthBar;
+    float m_damageCooldownTime = 0.01f;
+
+
 
     void Start()
     {
@@ -31,8 +43,11 @@ public class EnemyHealthSystem : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-        m_lateRBVelocity = m_rigidbody.linearVelocity.magnitude;
+    { 
+        if (m_attached)
+        {
+            m_lateRBVelocity = m_rigidbody.linearVelocity.magnitude;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -45,7 +60,7 @@ public class EnemyHealthSystem : MonoBehaviour
             if (stats != null)
             {
                 ApplyDamage(stats.damage);
-                UpdateEnemyHealthBar();
+                m_attached = true;
             }
             else
             {
@@ -57,12 +72,15 @@ public class EnemyHealthSystem : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Tag check might be unessecary and cause me headaches later.
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Obstacle") && m_canTakeDamage)
         {
             ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier);
+
+            StartCoroutine(PauseDamageDetection());
         }
     }
 
+    // Minus damage from health and update health bar.
     void ApplyDamage(float damage)
     {
         m_currentHealth -= damage;
@@ -76,9 +94,21 @@ public class EnemyHealthSystem : MonoBehaviour
         }
     }
 
+    // Update health bar.
     void UpdateEnemyHealthBar()
     {
+        // Calculate health decimal. Set bar fill to that value.
         float healthPercentage = m_currentHealth / m_maxHealth;
         m_healthBar.fillAmount = healthPercentage;
+    }
+
+    // 
+    IEnumerator PauseDamageDetection()
+    {
+        m_canTakeDamage = false;
+
+        yield return new WaitForSeconds(m_damageCooldownTime);
+
+        m_canTakeDamage = true;
     }
 }
