@@ -22,18 +22,16 @@ public class KnifeAttachLogic : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         // Verify collider was an enemy.
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy"))
         {
             Rigidbody2D enemyRb = collision.gameObject.GetComponent<Rigidbody2D>();
 
             // Validate rb.
             if (enemyRb != null)
             {
-                //
+                // Attach enemy rb to distance joint.
                 m_distanceJoint.enabled = true;
                 m_distanceJoint.connectedBody = enemyRb;
-
-                Debug.Log("Attached");
             }
             else
             {
