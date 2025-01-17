@@ -85,14 +85,15 @@ public class PlayerShootLogic : MonoBehaviour
     // Attack Button Pressed.
     void Attack(InputAction.CallbackContext context)
     {
-        if (!m_hasFired)
-        {
-            FireKnife();
-        }
-        else
-        {
-            m_isReturning = true;
-        }
+        // Disabled while I work on other features.
+        //if (!m_hasFired)
+        //{
+        //    FireKnife();
+        //}
+        //else
+        //{
+        //    m_isReturning = true;
+        //}
     }
 
     // On click spawn knife and fire in mouse direction.
