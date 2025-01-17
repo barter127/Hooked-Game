@@ -15,6 +15,10 @@ public class EnemyHealthSystem : MonoBehaviour
     // Multiplies damage from rb velocity.
     [SerializeField] float m_velocityDamageMultiplier;
 
+    // Getting velocity after collision leads to improper values.
+    // Late RB gets the nuber slightly after collision for more proper values
+    float m_lateRBVelocity;
+
     Rigidbody2D m_rigidbody;
     // Inconsistent component referencing but GetComponent acts weirdly and can get the wrong Image. 
     [SerializeField] Image m_healthBar;
@@ -26,9 +30,14 @@ public class EnemyHealthSystem : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Enemy has collided with knife obj.
-    private void OnTriggerEnter2D(Collider2D collision)
+    void FixedUpdate()
     {
+        m_lateRBVelocity = m_rigidbody.linearVelocity.magnitude;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Enemy has collided with knife obj.
         if (collision.CompareTag("Knife"))
         {
             StatisticsScript stats = collision.gameObject.GetComponent<StatisticsScript>();
@@ -45,13 +54,12 @@ public class EnemyHealthSystem : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         // Tag check might be unessecary and cause me headaches later.
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            ApplyDamage(m_rigidbody.linearVelocity.magnitude * m_velocityDamageMultiplier);
-            Debug.Log(m_rigidbody.linearVelocity.magnitude);
+            ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier);
         }
     }
 

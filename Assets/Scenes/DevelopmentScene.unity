@@ -6647,7 +6647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_maxHealth: 100
-  m_velocityDamageMultiplier: 350
+  m_velocityDamageMultiplier: 10
   m_healthBar: {fileID: 1096313150}
 --- !u!70 &1139348558
 CapsuleCollider2D:
