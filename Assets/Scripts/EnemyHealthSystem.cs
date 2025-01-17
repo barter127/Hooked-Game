@@ -32,7 +32,7 @@ public class EnemyHealthSystem : MonoBehaviour
     // Late RB gets the nuber slightly after collision for more proper values
     float m_lateRBVelocity;
 
-    float m_damageCooldownTime = 0.1f;
+    float m_damageCooldownTime = 0.5f;
 
 
 
