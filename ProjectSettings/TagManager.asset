@@ -8,6 +8,8 @@ TagManager:
   - Damage
   - Max Health
   - Heal
+  - Knife
+  - Obstacle
   layers:
   - Default
   - TransparentFX

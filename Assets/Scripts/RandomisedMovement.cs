@@ -26,7 +26,7 @@ public class RandomisedMovement : MonoBehaviour
 
     private void Start()
     {
-        m_isFacingRight = false;
+        m_isFacingRight = true;
     }
 
     private void Update()
