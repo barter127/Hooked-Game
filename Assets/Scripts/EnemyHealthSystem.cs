@@ -10,6 +10,7 @@ public class EnemyHealthSystem : MonoBehaviour
     /// Destroy at health <= 0.
     /// </summary>
 
+    [SerializeField] CameraMovement m_camMovement;
 
     // --- Components ---
     Rigidbody2D m_rigidbody;
@@ -87,6 +88,7 @@ public class EnemyHealthSystem : MonoBehaviour
     {
         m_currentHealth -= damage;
         UpdateEnemyHealthBar();
+        m_camMovement.StartShake();
 
         // Destory on 0 health.
         if (m_currentHealth <= 0)

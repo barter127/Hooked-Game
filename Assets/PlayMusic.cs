@@ -1,10 +1,7 @@
 using UnityEngine;
 
-public class EventManager : MonoBehaviour
+public class PlayMusic : MonoBehaviour
 {
-    public delegate void ClickAction();
-    public static event ClickAction OnClicked;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

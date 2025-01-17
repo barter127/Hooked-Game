@@ -8,6 +8,8 @@ public class CameraMovement : MonoBehaviour
     // Controls shake intensity.
     [SerializeField] AnimationCurve m_animationCurve;
 
+    [SerializeField] float m_shakeDuration;
+
     void Update()
     {
         if (m_playerTrans != null)
@@ -17,23 +19,23 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
-    public void StartShake(float duration)
+    public void StartShake()
     { 
-        StartCoroutine(ShakeCamera(duration));
+        StartCoroutine(ShakeCamera());
     }
 
-    IEnumerator ShakeCamera(float duration)
+    IEnumerator ShakeCamera()
     {
         Vector2 startPos = transform.position;
 
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < m_shakeDuration)
         {
             elapsedTime += Time.deltaTime;
 
             // Create multiplier based on animation curve.
-            float shakeMultiplier = m_animationCurve.Evaluate(elapsedTime/duration);
+            float shakeMultiplier = m_animationCurve.Evaluate(elapsedTime/m_shakeDuration);
 
             // Shake X and Y axis without affecting z axis.
             Vector2 shakePos = startPos + Random.insideUnitCircle * shakeMultiplier;
