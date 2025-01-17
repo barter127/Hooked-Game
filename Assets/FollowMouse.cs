@@ -5,7 +5,7 @@ public class FollowMouse : MonoBehaviour
     public float speed = 5f;
 
     Rigidbody2D rb;
-    Transform player;
+    public Transform player;
 
     private void Start()
     {

@@ -22,16 +22,16 @@ public class EnemyHealthSystem : MonoBehaviour
     [SerializeField] float m_maxHealth;
 
     bool m_attached = false;
-    bool m_canTakeDamage = true;
+    [SerializeField] bool m_canTakeDamage = true;
 
     // Multiplies damage from rb velocity.
-    float m_velocityDamageMultiplier;
+    float m_velocityDamageMultiplier = 10;
 
     // Getting velocity after collision leads to improper values.
     // Late RB gets the nuber slightly after collision for more proper values
     float m_lateRBVelocity;
 
-    float m_damageCooldownTime = 0.01f;
+    float m_damageCooldownTime = 0.1f;
 
 
 
@@ -71,9 +71,11 @@ public class EnemyHealthSystem : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+
         // Tag check might be unessecary and cause me headaches later.
         if (collision.gameObject.CompareTag("Obstacle") && m_canTakeDamage)
         {
+            Debug.Log("Hit");
             ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier);
 
             StartCoroutine(PauseDamageDetection());
