@@ -27,7 +27,7 @@ public class PlayerShootLogic : MonoBehaviour
     void Start()
     {
         m_hasFired = true;
-        m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
+        //m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
