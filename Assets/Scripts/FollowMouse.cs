@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class FollowMouse : MonoBehaviour
 {
-    public float speed = 5f;
+    [SerializeField] float m_speed = 5f;
 
-    Rigidbody2D rb;
-    public Transform player;
+    Rigidbody2D m_rigidbody;
+    [SerializeField] Transform m_playerTrans;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        player = GameObject.Find("Character").transform;
+        m_rigidbody = GetComponent<Rigidbody2D>();
+        m_playerTrans = GameObject.Find("Character").transform;
     }
 
     void Update()
     {
         // Knife hit destination.
-        if (Vector3.Distance(transform.position, player.transform.position) > 0.5)
+        if (Vector3.Distance(transform.position, m_playerTrans.transform.position) > 0.5)
         {
             // Get mouse position in world space.
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -27,7 +27,7 @@ public class FollowMouse : MonoBehaviour
             direction.Normalize();
 
             // Apply force in the direction of the mouse.
-            rb.AddForce(direction * speed);
+            m_rigidbody.AddForce(direction * m_speed);
         }
 
 

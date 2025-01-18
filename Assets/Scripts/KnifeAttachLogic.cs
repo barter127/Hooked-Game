@@ -9,8 +9,13 @@ public class KnifeAttachLogic : MonoBehaviour
     /// Handles disconnect logic when too much strain put on rope.
     /// </summary>
 
+    bool isConnected = false;
+
     // Distance joint on self.
     DistanceJoint2D m_distanceJoint;
+
+    // VFX for hit confirmation.
+    [SerializeField] GameObject m_hitFX;
 
     void Start()
     {
@@ -22,9 +27,13 @@ public class KnifeAttachLogic : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         // Verify collider was an enemy.
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") && !isConnected)
         {
+            isConnected = true;
+
             Rigidbody2D enemyRb = collision.gameObject.GetComponent<Rigidbody2D>();
+
+            Instantiate(m_hitFX, transform.position, Quaternion.identity);
 
             // Validate rb.
             if (enemyRb != null)
