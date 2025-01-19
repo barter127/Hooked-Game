@@ -641,7 +641,7 @@ HingeJoint2D:
   m_UseLimits: 1
   m_AngleLimits:
     m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_UpperAngle: 0
 --- !u!114 &364701836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hitFX: {fileID: 1845960914982522068, guid: b1c4ff2b9e41ab540b3e3c438d344147, type: 3}
-  m_spawnOffset: {x: 0, y: 10, z: 0}
+  m_spawnOffset: {x: 0, y: 2.5, z: 0}
 --- !u!114 &364701837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,8 +668,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93e12dae4c45a3449ae41b10375864a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 5
-  m_playerTrans: {fileID: 0}
+  m_knifeMaxSpeed: 25
+  m_knifeAccelRate: 5
+  m_targetDistance: 1
+  m_playerTrans: {fileID: 1618778962}
 --- !u!4 &364701838
 Transform:
   m_ObjectHideFlags: 0

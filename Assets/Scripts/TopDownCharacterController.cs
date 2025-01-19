@@ -88,30 +88,5 @@ public class TopDownCharacterController : MonoBehaviour
             m_animator.SetFloat("Horizontal", m_playerDirection.x);
             m_animator.SetFloat("Vertical", m_playerDirection.y);
         }
-
-        //// If there is movement, set the directional values to ensure the character is facing the way they are moving.
-        //if (m_playerDirection.magnitude > 0)
-        //{
-        //    // Has not fired, face direction of mouse
-        //    if (!PlayerShootLogic.m_hasFired)
-        //    {
-        //        Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
-        //        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos).normalized;
-        //        Vector2 v2 = new Vector2 (worldPos.x, worldPos.y).normalized;
-
-        //        m_animator.SetFloat("Horizontal", v2.x);
-        //        m_animator.SetFloat("Vertical", v2.y);
-
-        //        Debug.Log(worldPos);
-        //    }
-
-        //    // Else face movement direction.
-        //    else
-        //    {
-        //        m_animator.SetFloat("Horizontal", m_playerDirection.x);
-        //        m_animator.SetFloat("Vertical", m_playerDirection.y);
-        //    }
-
-        //}
     }
 }
