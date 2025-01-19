@@ -16,6 +16,7 @@ public class KnifeAttachLogic : MonoBehaviour
 
     // VFX for hit confirmation.
     [SerializeField] GameObject m_hitFX;
+    [SerializeField] Vector3 m_spawnOffset;
 
     void Start()
     {
@@ -33,7 +34,11 @@ public class KnifeAttachLogic : MonoBehaviour
 
             Rigidbody2D enemyRb = collision.gameObject.GetComponent<Rigidbody2D>();
 
-            Instantiate(m_hitFX, transform.position, Quaternion.identity);
+            // Instantiate FX. Set it as 
+            Vector3 spawnPos = transform.position + m_spawnOffset;
+            GameObject spawnedHitFX = Instantiate(m_hitFX, spawnPos, Quaternion.identity);
+            spawnedHitFX.transform.parent = transform;
+
 
             // Validate rb.
             if (enemyRb != null)

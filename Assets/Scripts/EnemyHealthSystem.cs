@@ -60,8 +60,8 @@ public class EnemyHealthSystem : MonoBehaviour
 
             if (stats != null)
             {
-                ApplyDamage(stats.damage);
                 m_attached = true;
+                ApplyDamage(stats.damage, m_attached);
             }
             else
             {
@@ -77,18 +77,23 @@ public class EnemyHealthSystem : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle") && m_canTakeDamage)
         {
             Debug.Log("Hit");
-            ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier);
+            ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier, m_attached);
 
             StartCoroutine(PauseDamageDetection());
         }
     }
 
     // Minus damage from health and update health bar.
-    void ApplyDamage(float damage)
+    void ApplyDamage(float damage, bool attached)
     {
         m_currentHealth -= damage;
         UpdateEnemyHealthBar();
-        m_camMovement.StartShake();
+
+        // Only shake cam if appropriate.
+        if (attached)
+        {
+            m_camMovement.StartShake();
+        }
 
         // Destory on 0 health.
         if (m_currentHealth <= 0)

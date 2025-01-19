@@ -655,6 +655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hitFX: {fileID: 1845960914982522068, guid: b1c4ff2b9e41ab540b3e3c438d344147, type: 3}
+  m_spawnOffset: {x: 0, y: 10, z: 0}
 --- !u!114 &364701837
 MonoBehaviour:
   m_ObjectHideFlags: 0
