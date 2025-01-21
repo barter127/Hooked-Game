@@ -18,7 +18,7 @@ public class PlayerShootLogic : MonoBehaviour
     Rigidbody2D m_knifeRb;
     public HingeJoint2D m_hingeJoint;
     KnifeFollowMouse m_knifeFollowMouse;
-    KnifeAttachLogic m_knifeAttachLogic;
+    KnifeEnemyAttachLogic m_knifeAttachLogic;
 
     // Speed knife returns to player.
     [SerializeField] float m_returnSpeed;
@@ -36,7 +36,7 @@ public class PlayerShootLogic : MonoBehaviour
         m_hasFired = true;
         m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
         m_knifeFollowMouse = m_knifeReference.GetComponent<KnifeFollowMouse>();
-        m_knifeAttachLogic = m_knifeReference.GetComponent<KnifeAttachLogic>();
+        m_knifeAttachLogic = m_knifeReference.GetComponent<KnifeEnemyAttachLogic>();
     }
 
     // Update is called once per frame

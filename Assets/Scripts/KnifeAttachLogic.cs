@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class KnifeAttachLogic : MonoBehaviour
+public class KnifeEnemyAttachLogic : MonoBehaviour
 {
     /// <summary>
     /// Attach enemy collided with to distance joint on knife object.
@@ -13,6 +13,7 @@ public class KnifeAttachLogic : MonoBehaviour
 
     // Distance joint on self.
     DistanceJoint2D m_distanceJoint;
+    Rigidbody2D m_rigidbody;
 
     // VFX for hit confirmation.
     [SerializeField] GameObject m_hitFX;
@@ -21,6 +22,7 @@ public class KnifeAttachLogic : MonoBehaviour
     void Start()
     {
         m_distanceJoint = GetComponent<DistanceJoint2D>();
+        m_rigidbody = GetComponent<Rigidbody2D>();
 
         m_distanceJoint.enabled = false;
     }
@@ -51,6 +53,13 @@ public class KnifeAttachLogic : MonoBehaviour
             {
                 Debug.Log("Enemy does not have rb attached.");
             }
+        }
+
+        // If collided with obstacle.
+        else if (collision.CompareTag("Obstacle"))
+        {
+            // Stick to obstacle.
+            m_rigidbody.bodyType = RigidbodyType2D.Static;
         }
     }
 }
