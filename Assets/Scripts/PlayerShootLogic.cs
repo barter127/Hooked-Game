@@ -18,7 +18,8 @@ public class PlayerShootLogic : MonoBehaviour
     // Distance needed to return knife.
     [SerializeField] float m_returnMagnitude;
 
-    public static bool m_hasFired;
+    // Maybe switch to get provate set this is SCARY.
+    public static bool m_hasFired = false;
     bool m_isReturning;
     Rigidbody2D m_knifeRb;
 
@@ -78,7 +79,7 @@ public class PlayerShootLogic : MonoBehaviour
             Vector3 direction = mouseWorldPos - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 180; // Arbritrary 180 fixes incorrect rotation.
 
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
     }
 
@@ -86,14 +87,14 @@ public class PlayerShootLogic : MonoBehaviour
     void Attack(InputAction.CallbackContext context)
     {
         // Disabled while I work on other features.
-        //if (!m_hasFired)
-        //{
-        //    FireKnife();
-        //}
-        //else
-        //{
-        //    m_isReturning = true;
-        //}
+        if (!m_hasFired)
+        {
+            FireKnife();
+        }
+        else
+        {
+            m_isReturning = true;
+        }
     }
 
     // On click spawn knife and fire in mouse direction.
@@ -111,8 +112,8 @@ public class PlayerShootLogic : MonoBehaviour
         // Enable existing knife object and set its position and rotation.
         m_knifeReference.SetActive(true);
         //m_knifeReference.transform.position = m_firePointTrans.position;
-        m_knifeReference.transform.rotation = Quaternion.identity;
-        m_knifeReference.transform.Rotate(Vector3.forward, angle - 90); // 90 is an arbitrary value to fix offset.
+        //m_knifeReference.transform.rotation = Quaternion.identity;
+        //m_knifeReference.transform.Rotate(Vector3.forward, angle - 90); // 90 is an arbitrary value to fix offset.
 
         // Fire projectile in direction. Rotated to face direction.
         m_knifeRb.linearVelocity = Vector3.zero; // Reset velocity to ensure accurate force application.

@@ -45,8 +45,7 @@ public class KnifeFollowMouse : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (m_inRange)
-        {
+
             // Calculate the direction from the current position to the mouse position.
             Vector3 direction = m_mousePosition - transform.position;
             direction.Normalize();
@@ -64,7 +63,5 @@ public class KnifeFollowMouse : MonoBehaviour
             // Apply force in the direction of the mouse.
             m_rigidbody.AddForce(xMovement * Vector2.right, ForceMode2D.Force);
             m_rigidbody.AddForce(yMovement * Vector2.up, ForceMode2D.Force);
-        }
-
     }
 }

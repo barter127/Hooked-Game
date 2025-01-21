@@ -663,7 +663,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364701830}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c93e12dae4c45a3449ae41b10375864a, type: 3}
   m_Name: 
@@ -29053,7 +29053,7 @@ MonoBehaviour:
   m_playerTrans: {fileID: 1618778962}
   m_firePointTrans: {fileID: 12930689}
   m_returnSpeed: 12
-  m_returnMagnitude: 0.01
+  m_returnMagnitude: 0.1
 --- !u!1 &1630076739
 GameObject:
   m_ObjectHideFlags: 0
