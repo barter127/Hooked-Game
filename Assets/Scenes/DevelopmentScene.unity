@@ -663,13 +663,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364701830}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c93e12dae4c45a3449ae41b10375864a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_knifeMaxSpeed: 25
-  m_knifeAccelRate: 5
+  m_knifeAccelRate: 20
   m_targetDistance: 3.5
   m_rigidbody: {fileID: 364701833}
   m_playerTrans: {fileID: 1618778962}
@@ -3830,7 +3830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &787399129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29051,11 +29051,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerTrans: {fileID: 1618778962}
-  m_firePointTrans: {fileID: 0}
+  m_firePointTrans: {fileID: 12930689}
   m_knifeReference: {fileID: 364701830}
   m_ropeReference: {fileID: 463248630}
   m_returnSpeed: 12
   m_returnMagnitude: 0.5
+  m_ropeHealth: 10
+  m_ropeDamageDistance: 4.6
 --- !u!1 &1630076739
 GameObject:
   m_ObjectHideFlags: 0
