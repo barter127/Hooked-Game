@@ -60,6 +60,8 @@ public class TopDownCharacterController : MonoBehaviour
     
     void Update()
     {
+        Debug.Log(m_rigidbody.linearVelocity.magnitude);
+
         // Store any movement inputs into m_playerDirection - this will be used in FixedUpdate to move the player.
         m_playerDirection = m_moveAction.ReadValue<Vector2>();
 

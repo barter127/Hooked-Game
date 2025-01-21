@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,8 @@ public class PlayerShootLogic : MonoBehaviour
     // Point projectile spawns from.
     [SerializeField] Transform m_firePointTrans;
 
+    private InputAction m_attackAction;
+
     [Header ("Knife Return")]
 
     // Knife Prefab.
@@ -16,7 +19,7 @@ public class PlayerShootLogic : MonoBehaviour
     [SerializeField] GameObject m_ropeReference;
 
     Rigidbody2D m_knifeRb;
-    HingeJoint2D m_hingeJoint;
+    HingeJoint2D m_hingeJoint; // I LOVE UNITY!!!!!!!
     KnifeFollowMouse m_knifeFollowMouse;
     KnifeEnemyAttachLogic m_knifeAttachLogic;
 
@@ -29,7 +32,13 @@ public class PlayerShootLogic : MonoBehaviour
     public static bool m_hasFired = false;
     bool m_isReturning;
 
-    private InputAction m_attackAction;
+    [Header("Rope Damage")]
+    [SerializeField] float m_ropeHealth;
+
+    // Distance where rope starts taking damage.
+    [SerializeField] float m_ropeDamageDistance;
+
+    bool m_tickCountdownStarted;
 
     void Start()
     {
@@ -46,6 +55,11 @@ public class PlayerShootLogic : MonoBehaviour
         // Get scripts.
         m_knifeFollowMouse = m_knifeReference.GetComponent<KnifeFollowMouse>();
         m_knifeAttachLogic = m_knifeReference.GetComponent<KnifeEnemyAttachLogic>();
+    }
+
+    private void Update()
+    {
+        CheckRopeDamage();
     }
 
     // Update is called once per frame
@@ -112,10 +126,6 @@ public class PlayerShootLogic : MonoBehaviour
             // Disable Knife Logic. Maybe this could be a method?
             m_knifeAttachLogic.enabled = false;
             m_knifeFollowMouse.enabled = false;
-
-            // Follow mouse conflicts with force applied
-            m_knifeFollowMouse.enabled = false;
-            m_knifeAttachLogic.enabled = true;
         }
     }
 
@@ -146,7 +156,7 @@ public class PlayerShootLogic : MonoBehaviour
     {
         // Get direction bullet needs to travel.
         Vector3 bulletDir = (m_playerTrans.position - m_firePointTrans.position).normalized;
-        Debug.Log(bulletDir);
+
         float angle = Mathf.Atan2(bulletDir.y, bulletDir.x) * Mathf.Rad2Deg + 90; // Arbitrary 90, fixes incorrect rotation.
 
         // Knife hit destination
@@ -167,5 +177,45 @@ public class PlayerShootLogic : MonoBehaviour
             m_knifeRb.linearVelocity = direction * m_returnSpeed;
         }
 
+    }
+
+    // If player is too far from knife apply rope damage based on distance or intensity of forces
+    // Return Knife if rope health is 0.
+    void CheckRopeDamage()
+    {
+        // Distance between player and knife.
+        float distance = Vector3.Distance(m_playerTrans.position, m_knifeReference.transform.position);
+        if (distance > m_ropeDamageDistance)
+        {
+            if (!m_tickCountdownStarted)
+            {
+                StartCoroutine(RopeDamageTick());
+            }
+
+            if (m_ropeHealth <= 0)
+            {
+                // Sometimes unessecary but occasionally rb can be static.
+                m_knifeRb.bodyType = RigidbodyType2D.Dynamic;
+
+                m_isReturning = true;
+            }
+        }
+    }
+
+    void ApplyRopeDamage()
+    {
+        m_ropeHealth -= 2;
+        Debug.Log(m_ropeHealth);
+    }
+
+    IEnumerator RopeDamageTick()
+    {
+        m_tickCountdownStarted = true;
+
+        yield return new WaitForSeconds(1f);
+
+        ApplyRopeDamage();
+
+        m_tickCountdownStarted = false;
     }
 }

@@ -15,6 +15,8 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
     DistanceJoint2D m_distanceJoint;
     Rigidbody2D m_rigidbody;
 
+    KnifeFollowMouse m_knifeFollowMouse;
+
     // VFX for hit confirmation.
     [SerializeField] GameObject m_hitFX;
     [SerializeField] Vector3 m_spawnOffset;
@@ -23,6 +25,8 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
     {
         m_distanceJoint = GetComponent<DistanceJoint2D>();
         m_rigidbody = GetComponent<Rigidbody2D>();
+
+        m_knifeFollowMouse = GetComponent<KnifeFollowMouse>();
 
         m_distanceJoint.enabled = false;
     }
@@ -44,6 +48,9 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
             FollowTransform follow = spawnedHitFX.GetComponent<FollowTransform>();
             follow.m_transformToFollow = transform;
 
+            //Enable control of knife.
+            m_knifeFollowMouse.enabled = true;
+
 
             // Validate rb.
             if (enemyRb != null)
@@ -59,8 +66,10 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
         }
 
         // If collided with obstacle.
-        else if (collision.CompareTag("Obstacle"))
+        else if (collision.CompareTag("Obstacle") && !isConnected)
         {
+            isConnected = true;
+
             // Stick to obstacle.
             m_rigidbody.bodyType = RigidbodyType2D.Static;
         }
