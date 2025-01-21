@@ -3,8 +3,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerShootLogic : MonoBehaviour
 {
-    // Knife Prefab.
-    [SerializeField] GameObject m_knifeReference;
     // Player Transform.
     [SerializeField] Transform m_playerTrans;
 
@@ -12,6 +10,14 @@ public class PlayerShootLogic : MonoBehaviour
     [SerializeField] Transform m_firePointTrans;
 
     [Header ("Knife Return")]
+
+    // Knife Prefab.
+    [SerializeField] GameObject m_knifeReference;
+    [SerializeField] GameObject m_ropeReference;
+
+    Rigidbody2D m_knifeRb;
+    KnifeFollowMouse m_knifeFollowMouse;
+    KnifeAttachLogic m_knifeAttachLogic;
 
     // Speed knife returns to player.
     [SerializeField] float m_returnSpeed;
@@ -21,21 +27,20 @@ public class PlayerShootLogic : MonoBehaviour
     // Maybe switch to get provate set this is SCARY.
     public static bool m_hasFired = false;
     bool m_isReturning;
-    Rigidbody2D m_knifeRb;
 
     private InputAction m_attackAction;
 
     void Start()
     {
         m_hasFired = true;
-        //m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
+        m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
+        m_knifeFollowMouse = m_knifeReference.GetComponent<KnifeFollowMouse>();
+        m_knifeAttachLogic = m_knifeReference.GetComponent<KnifeAttachLogic>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        RotateToMouse();
-
         if (m_isReturning)
         {
             ReturnKnife();
@@ -94,6 +99,10 @@ public class PlayerShootLogic : MonoBehaviour
         else
         {
             m_isReturning = true;
+            
+            // Disable Knife Logic. Maybe this could be a method?
+            m_knifeAttachLogic.enabled = false;
+            m_knifeFollowMouse.enabled = false;
         }
     }
 
@@ -105,15 +114,9 @@ public class PlayerShootLogic : MonoBehaviour
         // Get direction bullet needs to travel.
         Vector3 bulletDir = (m_firePointTrans.position - m_playerTrans.position).normalized;
 
-        // Find rotation for spawned bullet.
-        float radvalue = Mathf.Atan2(bulletDir.y, bulletDir.x);
-        float angle = radvalue * Mathf.Rad2Deg;
-
-        // Enable existing knife object and set its position and rotation.
+        // Enable existing knife object.
         m_knifeReference.SetActive(true);
-        //m_knifeReference.transform.position = m_firePointTrans.position;
-        //m_knifeReference.transform.rotation = Quaternion.identity;
-        //m_knifeReference.transform.Rotate(Vector3.forward, angle - 90); // 90 is an arbitrary value to fix offset.
+        m_ropeReference.SetActive(true);
 
         // Fire projectile in direction. Rotated to face direction.
         m_knifeRb.linearVelocity = Vector3.zero; // Reset velocity to ensure accurate force application.
@@ -127,14 +130,15 @@ public class PlayerShootLogic : MonoBehaviour
         // Get direction bullet needs to travel.
         Vector3 bulletDir = (m_playerTrans.position - m_firePointTrans.position).normalized;
 
-        float angle = Mathf.Atan2(bulletDir.y, bulletDir.x) * Mathf.Rad2Deg + 90; // Arbitrary 180, fixes incorrect rotation.
+        float angle = Mathf.Atan2(bulletDir.y, bulletDir.x) * Mathf.Rad2Deg + 90; // Arbitrary 90, fixes incorrect rotation.
 
-        m_knifeReference.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        //m_knifeReference.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         // Knife hit destination
         if (Vector3.Distance(m_knifeReference.transform.position, m_playerTrans.position) <= m_returnMagnitude)
         {
             m_knifeReference.SetActive(false);
+            m_ropeReference.SetActive(false);
 
             m_isReturning = false;
             m_hasFired = false;

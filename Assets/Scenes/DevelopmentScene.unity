@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_hitFX: {fileID: 1845960914982522068, guid: b1c4ff2b9e41ab540b3e3c438d344147, type: 3}
-  m_spawnOffset: {x: 0, y: 2, z: 0}
+  m_spawnOffset: {x: 0, y: 1.5, z: 0}
 --- !u!114 &364701837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364701830}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c93e12dae4c45a3449ae41b10375864a, type: 3}
   m_Name: 
@@ -29053,7 +29053,7 @@ MonoBehaviour:
   m_playerTrans: {fileID: 1618778962}
   m_firePointTrans: {fileID: 12930689}
   m_returnSpeed: 12
-  m_returnMagnitude: 0.1
+  m_returnMagnitude: 0.5
 --- !u!1 &1630076739
 GameObject:
   m_ObjectHideFlags: 0
