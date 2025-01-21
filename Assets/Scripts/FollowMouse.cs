@@ -16,13 +16,15 @@ public class KnifeFollowMouse : MonoBehaviour
 
     bool m_inRange;
 
-    Rigidbody2D m_rigidbody;
+    public Rigidbody2D m_rigidbody;
     [SerializeField] Transform m_playerTrans;
     Vector3 m_mousePosition;
 
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
+
+        Debug.Log("Start");
     }
 
     void Update()

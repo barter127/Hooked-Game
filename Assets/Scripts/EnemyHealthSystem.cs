@@ -76,7 +76,6 @@ public class EnemyHealthSystem : MonoBehaviour
         // Tag check might be unessecary and cause me headaches later.
         if (collision.gameObject.CompareTag("Obstacle") && m_canTakeDamage)
         {
-            Debug.Log("Hit");
             ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier, m_attached);
 
             StartCoroutine(PauseDamageDetection());

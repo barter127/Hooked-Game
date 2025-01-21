@@ -16,6 +16,7 @@ public class PlayerShootLogic : MonoBehaviour
     [SerializeField] GameObject m_ropeReference;
 
     Rigidbody2D m_knifeRb;
+    public HingeJoint2D m_hingeJoint;
     KnifeFollowMouse m_knifeFollowMouse;
     KnifeAttachLogic m_knifeAttachLogic;
 
@@ -24,7 +25,7 @@ public class PlayerShootLogic : MonoBehaviour
     // Distance needed to return knife.
     [SerializeField] float m_returnMagnitude;
 
-    // Maybe switch to get provate set this is SCARY.
+    // Maybe switch to get private set this is SCARY.
     public static bool m_hasFired = false;
     bool m_isReturning;
 
@@ -118,9 +119,14 @@ public class PlayerShootLogic : MonoBehaviour
         m_knifeReference.SetActive(true);
         m_ropeReference.SetActive(true);
 
+        // AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+        m_hingeJoint.enabled = false;
+        m_hingeJoint.enabled = true;
+
+
         // Fire projectile in direction. Rotated to face direction.
         m_knifeRb.linearVelocity = Vector3.zero; // Reset velocity to ensure accurate force application.
-        m_knifeRb.AddForce(bulletDir * 10, ForceMode2D.Impulse);
+        m_knifeRb.AddForce(bulletDir * 1, ForceMode2D.Impulse);
     }
 
 
@@ -137,8 +143,16 @@ public class PlayerShootLogic : MonoBehaviour
         // Knife hit destination
         if (Vector3.Distance(m_knifeReference.transform.position, m_playerTrans.position) <= m_returnMagnitude)
         {
+            
             m_knifeReference.SetActive(false);
             m_ropeReference.SetActive(false);
+
+            m_knifeFollowMouse.enabled = true;
+            m_knifeAttachLogic.enabled = true;
+
+            // AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+            m_hingeJoint.enabled = false;
+            m_hingeJoint.enabled = true;
 
             m_isReturning = false;
             m_hasFired = false;
