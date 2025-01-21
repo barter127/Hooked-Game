@@ -16,7 +16,7 @@ public class PlayerShootLogic : MonoBehaviour
     [SerializeField] GameObject m_ropeReference;
 
     Rigidbody2D m_knifeRb;
-    public HingeJoint2D m_hingeJoint;
+    HingeJoint2D m_hingeJoint;
     KnifeFollowMouse m_knifeFollowMouse;
     KnifeEnemyAttachLogic m_knifeAttachLogic;
 
@@ -33,8 +33,17 @@ public class PlayerShootLogic : MonoBehaviour
 
     void Start()
     {
+        // Knife object starts loaded.
         m_hasFired = true;
+
+        // Return knife on start (prolly covered by fade in).
+        m_isReturning = true;
+
+        // Get components.
         m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
+        m_hingeJoint = m_knifeReference.GetComponent<HingeJoint2D>();
+
+        // Get scripts.
         m_knifeFollowMouse = m_knifeReference.GetComponent<KnifeFollowMouse>();
         m_knifeAttachLogic = m_knifeReference.GetComponent<KnifeEnemyAttachLogic>();
     }
@@ -92,7 +101,6 @@ public class PlayerShootLogic : MonoBehaviour
     // Attack Button Pressed.
     void Attack(InputAction.CallbackContext context)
     {
-        // Disabled while I work on other features.
         if (!m_hasFired)
         {
             FireKnife();
@@ -104,6 +112,10 @@ public class PlayerShootLogic : MonoBehaviour
             // Disable Knife Logic. Maybe this could be a method?
             m_knifeAttachLogic.enabled = false;
             m_knifeFollowMouse.enabled = false;
+
+            // Follow mouse conflicts with force applied
+            m_knifeFollowMouse.enabled = false;
+            m_knifeAttachLogic.enabled = true;
         }
     }
 
@@ -119,14 +131,13 @@ public class PlayerShootLogic : MonoBehaviour
         m_knifeReference.SetActive(true);
         m_ropeReference.SetActive(true);
 
-        // AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+        // Fixes what I belive to be a bug with hinge joints.
         m_hingeJoint.enabled = false;
         m_hingeJoint.enabled = true;
 
-
         // Fire projectile in direction. Rotated to face direction.
         m_knifeRb.linearVelocity = Vector3.zero; // Reset velocity to ensure accurate force application.
-        m_knifeRb.AddForce(bulletDir * 1, ForceMode2D.Impulse);
+        m_knifeRb.AddForce(bulletDir * 50, ForceMode2D.Impulse);
     }
 
 
@@ -135,10 +146,8 @@ public class PlayerShootLogic : MonoBehaviour
     {
         // Get direction bullet needs to travel.
         Vector3 bulletDir = (m_playerTrans.position - m_firePointTrans.position).normalized;
-
+        Debug.Log(bulletDir);
         float angle = Mathf.Atan2(bulletDir.y, bulletDir.x) * Mathf.Rad2Deg + 90; // Arbitrary 90, fixes incorrect rotation.
-
-        //m_knifeReference.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         // Knife hit destination
         if (Vector3.Distance(m_knifeReference.transform.position, m_playerTrans.position) <= m_returnMagnitude)
@@ -146,13 +155,6 @@ public class PlayerShootLogic : MonoBehaviour
             
             m_knifeReference.SetActive(false);
             m_ropeReference.SetActive(false);
-
-            m_knifeFollowMouse.enabled = true;
-            m_knifeAttachLogic.enabled = true;
-
-            // AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-            m_hingeJoint.enabled = false;
-            m_hingeJoint.enabled = true;
 
             m_isReturning = false;
             m_hasFired = false;

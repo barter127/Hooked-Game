@@ -36,10 +36,13 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
 
             Rigidbody2D enemyRb = collision.gameObject.GetComponent<Rigidbody2D>();
 
-            // Instantiate FX. Set it as 
+            // Instantiate FX. Hit FX should follow knife.
             Vector3 spawnPos = transform.position + m_spawnOffset;
             GameObject spawnedHitFX = Instantiate(m_hitFX, spawnPos, Quaternion.identity);
-            spawnedHitFX.transform.parent = transform;
+
+            // Set follow transform.
+            FollowTransform follow = spawnedHitFX.GetComponent<FollowTransform>();
+            follow.m_transformToFollow = transform;
 
 
             // Validate rb.
