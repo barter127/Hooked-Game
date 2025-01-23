@@ -10,6 +10,7 @@ TagManager:
   - Heal
   - Obstacle
   - Knife
+  - Music Player
   layers:
   - Default
   - TransparentFX
