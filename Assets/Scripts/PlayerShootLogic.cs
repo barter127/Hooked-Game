@@ -12,7 +12,7 @@ public class PlayerShootLogic : MonoBehaviour
     // Point projectile spawns from.
     [SerializeField] Transform m_firePointTrans;
 
-    private InputAction m_attackAction;
+    InputAction m_attackAction;
 
     [Header ("Knife Return")]
 
@@ -32,7 +32,7 @@ public class PlayerShootLogic : MonoBehaviour
 
     // Maybe switch to get private set this is SCARY.
     public static bool m_hasFired = false;
-    bool m_isReturning;
+    public bool m_isReturning;
 
     [Header("Rope Damage")]
     [SerializeField] float m_ropeHealth;
@@ -153,6 +153,14 @@ public class PlayerShootLogic : MonoBehaviour
         m_knifeRb.AddForce(bulletDir * 30, ForceMode2D.Impulse);
     }
 
+    public void StartKnifeReturn()
+    {
+        m_isReturning = true;
+
+        // Disable Knife Logic. Maybe this could be a method?
+        m_knifeAttachLogic.enabled = false;
+        m_knifeFollowMouse.enabled = false;
+    }
 
     // Move towards player. Delete at destination.
     void ReturnKnife()
@@ -219,7 +227,8 @@ public class PlayerShootLogic : MonoBehaviour
             // Sometimes unessecary but occasionally rb can be static.
             m_knifeRb.bodyType = RigidbodyType2D.Dynamic;
 
-            m_isReturning = true;
+            StartKnifeReturn();
+            m_knifeAttachLogic.m_isConnected = false;
         }
     }
 
