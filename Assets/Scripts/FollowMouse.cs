@@ -23,8 +23,6 @@ public class KnifeFollowMouse : MonoBehaviour
     private void Start()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
-
-        Debug.Log("Start");
     }
 
     void Update()

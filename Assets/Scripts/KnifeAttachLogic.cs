@@ -74,4 +74,9 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
             m_rigidbody.bodyType = RigidbodyType2D.Static;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
 }

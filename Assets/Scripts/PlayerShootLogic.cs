@@ -1,9 +1,11 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerShootLogic : MonoBehaviour
 {
+    #region Variables
     // Player Transform.
     [SerializeField] Transform m_playerTrans;
 
@@ -39,6 +41,7 @@ public class PlayerShootLogic : MonoBehaviour
     [SerializeField] float m_ropeDamageDistance;
 
     bool m_tickCountdownStarted;
+    #endregion
 
     void Start()
     {
@@ -147,7 +150,7 @@ public class PlayerShootLogic : MonoBehaviour
 
         // Fire projectile in direction. Rotated to face direction.
         m_knifeRb.linearVelocity = Vector3.zero; // Reset velocity to ensure accurate force application.
-        m_knifeRb.AddForce(bulletDir * 50, ForceMode2D.Impulse);
+        m_knifeRb.AddForce(bulletDir * 30, ForceMode2D.Impulse);
     }
 
 
@@ -181,6 +184,7 @@ public class PlayerShootLogic : MonoBehaviour
 
     // If player is too far from knife apply rope damage based on distance or intensity of forces
     // Return Knife if rope health is 0.
+    // Alot of nesting but I don't think it's excessive.
     void CheckRopeDamage()
     {
         // Distance between player and knife.
@@ -191,23 +195,35 @@ public class PlayerShootLogic : MonoBehaviour
             {
                 StartCoroutine(RopeDamageTick());
             }
+        }
 
-            if (m_ropeHealth <= 0)
+        // Check is not nessecary but adds clarity of intention.
+        else if (distance < m_ropeDamageDistance) 
+        {
+            // Cancel tick timer.
+            if (m_tickCountdownStarted)
             {
-                // Sometimes unessecary but occasionally rb can be static.
-                m_knifeRb.bodyType = RigidbodyType2D.Dynamic;
-
-                m_isReturning = true;
+                StopCoroutine(RopeDamageTick());
             }
         }
     }
 
+    // Apply damage to the rope
     void ApplyRopeDamage()
     {
         m_ropeHealth -= 2;
-        Debug.Log(m_ropeHealth);
+        Debug.Log(m_ropeHealth); // ADD UI!!!!
+
+        if (m_ropeHealth <= 0)
+        {
+            // Sometimes unessecary but occasionally rb can be static.
+            m_knifeRb.bodyType = RigidbodyType2D.Dynamic;
+
+            m_isReturning = true;
+        }
     }
 
+    // Times damage
     IEnumerator RopeDamageTick()
     {
         m_tickCountdownStarted = true;
