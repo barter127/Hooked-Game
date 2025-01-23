@@ -21,7 +21,7 @@ public class PlayerShootLogic : MonoBehaviour
     [SerializeField] GameObject m_ropeReference;
 
     Rigidbody2D m_knifeRb;
-    HingeJoint2D m_hingeJoint; // I LOVE UNITY!!!!!!!
+    HingeJoint2D m_knifeHingeJoint; // I LOVE UNITY!!!!!!!
     KnifeFollowMouse m_knifeFollowMouse;
     KnifeEnemyAttachLogic m_knifeAttachLogic;
 
@@ -31,8 +31,9 @@ public class PlayerShootLogic : MonoBehaviour
     [SerializeField] float m_returnMagnitude;
 
     // Maybe switch to get private set this is SCARY.
-    public static bool m_hasFired = false;
-    public bool m_isReturning;
+    public static bool M_HasFired { get; private set; } = false;
+
+    bool m_isReturning;
 
     [Header("Rope Damage")]
     [SerializeField] float m_ropeHealth;
@@ -46,14 +47,14 @@ public class PlayerShootLogic : MonoBehaviour
     void Start()
     {
         // Knife object starts loaded.
-        m_hasFired = true;
+        M_HasFired = true;
 
         // Return knife on start (prolly covered by fade in).
         m_isReturning = true;
 
         // Get components.
         m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
-        m_hingeJoint = m_knifeReference.GetComponent<HingeJoint2D>();
+        m_knifeHingeJoint = m_knifeReference.GetComponent<HingeJoint2D>();
 
         // Get scripts.
         m_knifeFollowMouse = m_knifeReference.GetComponent<KnifeFollowMouse>();
@@ -62,7 +63,12 @@ public class PlayerShootLogic : MonoBehaviour
 
     private void Update()
     {
-        CheckRopeDamage();
+        // Only check if rope should be damaged when attached.
+        if (m_knifeAttachLogic.m_isConnected)
+        {
+            CheckRopeDamage();
+        }
+        
     }
 
     // Update is called once per frame
@@ -92,33 +98,10 @@ public class PlayerShootLogic : MonoBehaviour
 
     #endregion
 
-    // Rotate cursor around player and point to current mouse position.
-    void RotateToMouse()
-    {
-        // Read mouse input. Use world position for extreme precision.
-        Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
-
-        // Calculate distance from mouse (target for currentPos).
-        Vector3 distanceFromMouse = mouseWorldPos - m_playerTrans.position;
-
-        // Find the position of the crosshair.
-        Vector3 currentPos = transform.position - m_playerTrans.position;
-
-        // Check if crosshair still needs to move to reach desired location.
-        if (currentPos != distanceFromMouse)
-        {
-            Vector3 direction = mouseWorldPos - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 180; // Arbritrary 180 fixes incorrect rotation.
-
-            //transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        }
-    }
-
     // Attack Button Pressed.
     void Attack(InputAction.CallbackContext context)
     {
-        if (!m_hasFired)
+        if (!M_HasFired)
         {
             FireKnife();
         }
@@ -135,7 +118,7 @@ public class PlayerShootLogic : MonoBehaviour
     // On click spawn knife and fire in mouse direction.
     void FireKnife()
     {
-        m_hasFired = true;
+        M_HasFired = true;
 
         // Get direction bullet needs to travel.
         Vector3 bulletDir = (m_firePointTrans.position - m_playerTrans.position).normalized;
@@ -145,8 +128,8 @@ public class PlayerShootLogic : MonoBehaviour
         m_ropeReference.SetActive(true);
 
         // Fixes what I belive to be a bug with hinge joints.
-        m_hingeJoint.enabled = false;
-        m_hingeJoint.enabled = true;
+        m_knifeHingeJoint.enabled = false;
+        m_knifeHingeJoint.enabled = true;
 
         // Fire projectile in direction. Rotated to face direction.
         m_knifeRb.linearVelocity = Vector3.zero; // Reset velocity to ensure accurate force application.
@@ -160,6 +143,9 @@ public class PlayerShootLogic : MonoBehaviour
         // Disable Knife Logic. Maybe this could be a method?
         m_knifeAttachLogic.enabled = false;
         m_knifeFollowMouse.enabled = false;
+
+        // Ensure knife values are correct.
+        m_knifeAttachLogic.DetatchEnemy();
     }
 
     // Move towards player. Delete at destination.
@@ -178,7 +164,7 @@ public class PlayerShootLogic : MonoBehaviour
             m_ropeReference.SetActive(false);
 
             m_isReturning = false;
-            m_hasFired = false;
+            M_HasFired = false;
         }
         else
         {
@@ -228,7 +214,6 @@ public class PlayerShootLogic : MonoBehaviour
             m_knifeRb.bodyType = RigidbodyType2D.Dynamic;
 
             StartKnifeReturn();
-            m_knifeAttachLogic.m_isConnected = false;
         }
     }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class KnifeEnemyAttachLogic : MonoBehaviour
@@ -9,7 +10,7 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
     /// Handles disconnect logic when too much strain put on rope.
     /// </summary>
 
-    public bool m_isConnected = false;
+    public bool m_isConnected { get; private set; } = false;
 
     // Distance joint on self.
     DistanceJoint2D m_distanceJoint;
@@ -21,16 +22,20 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
     KnifeFollowMouse m_knifeFollowMouse;
     PlayerShootLogic m_playerShootLogic;
 
+    // Prevents attach being too quick.
+    [SerializeField] float attachCooldownTimer;
+
     // VFX for hit confirmation.
     [SerializeField] GameObject m_hitFX;
     [SerializeField] Vector3 m_spawnOffset;
 
-    void Start()
+    void Awake()
     {
         m_distanceJoint = GetComponent<DistanceJoint2D>();
         m_rigidbody = GetComponent<Rigidbody2D>();
 
         m_knifeFollowMouse = GetComponent<KnifeFollowMouse>();
+
         m_playerShootLogic = GetComponent<PlayerShootLogic>();
 
         m_distanceJoint.enabled = false;
@@ -41,7 +46,7 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
         // Remove distance joint when enemy dies or disconnects from rope.
         if (m_distanceJoint.enabled && !m_isConnected)
         {
-            m_distanceJoint.enabled = false;
+            DetatchEnemy();
             m_playerShootLogic.StartKnifeReturn();
         }
     }
@@ -51,6 +56,7 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
         // Verify collider was an enemy.
         if (collision.CompareTag("Enemy") && !m_isConnected)
         {
+            Debug.Log("hi");
             m_isConnected = true;
 
              m_enemyRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
@@ -88,5 +94,19 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
             // Stick to obstacle.
             m_rigidbody.bodyType = RigidbodyType2D.Static;
         }
+    }
+
+    // In a method so can be safely set by other functions.
+    public void DetatchEnemy()
+    {
+        m_distanceJoint.enabled = false;
+        StartCoroutine(AttachCooldown());
+    }
+
+    IEnumerator AttachCooldown() 
+    {
+        yield return new WaitForSeconds(0.4f);
+
+        m_isConnected = false;
     }
 }
