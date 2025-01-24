@@ -24,7 +24,7 @@ public class Options : MonoBehaviour
         m_musicVolume = m_musicSlider.value;
         m_sfxVolume = m_sfxSlider.value;
 
-        // Find the music player and set the volume again
+        // Find the music player and set the volume again.
         GameObject musicPlayer = GameObject.FindWithTag("Music Player");
         m_musicSource = musicPlayer.GetComponent<AudioSource>();
         m_musicSource.volume = m_musicVolume;
@@ -35,9 +35,7 @@ public class Options : MonoBehaviour
 
     void ChangedActiveScene(Scene current, Scene next)
     {
-        Debug.Log("Hi");
-
-        // Find the music player and set the volume again
+        // Find the music player and set the volume again.
         GameObject musicPlayer = GameObject.FindWithTag("Music Player");
         m_musicSource = musicPlayer.GetComponent<AudioSource>();
         m_musicSource.volume = m_musicVolume;

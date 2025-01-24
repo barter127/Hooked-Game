@@ -1,0 +1,2417 @@
+fileFormatVersion: 2
+guid: 8778a16538a2d3b45951015f727493bd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1660601478363794176
+    second: Star_Sparkle_Aura_v1_A_spritesheet_0
+  - first:
+      213: -4360691719418290936
+    second: Star_Sparkle_Aura_v1_A_spritesheet_1
+  - first:
+      213: -6745603873576277861
+    second: Star_Sparkle_Aura_v1_A_spritesheet_2
+  - first:
+      213: 202492877933451220
+    second: Star_Sparkle_Aura_v1_A_spritesheet_3
+  - first:
+      213: 1120142342994906038
+    second: Star_Sparkle_Aura_v1_A_spritesheet_4
+  - first:
+      213: 1769460974558433441
+    second: Star_Sparkle_Aura_v1_A_spritesheet_5
+  - first:
+      213: -6692380467725294740
+    second: Star_Sparkle_Aura_v1_A_spritesheet_6
+  - first:
+      213: 6957110856294786430
+    second: Star_Sparkle_Aura_v1_A_spritesheet_7
+  - first:
+      213: -8546455649662105056
+    second: Star_Sparkle_Aura_v1_A_spritesheet_8
+  - first:
+      213: 1473241811340791064
+    second: Star_Sparkle_Aura_v1_A_spritesheet_9
+  - first:
+      213: 391368736433774951
+    second: Star_Sparkle_Aura_v1_A_spritesheet_10
+  - first:
+      213: 1322656959445656811
+    second: Star_Sparkle_Aura_v1_A_spritesheet_11
+  - first:
+      213: 8596726203794117347
+    second: Star_Sparkle_Aura_v1_A_spritesheet_12
+  - first:
+      213: -4843957988495103829
+    second: Star_Sparkle_Aura_v1_A_spritesheet_13
+  - first:
+      213: 4903923392818336176
+    second: Star_Sparkle_Aura_v1_A_spritesheet_14
+  - first:
+      213: -8704244020027537084
+    second: Star_Sparkle_Aura_v1_A_spritesheet_15
+  - first:
+      213: -8098119025164398960
+    second: Star_Sparkle_Aura_v1_A_spritesheet_16
+  - first:
+      213: -6815111865974767871
+    second: Star_Sparkle_Aura_v1_A_spritesheet_17
+  - first:
+      213: 4887516009806693844
+    second: Star_Sparkle_Aura_v1_A_spritesheet_18
+  - first:
+      213: 77185166544491457
+    second: Star_Sparkle_Aura_v1_A_spritesheet_19
+  - first:
+      213: -8460393462036315272
+    second: Star_Sparkle_Aura_v1_A_spritesheet_20
+  - first:
+      213: -370248811099706499
+    second: Star_Sparkle_Aura_v1_A_spritesheet_21
+  - first:
+      213: -684663359990352231
+    second: Star_Sparkle_Aura_v1_A_spritesheet_22
+  - first:
+      213: 1316809281617367736
+    second: Star_Sparkle_Aura_v1_A_spritesheet_23
+  - first:
+      213: -1326125505885669906
+    second: Star_Sparkle_Aura_v1_A_spritesheet_24
+  - first:
+      213: -6430935900831857915
+    second: Star_Sparkle_Aura_v1_A_spritesheet_25
+  - first:
+      213: 4079553380966043740
+    second: Star_Sparkle_Aura_v1_A_spritesheet_26
+  - first:
+      213: -404097550061770184
+    second: Star_Sparkle_Aura_v1_A_spritesheet_27
+  - first:
+      213: 3908650919337462104
+    second: Star_Sparkle_Aura_v1_A_spritesheet_28
+  - first:
+      213: 8969497094142258582
+    second: Star_Sparkle_Aura_v1_A_spritesheet_29
+  - first:
+      213: -1594910280246552488
+    second: Star_Sparkle_Aura_v1_A_spritesheet_30
+  - first:
+      213: -202604277417741280
+    second: Star_Sparkle_Aura_v1_A_spritesheet_31
+  - first:
+      213: -1170703088824612235
+    second: Star_Sparkle_Aura_v1_A_spritesheet_32
+  - first:
+      213: 6529868968036647358
+    second: Star_Sparkle_Aura_v1_A_spritesheet_33
+  - first:
+      213: 4987735386431682778
+    second: Star_Sparkle_Aura_v1_A_spritesheet_34
+  - first:
+      213: 4951724956587415399
+    second: Star_Sparkle_Aura_v1_A_spritesheet_35
+  - first:
+      213: -7539992091433965233
+    second: Star_Sparkle_Aura_v1_A_spritesheet_36
+  - first:
+      213: 6774134844125923912
+    second: Star_Sparkle_Aura_v1_A_spritesheet_37
+  - first:
+      213: 982868645544367562
+    second: Star_Sparkle_Aura_v1_A_spritesheet_38
+  - first:
+      213: 8944741308627968315
+    second: Star_Sparkle_Aura_v1_A_spritesheet_39
+  - first:
+      213: 3206752058983741203
+    second: Star_Sparkle_Aura_v1_A_spritesheet_40
+  - first:
+      213: 6136086183368227910
+    second: Star_Sparkle_Aura_v1_A_spritesheet_41
+  - first:
+      213: 6535437283584234912
+    second: Star_Sparkle_Aura_v1_A_spritesheet_42
+  - first:
+      213: 5340404691717068640
+    second: Star_Sparkle_Aura_v1_A_spritesheet_43
+  - first:
+      213: 561477232634269
+    second: Star_Sparkle_Aura_v1_A_spritesheet_44
+  - first:
+      213: 6579750068940524771
+    second: Star_Sparkle_Aura_v1_A_spritesheet_45
+  - first:
+      213: 5722879841713608345
+    second: Star_Sparkle_Aura_v1_A_spritesheet_46
+  - first:
+      213: -1808522585046391596
+    second: Star_Sparkle_Aura_v1_A_spritesheet_47
+  - first:
+      213: 1984576029037030148
+    second: Star_Sparkle_Aura_v1_A_spritesheet_48
+  - first:
+      213: -965507783542777510
+    second: Star_Sparkle_Aura_v1_A_spritesheet_49
+  - first:
+      213: -1619564341443469668
+    second: Star_Sparkle_Aura_v1_A_spritesheet_50
+  - first:
+      213: 9087646442180791797
+    second: Star_Sparkle_Aura_v1_A_spritesheet_51
+  - first:
+      213: -3206406837568677888
+    second: Star_Sparkle_Aura_v1_A_spritesheet_52
+  - first:
+      213: -1955147731893986822
+    second: Star_Sparkle_Aura_v1_A_spritesheet_53
+  - first:
+      213: -986124274885051819
+    second: Star_Sparkle_Aura_v1_A_spritesheet_54
+  - first:
+      213: -5733467988614783258
+    second: Star_Sparkle_Aura_v1_A_spritesheet_55
+  - first:
+      213: 6262118245741903974
+    second: Star_Sparkle_Aura_v1_A_spritesheet_56
+  - first:
+      213: 1471092968327490401
+    second: Star_Sparkle_Aura_v1_A_spritesheet_57
+  - first:
+      213: 5837288720099229296
+    second: Star_Sparkle_Aura_v1_A_spritesheet_58
+  - first:
+      213: 7479581768373113970
+    second: Star_Sparkle_Aura_v1_A_spritesheet_59
+  - first:
+      213: 7223120521307541688
+    second: Star_Sparkle_Aura_v1_A_spritesheet_60
+  - first:
+      213: 6193903720383645898
+    second: Star_Sparkle_Aura_v1_A_spritesheet_61
+  - first:
+      213: -7323586927124979851
+    second: Star_Sparkle_Aura_v1_A_spritesheet_62
+  - first:
+      213: -4277391373544682422
+    second: Star_Sparkle_Aura_v1_A_spritesheet_63
+  - first:
+      213: -8206823721464969732
+    second: Star_Sparkle_Aura_v1_A_spritesheet_64
+  - first:
+      213: -645844093268060786
+    second: Star_Sparkle_Aura_v1_A_spritesheet_65
+  - first:
+      213: 8806960227166296715
+    second: Star_Sparkle_Aura_v1_A_spritesheet_66
+  - first:
+      213: -816989044147208716
+    second: Star_Sparkle_Aura_v1_A_spritesheet_67
+  - first:
+      213: -6413103381553347229
+    second: Star_Sparkle_Aura_v1_A_spritesheet_68
+  - first:
+      213: -7298197451102397108
+    second: Star_Sparkle_Aura_v1_A_spritesheet_69
+  - first:
+      213: 1786212664260443460
+    second: Star_Sparkle_Aura_v1_A_spritesheet_70
+  - first:
+      213: -3797965552590925671
+    second: Star_Sparkle_Aura_v1_A_spritesheet_71
+  - first:
+      213: -8131277718360745457
+    second: Star_Sparkle_Aura_v1_A_spritesheet_72
+  - first:
+      213: 2937792164085705353
+    second: Star_Sparkle_Aura_v1_A_spritesheet_73
+  - first:
+      213: 3909189162840187617
+    second: Star_Sparkle_Aura_v1_A_spritesheet_74
+  - first:
+      213: -7717128288311234250
+    second: Star_Sparkle_Aura_v1_A_spritesheet_75
+  - first:
+      213: -5022859280762036478
+    second: Star_Sparkle_Aura_v1_A_spritesheet_76
+  - first:
+      213: 1213922558652042051
+    second: Star_Sparkle_Aura_v1_A_spritesheet_77
+  - first:
+      213: 2555232277092949346
+    second: Star_Sparkle_Aura_v1_A_spritesheet_78
+  - first:
+      213: 1512780260721688220
+    second: Star_Sparkle_Aura_v1_A_spritesheet_79
+  - first:
+      213: -8464378535423821032
+    second: Star_Sparkle_Aura_v1_A_spritesheet_80
+  - first:
+      213: -4191744876735536610
+    second: Star_Sparkle_Aura_v1_A_spritesheet_81
+  - first:
+      213: -7082932984156795657
+    second: Star_Sparkle_Aura_v1_A_spritesheet_82
+  - first:
+      213: 2583775553128375129
+    second: Star_Sparkle_Aura_v1_A_spritesheet_83
+  - first:
+      213: 2054542727042791825
+    second: Star_Sparkle_Aura_v1_A_spritesheet_84
+  - first:
+      213: -3266129941545047434
+    second: Star_Sparkle_Aura_v1_A_spritesheet_85
+  - first:
+      213: 290200487778372991
+    second: Star_Sparkle_Aura_v1_A_spritesheet_86
+  - first:
+      213: 8704080140050334279
+    second: Star_Sparkle_Aura_v1_A_spritesheet_87
+  - first:
+      213: -1298113766826098500
+    second: Star_Sparkle_Aura_v1_A_spritesheet_88
+  - first:
+      213: 2742658513579831187
+    second: Star_Sparkle_Aura_v1_A_spritesheet_89
+  - first:
+      213: 6797029607867615795
+    second: Star_Sparkle_Aura_v1_A_spritesheet_90
+  - first:
+      213: 7714575741097303552
+    second: Star_Sparkle_Aura_v1_A_spritesheet_91
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 3664
+        width: 352
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00533a0f0cb54f8e0800000000000000
+      internalID: -1660601478363794176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 3663
+        width: 350
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80dd5113cf5bb73c0800000000000000
+      internalID: -4360691719418290936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 3667
+        width: 344
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b98acf7440dc262a0800000000000000
+      internalID: -6745603873576277861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1625
+        y: 3673
+        width: 334
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d715ca13366fc200800000000000000
+      internalID: 202492877933451220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 2140
+        y: 3676
+        width: 328
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bbc514b68b8b8f00800000000000000
+      internalID: 1120142342994906038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 2657
+        y: 3681
+        width: 318
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a0d870a1636e8810800000000000000
+      internalID: 1769460974558433441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 3175
+        y: 3687
+        width: 306
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63a87f1c63ef13a0800000000000000
+      internalID: -6692380467725294740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 3692
+        y: 3692
+        width: 296
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e75e674a67f9c8060800000000000000
+      internalID: 6957110856294786430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 3183
+        width: 290
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a82412ed3e46980800000000000000
+      internalID: -8546455649662105056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 3167
+        width: 322
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d88313f91027410800000000000000
+      internalID: 1473241811340791064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 3152
+        width: 352
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 761245fcacb6e6500800000000000000
+      internalID: 391368736433774951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 3150
+        width: 350
+        height: 356
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be4e4733f750b5210800000000000000
+      internalID: 1322656959445656811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 2131
+        y: 3155
+        width: 346
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e2d0785fe4bd4770800000000000000
+      internalID: 8596726203794117347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 2648
+        y: 3160
+        width: 336
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba865d4bfddc6ccb0800000000000000
+      internalID: -4843957988495103829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 3164
+        width: 328
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b15aaaf75c3e0440800000000000000
+      internalID: 4903923392818336176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 3681
+        y: 3169
+        width: 318
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 449c0fb4e20543780800000000000000
+      internalID: -8704244020027537084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 2662
+        width: 308
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09e4e3cf6a3bd9f80800000000000000
+      internalID: -8098119025164398960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 2668
+        width: 296
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10f360caddbdb61a0800000000000000
+      internalID: -6815111865974767871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 2670
+        width: 290
+        height: 295
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d5009e6ae1f3d340800000000000000
+      internalID: 4887516009806693844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 2668
+        width: 291
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c350d10087321100800000000000000
+      internalID: 77185166544491457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 2134
+        y: 2646
+        width: 340
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 873c94ba8f4a69a80800000000000000
+      internalID: -8460393462036315272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 2641
+        y: 2641
+        width: 350
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7b24effaac9cdaf0800000000000000
+      internalID: -370248811099706499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 3155
+        y: 2640
+        width: 346
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 996bc053d469f76f0800000000000000
+      internalID: -684663359990352231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 3669
+        y: 2645
+        width: 342
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b29dbb901f364210800000000000000
+      internalID: 1316809281617367736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 2136
+        width: 336
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee57916e0e7a89de0800000000000000
+      internalID: -1326125505885669906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 2139
+        width: 330
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5034c99eed9b0c6a0800000000000000
+      internalID: -6430935900831857915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 2136
+        width: 336
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5099b28f2c7d9830800000000000000
+      internalID: 4079553380966043740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 2133
+        width: 342
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83a66f15b6b546af0800000000000000
+      internalID: -404097550061770184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 2128
+        width: 348
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8590d1e5d415e3630800000000000000
+      internalID: 3908650919337462104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 2641
+        y: 2129
+        width: 350
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d6f3ea51e0a7c70800000000000000
+      internalID: 8969497094142258582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 3155
+        y: 2131
+        width: 346
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8581941ec8dbdd9e0800000000000000
+      internalID: -1594910280246552488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 3697
+        y: 2136
+        width: 295
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0247a8eab74303df0800000000000000
+      internalID: -202604277417741280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 3770
+        y: 2459
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a082d4eb3d0cfe0800000000000000
+      internalID: -1170703088824612235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 1953
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb1cbadca31ce9a50800000000000000
+      internalID: 6529868968036647358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 1960
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad8f7e568eef73540800000000000000
+      internalID: 4987735386431682778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 1619
+        width: 319
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76754d6dc9f08b440800000000000000
+      internalID: 4951724956587415399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 1616
+        width: 336
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f49e2d434219c5790800000000000000
+      internalID: -7539992091433965233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 2645
+        y: 1614
+        width: 342
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84ac8b4ffbf820e50800000000000000
+      internalID: 6774134844125923912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 3155
+        y: 1613
+        width: 346
+        height: 355
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac59a8e53d9d3ad00800000000000000
+      internalID: 982868645544367562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 3665
+        y: 1612
+        width: 351
+        height: 355
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b31688434da122c70800000000000000
+      internalID: 8944741308627968315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1622
+        width: 301
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3177a7ee10ca08c20800000000000000
+      internalID: 3206752058983741203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 1620
+        width: 310
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c78d69fd1c72550800000000000000
+      internalID: 6136086183368227910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 1629
+        y: 1617
+        width: 328
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a5d1eb459982ba50800000000000000
+      internalID: 6535437283584234912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1101
+        width: 351
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06710aeb5cdec1a40800000000000000
+      internalID: 5340404691717068640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 1126
+        width: 294
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d99200b19aef10000800000000000000
+      internalID: 561477232634269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 1231
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ec4d02a3d7ff4b50800000000000000
+      internalID: 6579750068940524771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 1123
+        width: 301
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 996559915e0cb6f40800000000000000
+      internalID: 5722879841713608345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 1231
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d4e9067a46d6e6e0800000000000000
+      internalID: -1808522585046391596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 1636
+        y: 1120
+        width: 304
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40be1883261aa8b10800000000000000
+      internalID: 1984576029037030148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 1971
+        y: 1231
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a59de0e49c3d992f0800000000000000
+      internalID: -965507783542777510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 2147
+        y: 1118
+        width: 345
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9e5f51ffc62689e0800000000000000
+      internalID: -1619564341443469668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 2657
+        y: 1117
+        width: 318
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd478e6a4ecd1e70800000000000000
+      internalID: 9087646442180791797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 1115
+        width: 328
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 008d55138fd8083d0800000000000000
+      internalID: -3206406837568677888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 3672
+        y: 1112
+        width: 336
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af95c052f7bedd4e0800000000000000
+      internalID: -1955147731893986822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 1101
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a361b52359052f0800000000000000
+      internalID: -986124274885051819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 1101
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eeda87dd31ae60b0800000000000000
+      internalID: -5733467988614783258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 595
+        width: 346
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66040facd5387e650800000000000000
+      internalID: 6262118245741903974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 590
+        width: 350
+        height: 356
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16b2cb0b24f5a6410800000000000000
+      internalID: 1471092968327490401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 591
+        width: 352
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07eb8e4e927320150800000000000000
+      internalID: 5837288720099229296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 167
+        width: 331
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2741e546dffccc760800000000000000
+      internalID: 7479581768373113970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 2164
+        y: 841
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b0de5a28ddad3460800000000000000
+      internalID: 7223120521307541688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 2307
+        y: 837
+        width: 79
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac80072fd9a25f550800000000000000
+      internalID: 6193903720383645898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 2674
+        y: 844
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57f5507ed746d5a90800000000000000
+      internalID: -7323586927124979851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 2820
+        y: 840
+        width: 79
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4c8c865537a3a4c0800000000000000
+      internalID: -4277391373544682422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 3184
+        y: 847
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5c4d39e418b1e80800000000000000
+      internalID: -8206823721464969732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 3394
+        y: 843
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e85197018308907f0800000000000000
+      internalID: -645844093268060786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 3694
+        y: 680
+        width: 114
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8a9d335aab983a70800000000000000
+      internalID: 8806960227166296715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 3909
+        y: 847
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fd383efac879a4f0800000000000000
+      internalID: -816989044147208716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 738
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36508aad3741007a0800000000000000
+      internalID: -6413103381553347229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 2958
+        y: 740
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4d5162f51897ba90800000000000000
+      internalID: -7298197451102397108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 3476
+        y: 742
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44d3c8254f6e9c810800000000000000
+      internalID: 1786212664260443460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 3994
+        y: 726
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 990d5a0d37aea4bc0800000000000000
+      internalID: -3797965552590925671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 2456
+        y: 725
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0a1f0b1ff5e72f80800000000000000
+      internalID: -8131277718360745457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 2973
+        y: 725
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98a214c786225c820800000000000000
+      internalID: 2937792164085705353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 3489
+        y: 725
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e265e2f4da304630800000000000000
+      internalID: 3909189162840187617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 683
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 631371975b047e490800000000000000
+      internalID: -7717128288311234250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 2748
+        y: 596
+        width: 41
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20f976da8183b4ab0800000000000000
+      internalID: -5022859280762036478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 3274
+        y: 681
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34bc94da228b8d010800000000000000
+      internalID: 1213922558652042051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_78
+      rect:
+        serializedVersion: 2
+        x: 2345
+        y: 615
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ddcb2c732067320800000000000000
+      internalID: 2555232277092949346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_79
+      rect:
+        serializedVersion: 2
+        x: 2860
+        y: 615
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9ef98fc1a97ef410800000000000000
+      internalID: 1512780260721688220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_80
+      rect:
+        serializedVersion: 2
+        x: 3376
+        y: 615
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81b3f97719c788a80800000000000000
+      internalID: -8464378535423821032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_81
+      rect:
+        serializedVersion: 2
+        x: 3892
+        y: 615
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e126d115e3ee3d5c0800000000000000
+      internalID: -4191744876735536610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_82
+      rect:
+        serializedVersion: 2
+        x: 2234
+        y: 597
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fccf675afd54bd90800000000000000
+      internalID: -7082932984156795657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_83
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 338
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9532e871d2a6bd320800000000000000
+      internalID: 2583775553128375129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 215
+        width: 104
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1997f3d89b3338c10800000000000000
+      internalID: 2054542727042791825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_85
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 345
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67aa0f37f106ca2d0800000000000000
+      internalID: -3266129941545047434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_86
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 214
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7dccab5ecff60400800000000000000
+      internalID: 290200487778372991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_87
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 168
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7428b3c65ca1bc870800000000000000
+      internalID: 8704080140050334279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_88
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 168
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb04942286c2cfde0800000000000000
+      internalID: -1298113766826098500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_89
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 167
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f602a0361ef0620800000000000000
+      internalID: 2742658513579831187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_90
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 104
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a03c88a66e35e50800000000000000
+      internalID: 6797029607867615795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star_Sparkle_Aura_v1_A_spritesheet_91
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 104
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e53f053cdaf0b60800000000000000
+      internalID: 7714575741097303552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
