@@ -8,9 +8,9 @@ public class GameOverStatManager : MonoBehaviour
     /// Where appropriate, values are taken from the PlayerSaveData json.
     /// UI text are updated.
     /// </summary>
-    int m_deaths;
-    float m_gameTime;
-    int m_kills;
+    static int m_deaths;
+    static float m_gameTime;
+    static int m_kills;
 
     [Header ("Text References")]
     [SerializeField] TextMeshProUGUI m_deathsText;
@@ -20,7 +20,7 @@ public class GameOverStatManager : MonoBehaviour
     void OnEnable()
     {
         // Get reference to saved statistics.
-        PlayerSaveData data = JsonReadWriteSystem.LoadDeathStatisticDataFromJson();
+        PlayerSaveData data = JsonReadWriteSystem.LoadDeathStatisticData();
 
         // Increment value and set text.
         m_deaths = data.m_totalDeaths;
@@ -31,12 +31,14 @@ public class GameOverStatManager : MonoBehaviour
         m_kills += data.m_totalKills;
         m_killsText.text = m_kills.ToString();
 
+        JsonReadWriteSystem.SaveDeathStatisticData(m_deaths, m_kills);
+
         m_gameTimeText.text = FloatToTimer(m_gameTime);
     }
 
-    void Update()
+    public static void IncrementKillCount()
     {
-        m_gameTime += Time.deltaTime;
+        GameOverStatManager.m_kills++;
     }
 
     string FloatToTimer(float unformatTimer)

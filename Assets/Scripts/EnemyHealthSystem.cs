@@ -97,6 +97,9 @@ public class EnemyHealthSystem : MonoBehaviour
         // Destory on 0 health.
         if (m_currentHealth <= 0)
         {
+            // Update Game Over Stats
+            GameOverStatManager.IncrementKillCount();
+
             // Maybe switch to object pooling.
             Destroy(gameObject);
         }

@@ -31,16 +31,17 @@ public class KnifeFollowMouse : MonoBehaviour
         m_mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         m_mousePosition.z = 0; // Ensure the z-coordinate is 0.
 
+
         // MIGHT BE UNESSECARY!!!
-        // Knife within reasonable range of destination.
-        if (Vector3.Distance(m_playerTrans.position, transform.position) < m_targetDistance)
-        {
-            m_inRange = true;
-        }
-        else
-        {
-            m_inRange = false;
-        }
+        // // Knife within reasonable range of destination.
+        // if (Vector3.Distance(m_playerTrans.position, transform.position) < m_targetDistance)
+        // {
+        //     m_inRange = true;
+        // }
+        // else
+        // {
+        //     m_inRange = false;
+        // }
     }
 
     private void FixedUpdate()

@@ -32,7 +32,11 @@ public class ChargeTowardsPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_targetVector = m_targetTransform.position - transform.position;
+        // Check prevents errors after player/object is destoryed.
+        if (m_targetTransform != null)
+        {
+            m_targetVector = m_targetTransform.position - transform.position;
+        }
 
         DrawLOS(m_targetVector);
 
