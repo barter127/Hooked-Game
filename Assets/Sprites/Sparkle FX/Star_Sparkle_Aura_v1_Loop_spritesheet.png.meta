@@ -306,6 +306,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1884,7 +1910,78 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Star_Sparkle_Aura_v1_Loop_spritesheet_0: -614936422274060676
+      Star_Sparkle_Aura_v1_Loop_spritesheet_1: -6189946196198188554
+      Star_Sparkle_Aura_v1_Loop_spritesheet_10: -3351445328456999610
+      Star_Sparkle_Aura_v1_Loop_spritesheet_11: 6555685843802749389
+      Star_Sparkle_Aura_v1_Loop_spritesheet_12: -2045019884954925240
+      Star_Sparkle_Aura_v1_Loop_spritesheet_13: -1401985890673532134
+      Star_Sparkle_Aura_v1_Loop_spritesheet_14: 5235711521461993108
+      Star_Sparkle_Aura_v1_Loop_spritesheet_15: 133969832447430290
+      Star_Sparkle_Aura_v1_Loop_spritesheet_16: -9175475195887605776
+      Star_Sparkle_Aura_v1_Loop_spritesheet_17: 7539549500361219432
+      Star_Sparkle_Aura_v1_Loop_spritesheet_18: -96903418055099312
+      Star_Sparkle_Aura_v1_Loop_spritesheet_19: -3171742725576573593
+      Star_Sparkle_Aura_v1_Loop_spritesheet_2: -7111940283533786551
+      Star_Sparkle_Aura_v1_Loop_spritesheet_20: -8462845117931041939
+      Star_Sparkle_Aura_v1_Loop_spritesheet_21: 5659029346726171548
+      Star_Sparkle_Aura_v1_Loop_spritesheet_22: -4329379664500910813
+      Star_Sparkle_Aura_v1_Loop_spritesheet_23: -4442089990976193673
+      Star_Sparkle_Aura_v1_Loop_spritesheet_24: 4790735741702773099
+      Star_Sparkle_Aura_v1_Loop_spritesheet_25: 5311907850810355838
+      Star_Sparkle_Aura_v1_Loop_spritesheet_26: 4225798899657360931
+      Star_Sparkle_Aura_v1_Loop_spritesheet_27: -4747348367303017850
+      Star_Sparkle_Aura_v1_Loop_spritesheet_28: -7834269508983223087
+      Star_Sparkle_Aura_v1_Loop_spritesheet_29: 659331578025916922
+      Star_Sparkle_Aura_v1_Loop_spritesheet_3: -162615261201472822
+      Star_Sparkle_Aura_v1_Loop_spritesheet_30: -1970202558743123224
+      Star_Sparkle_Aura_v1_Loop_spritesheet_31: -990181875086860396
+      Star_Sparkle_Aura_v1_Loop_spritesheet_32: 6322059519288734883
+      Star_Sparkle_Aura_v1_Loop_spritesheet_33: 8573724000232305749
+      Star_Sparkle_Aura_v1_Loop_spritesheet_34: -6896172722612063883
+      Star_Sparkle_Aura_v1_Loop_spritesheet_35: 4506143117274956476
+      Star_Sparkle_Aura_v1_Loop_spritesheet_36: -3812616518579440463
+      Star_Sparkle_Aura_v1_Loop_spritesheet_37: 3194942859574378782
+      Star_Sparkle_Aura_v1_Loop_spritesheet_38: 9137784719123964795
+      Star_Sparkle_Aura_v1_Loop_spritesheet_39: -2905680110150630118
+      Star_Sparkle_Aura_v1_Loop_spritesheet_4: 7136668620358968386
+      Star_Sparkle_Aura_v1_Loop_spritesheet_40: -1623294663078106419
+      Star_Sparkle_Aura_v1_Loop_spritesheet_41: -3489472307059229509
+      Star_Sparkle_Aura_v1_Loop_spritesheet_42: -1165882249976005530
+      Star_Sparkle_Aura_v1_Loop_spritesheet_43: -2973078719229239987
+      Star_Sparkle_Aura_v1_Loop_spritesheet_44: 5546147002921773537
+      Star_Sparkle_Aura_v1_Loop_spritesheet_45: -2644251891871693036
+      Star_Sparkle_Aura_v1_Loop_spritesheet_46: -5550954012261383711
+      Star_Sparkle_Aura_v1_Loop_spritesheet_47: -5135066900279170252
+      Star_Sparkle_Aura_v1_Loop_spritesheet_48: -4124701679351239527
+      Star_Sparkle_Aura_v1_Loop_spritesheet_49: -1504157218027591213
+      Star_Sparkle_Aura_v1_Loop_spritesheet_5: 3298358878050284289
+      Star_Sparkle_Aura_v1_Loop_spritesheet_50: -3224247414044159537
+      Star_Sparkle_Aura_v1_Loop_spritesheet_51: 4692531204516220597
+      Star_Sparkle_Aura_v1_Loop_spritesheet_52: -1714842905718894156
+      Star_Sparkle_Aura_v1_Loop_spritesheet_53: 6508630927047604280
+      Star_Sparkle_Aura_v1_Loop_spritesheet_54: 2186292769682816086
+      Star_Sparkle_Aura_v1_Loop_spritesheet_55: 9067828797602416024
+      Star_Sparkle_Aura_v1_Loop_spritesheet_56: -7211583476167853878
+      Star_Sparkle_Aura_v1_Loop_spritesheet_57: 5445827711496908448
+      Star_Sparkle_Aura_v1_Loop_spritesheet_58: 3504823992353010525
+      Star_Sparkle_Aura_v1_Loop_spritesheet_59: -7282187129067138755
+      Star_Sparkle_Aura_v1_Loop_spritesheet_6: 1337109055029806871
+      Star_Sparkle_Aura_v1_Loop_spritesheet_60: 1227236618660888248
+      Star_Sparkle_Aura_v1_Loop_spritesheet_61: -789541265665589583
+      Star_Sparkle_Aura_v1_Loop_spritesheet_62: 3512988607504192316
+      Star_Sparkle_Aura_v1_Loop_spritesheet_63: -5201349737530727250
+      Star_Sparkle_Aura_v1_Loop_spritesheet_64: -6952077739724253732
+      Star_Sparkle_Aura_v1_Loop_spritesheet_65: -7667913789287560635
+      Star_Sparkle_Aura_v1_Loop_spritesheet_66: 5481246861126475070
+      Star_Sparkle_Aura_v1_Loop_spritesheet_67: 8549667122811573056
+      Star_Sparkle_Aura_v1_Loop_spritesheet_68: 1916596567758846857
+      Star_Sparkle_Aura_v1_Loop_spritesheet_69: -6865611744488834955
+      Star_Sparkle_Aura_v1_Loop_spritesheet_7: -8639314089024387092
+      Star_Sparkle_Aura_v1_Loop_spritesheet_70: 5795318448962899064
+      Star_Sparkle_Aura_v1_Loop_spritesheet_8: -597418566726426860
+      Star_Sparkle_Aura_v1_Loop_spritesheet_9: -3846924706450277104
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
