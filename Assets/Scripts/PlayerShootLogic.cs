@@ -36,7 +36,8 @@ public class PlayerShootLogic : MonoBehaviour
     bool m_isReturning;
 
     [Header("Rope Damage")]
-    [SerializeField] float m_ropeHealth;
+    float m_ropeHealth;
+    [SerializeField] float m_ropeMaxHealth;
 
     // Distance where rope starts taking damage.
     [SerializeField] float m_ropeDamageDistance;
@@ -51,6 +52,8 @@ public class PlayerShootLogic : MonoBehaviour
 
         // Return knife on start (prolly covered by fade in).
         m_isReturning = true;
+
+        m_ropeHealth = m_ropeMaxHealth;
 
         // Get components.
         m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
@@ -214,6 +217,8 @@ public class PlayerShootLogic : MonoBehaviour
             m_knifeRb.bodyType = RigidbodyType2D.Dynamic;
 
             StartKnifeReturn();
+
+            m_ropeHealth = m_ropeMaxHealth;
         }
     }
 
