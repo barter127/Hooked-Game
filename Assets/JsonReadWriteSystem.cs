@@ -17,7 +17,6 @@ public class JsonReadWriteSystem : MonoBehaviour
     {
         string json = File.ReadAllText(Application.dataPath + "/PlayerSaveDataFile.json");
         PlayerSaveData data = JsonUtility.FromJson<PlayerSaveData>(json);
-
-
+        return data;
     }
 }

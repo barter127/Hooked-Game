@@ -3,7 +3,11 @@ using TMPro;
 
 public class GameOverStatManager : MonoBehaviour
 {
-    // THiS WILL NEED TO BE SAVED TO A JSON. I LOVE JSON <3
+    /// <summary>
+    /// On death, the panel attached will be enabled displaying in game values.
+    /// Where appropriate, values are taken from the PlayerSaveData json.
+    /// UI text are updated.
+    /// </summary>
     int m_deaths;
     float m_gameTime;
     int m_kills;
@@ -15,10 +19,19 @@ public class GameOverStatManager : MonoBehaviour
 
     void OnEnable()
     {
-        // Update strings.
-        m_deathsText.text = "Hi";
+        // Get reference to saved statistics.
+        PlayerSaveData data = JsonReadWriteSystem.LoadDeathStatisticDataFromJson();
+
+        // Increment value and set text.
+        m_deaths = data.m_totalDeaths;
+        m_deaths++;
+        m_deathsText.text = m_deaths.ToString();
+
+        // Update kills value and set text.
+        m_kills += data.m_totalKills;
+        m_killsText.text = m_kills.ToString();
+
         m_gameTimeText.text = FloatToTimer(m_gameTime);
-        m_killsText.text = "Hi";
     }
 
     void Update()
