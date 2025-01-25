@@ -40,7 +40,7 @@ public class RandomisedMovement : MonoBehaviour
 
     private void Update()
     {
-        if (nextMovement < 0)
+        if (nextMovement <= 0)
         {
             m_startCharge = true;
 

@@ -16,11 +16,10 @@ public class DipAnimator : MonoBehaviour
     void Update()
     {
         // When movement script charges turn on 
-        if (m_movement.m_startCharge == true)
+        if (m_movement.m_startCharge)
         {
-            m_movement.m_startCharge = false;
-
             m_animator.SetTrigger("Start Charge");
+            m_movement.m_startCharge = false;
         }
     }
 }
