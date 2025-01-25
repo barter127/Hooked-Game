@@ -847,7 +847,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.89900005}
   m_AnchorMax: {x: 0.303, y: 1}
-  m_AnchoredPosition: {x: -1.6416626, y: -0.14233398}
+  m_AnchoredPosition: {x: -1.6416016, y: -0.14233398}
   m_SizeDelta: {x: 1.7567978, y: 0.2848997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &283817584
@@ -12564,13 +12564,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1139348556}
   - component: {fileID: 1139348554}
+  - component: {fileID: 1139348562}
   - component: {fileID: 1139348557}
-  - component: {fileID: 1139348555}
   - component: {fileID: 1139348553}
+  - component: {fileID: 1139348561}
   - component: {fileID: 1139348558}
   - component: {fileID: 1139348560}
+  - component: {fileID: 1139348555}
   - component: {fileID: 1139348559}
-  - component: {fileID: 1139348561}
   m_Layer: 0
   m_Name: Dip
   m_TagString: Enemy
@@ -12617,13 +12618,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8d31af96e0ef948922e764ee1eae15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rigidbody: {fileID: 1139348553}
-  m_spriteRenderer: {fileID: 1139348555}
   m_startCharge: 0
-  m_minDistance: 1
-  m_maxDistance: 3.2
-  m_minTime: 0.4
-  m_maxTime: 0.8
+  m_minDistance: 2
+  m_maxDistance: 5.2
+  m_minTime: 0.6
+  m_maxTime: 1
 --- !u!212 &1139348555
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17548,7 +17547,29 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &1139348561
+--- !u!95 &1139348561
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139348552}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8acec6a950ce1114c90fb5bd1b910b53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1139348562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17557,7 +17578,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1139348552}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80169c4329d7c944dac66489f1373b74, type: 3}
+  m_Script: {fileID: 11500000, guid: e428cbe6541cabe489f03ba503f144e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1145514280
@@ -17570,10 +17591,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1145514285}
   - component: {fileID: 1145514283}
+  - component: {fileID: 1145514288}
   - component: {fileID: 1145514286}
   - component: {fileID: 1145514284}
   - component: {fileID: 1145514282}
   - component: {fileID: 1145514281}
+  - component: {fileID: 1145514287}
   m_Layer: 0
   m_Name: Squirt
   m_TagString: Enemy
@@ -17664,6 +17687,7 @@ MonoBehaviour:
   m_obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
+  m_startCharge: 0
 --- !u!212 &1145514284
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17708,7 +17732,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 937769947, guid: ae93dbeb9b866984da8038a55e3ba68a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17751,6 +17775,40 @@ MonoBehaviour:
   m_healthBar: {fileID: 346996436}
   m_maxHealth: 250
   m_canTakeDamage: 1
+--- !u!95 &1145514287
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145514280}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d138e08cca991e548a2614b163ec37ba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1145514288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145514280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79837ad6ac8da6f4ca62dc7bdaece7cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1153879653
 GameObject:
   m_ObjectHideFlags: 0
@@ -18205,7 +18263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1292253233
 AudioSource:
   m_ObjectHideFlags: 0

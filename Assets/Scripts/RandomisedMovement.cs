@@ -6,13 +6,18 @@ using UnityEngine;
 /// </summary>
 
 [RequireComponent (typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class RandomisedMovement : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D m_rigidbody;
-    [SerializeField] SpriteRenderer m_spriteRenderer;
-    [SerializeField] bool m_startCharge; // For animator.
+    // Component references.
+    Rigidbody2D m_rigidbody;
+    SpriteRenderer m_spriteRenderer;
+
+    // Unsafe var but it's just for animation.
+    public bool m_startCharge = false;
     bool m_isFacingRight;
 
+    // Min and Max distance for charges.
     [SerializeField, Range(0, 10)] float m_minDistance;
     [SerializeField, Range(0, 10)] float m_maxDistance;
 
@@ -26,7 +31,11 @@ public class RandomisedMovement : MonoBehaviour
 
     private void Start()
     {
-        m_isFacingRight = true;
+        // Get components.
+        m_rigidbody = GetComponent<Rigidbody2D>();
+        m_spriteRenderer = GetComponent<SpriteRenderer>();
+
+        m_isFacingRight = false;
     }
 
     private void Update()
@@ -46,7 +55,7 @@ public class RandomisedMovement : MonoBehaviour
             movementDir.x = ClampDirection(movementDir.x);
             movementDir.y = ClampDirection(movementDir.y);
 
-            CheckDirectionToFace(movementDir.x > 0);
+            CheckDirectionToFace(movementDir.x < 0);
             m_rigidbody.AddForce(movementDir, ForceMode2D.Impulse);
         }
         else nextMovement -= Time.deltaTime;
