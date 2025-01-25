@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,8 +12,26 @@ public class NavMeshMoveTowards : MonoBehaviour
         m_agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update()
+    void Update()
     {
         m_agent.SetDestination(m_targetTransform.position);
+
+        if (m_agent.stoppingDistance > Vector2.Distance(transform.position, m_targetTransform.position))
+        {
+            if (!m_agent.isStopped)
+            {
+                StartCoroutine(PauseMovement());
+            }
+            Debug.Log("woah");
+        }
+    }
+
+    IEnumerator PauseMovement()
+    {
+        m_agent.isStopped = true;
+
+        yield return new WaitForSeconds(1.0f);
+
+        m_agent.isStopped = false;
     }
 }

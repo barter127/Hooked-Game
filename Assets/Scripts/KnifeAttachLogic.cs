@@ -56,7 +56,6 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
         // Verify collider was an enemy.
         if (collision.CompareTag("Enemy") && !m_isConnected)
         {
-            Debug.Log("hi");
             m_isConnected = true;
 
              m_enemyRigidbody = collision.gameObject.GetComponent<Rigidbody2D>();
