@@ -1310,7 +1310,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364701830}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c93e12dae4c45a3449ae41b10375864a, type: 3}
   m_Name: 
@@ -8641,7 +8641,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 4
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -10460,7 +10460,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -36121,7 +36121,7 @@ MonoBehaviour:
   m_ropeReference: {fileID: 463248630}
   m_returnSpeed: 12
   m_returnMagnitude: 0.5
-  m_ropeHealth: 10
+  m_ropeMaxHealth: 0
   m_ropeDamageDistance: 4.6
 --- !u!114 &1629291005
 MonoBehaviour:
