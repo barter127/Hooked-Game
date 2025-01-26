@@ -156,7 +156,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -229,28 +229,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hornet_1
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 25
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa5fb4656c8e0cd4ea648566ce9ea2a6
-      internalID: -2133065570
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Hornet_2
       rect:
         serializedVersion: 2
@@ -268,28 +246,6 @@ TextureImporter:
       bones: []
       spriteID: 999de39ac11780f418e06534c435f159
       internalID: -450417416
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hornet_3
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 25
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0fff8217e76b6342a11a8cb7e532157
-      internalID: -2045512674
       vertices: []
       indices: 
       edges: []
@@ -317,28 +273,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hornet_5
-      rect:
-        serializedVersion: 2
-        x: 126
-        y: 25
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76b2fc87f93493441b689cf9fbd0e5ac
-      internalID: -1484437730
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Hornet_6
       rect:
         serializedVersion: 2
@@ -356,28 +290,6 @@ TextureImporter:
       bones: []
       spriteID: 5bba52ac919e6714dadbade0e3b43c84
       internalID: 1151057759
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hornet_7
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 25
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 230ff8d4013d3e54fa9bd83648d86fe7
-      internalID: -1880942755
       vertices: []
       indices: 
       edges: []
@@ -466,94 +378,6 @@ TextureImporter:
       bones: []
       spriteID: cb0a2533c3a03de4da2008d3a880a846
       internalID: 1302504371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hornet_Fire4
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 1
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71a5e95ac9d6ff344ba2f570c81f04f7
-      internalID: 1599322111
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hornet_Fire5
-      rect:
-        serializedVersion: 2
-        x: 126
-        y: 1
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 099389e05ab91544b939efeb637a69cd
-      internalID: -2056324524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hornet_Fire6
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 1
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc8a94d5fcedab74fb813a115724e1d8
-      internalID: -922530234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hornet_Fire7
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 1
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f06cfa0b7a57254ab814edbd9f2af35
-      internalID: 2074002822
       vertices: []
       indices: 
       edges: []

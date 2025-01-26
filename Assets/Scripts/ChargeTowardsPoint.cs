@@ -105,6 +105,7 @@ public class ChargeTowardsPoint : MonoBehaviour
         }
     }
 
+    #region Direction to Face
     void Turn()
     {
         m_isFacingRight = !m_isFacingRight;
@@ -118,4 +119,5 @@ public class ChargeTowardsPoint : MonoBehaviour
             Turn();
         }
     }
+    #endregion
 }

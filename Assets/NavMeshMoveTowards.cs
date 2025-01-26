@@ -15,6 +15,7 @@ public class NavMeshMoveTowards : MonoBehaviour
     public bool m_isChasing = true; // For animator.
 
     bool m_isFacingRight = true;
+    bool m_inView = false;
 
     void Start()
     {
@@ -26,18 +27,38 @@ public class NavMeshMoveTowards : MonoBehaviour
 
     void Update()
     {
-        m_agent.SetDestination(m_targetTransform.position);
+        if (m_inView)
+        {
+            m_agent.SetDestination(m_targetTransform.position);
 
+            // In stopping range.
+            float distance = Vector2.Distance(transform.position, m_targetTransform.position);
+            if (m_agent.stoppingDistance > distance)
+            {
+                PauseAIMovement(pauseLength);
+            }
+        }
+
+        // Check direction to face.
         float relativeXPos = m_targetTransform.position.x - transform.position.x;
         CheckDirectionToFace(relativeXPos < 0);
-
-        // In stopping range.
-        float distance = Vector2.Distance(transform.position, m_targetTransform.position);
-        if (m_agent.stoppingDistance > distance)
-        {
-            PauseAIMovement(pauseLength);
-        }
     }
+
+    #region Handle Vision Circle
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        m_inView = true;
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        m_inView = false;
+    }
+
+    #endregion
+
+    #region Pause Movement
 
     public void PauseAIMovement(float time)
     {
@@ -56,6 +77,9 @@ public class NavMeshMoveTowards : MonoBehaviour
         m_agent.isStopped = false;
     }
 
+    #endregion
+
+    #region Direction to Face
     void Turn()
     {
         m_isFacingRight = !m_isFacingRight;
@@ -69,4 +93,5 @@ public class NavMeshMoveTowards : MonoBehaviour
             Turn();
         }
     }
+    #endregion
 }

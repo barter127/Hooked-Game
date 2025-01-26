@@ -73,6 +73,7 @@ public class RandomisedMovement : MonoBehaviour
         }
     }
 
+    #region Direction to Face
     void Turn()
     {
         m_isFacingRight = !m_isFacingRight;
@@ -86,4 +87,5 @@ public class RandomisedMovement : MonoBehaviour
             Turn();
         }
     }
+    #endregion
 }
