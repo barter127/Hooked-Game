@@ -37,12 +37,18 @@ public class StraightToPathfinding : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        m_inView = true;
+        if (collision.CompareTag("Player"))
+        {
+            m_inView = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        m_inView = false;
+        if (collision.CompareTag("Player"))
+        {
+            m_inView = false;
+        }
     }
 
     #endregion

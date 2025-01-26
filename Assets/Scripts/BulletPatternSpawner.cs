@@ -12,10 +12,6 @@ public class BulletPatternSpawner : MonoBehaviour
     [SerializeField] float m_fireRate;
     [SerializeField] int m_offsetIncrease;
 
-    [Header("Attack Angle")] // Angle range which shots can be fire in.
-    [Range(0, 359)][SerializeField] float m_xAttackAngle;
-    [Range(0, 359)][SerializeField] float m_yAttackAngle;
-
     float m_rotationAngle = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,8 +40,8 @@ public class BulletPatternSpawner : MonoBehaviour
             bulletDir = new Vector3(bulletDirX, bulletDirY, 0);
 
             // Spawn bullet and set direction.
-            GameObject m_spawnedBull = Instantiate(m_bullet, transform.position, transform.rotation);
-            m_spawnedBull.GetComponent<BulletMovement>().SetDirection(bulletDir);
+            GameObject spawnedBull = Instantiate(m_bullet, transform.position, transform.rotation);
+            spawnedBull.GetComponent<BulletMovement>().SetDirection(bulletDir);
         }
 
         // Update rotation angle.
