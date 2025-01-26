@@ -27,8 +27,7 @@ public class GameOverStatManager : MonoBehaviour
         m_deaths++;
         m_deathsText.text = m_deaths.ToString();
 
-        // Update kills value and set text.
-        m_kills += data.m_totalKills;
+        // Set text.
         m_killsText.text = m_kills.ToString();
 
         JsonReadWriteSystem.SaveDeathStatisticData(m_deaths, m_kills);
