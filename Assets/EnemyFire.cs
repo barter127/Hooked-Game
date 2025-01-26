@@ -21,7 +21,7 @@ public class EnemyFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_fireTimer <= 0)
+        if (m_fireTimer <= 0 && m_movement.m_inView)
         {
             m_movement.PauseAIMovement(0.25f);
 

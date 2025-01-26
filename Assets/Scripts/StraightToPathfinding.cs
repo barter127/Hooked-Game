@@ -13,7 +13,7 @@ public class StraightToPathfinding : MonoBehaviour
     [SerializeField] Transform m_targetTransform;
     [SerializeField] float m_speed;
 
-    bool m_inView = false;
+    public bool m_inView = false;
     bool m_canMove = true;
 
     bool m_isFacingRight = false;
