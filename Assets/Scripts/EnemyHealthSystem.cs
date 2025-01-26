@@ -25,6 +25,8 @@ public class EnemyHealthSystem : MonoBehaviour
     bool m_attached = false;
     [SerializeField] bool m_canTakeDamage = true;
 
+    [SerializeField] GameObject m_bloodFX;
+
     // Multiplies damage from rb velocity.
     float m_velocityDamageMultiplier = 10;
 
@@ -85,6 +87,8 @@ public class EnemyHealthSystem : MonoBehaviour
     // Minus damage from health and update health bar.
     void ApplyDamage(float damage, bool attached)
     {
+        Instantiate(m_bloodFX, transform.position, Quaternion.identity);
+
         m_currentHealth -= damage;
         UpdateEnemyHealthBar();
 
