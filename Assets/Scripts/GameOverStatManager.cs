@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Diagnostics;
 
 public class GameOverStatManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class GameOverStatManager : MonoBehaviour
     /// Where appropriate, values are taken from the PlayerSaveData json.
     /// UI text are updated.
     /// </summary>
+
+    Stopwatch m_stopwatch;
+
     static int m_deaths;
     static float m_gameTime;
     static int m_kills;
@@ -17,22 +21,46 @@ public class GameOverStatManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_gameTimeText;
     [SerializeField] TextMeshProUGUI m_killsText;
 
+    // Initialise stopwatch. Disable GO as no code will be running.
+    void Awake()
+    { 
+        m_stopwatch = new Stopwatch();
+        m_stopwatch.Start();
+
+
+        gameObject.SetActive (false);
+    }
+
     void OnEnable()
     {
         // Get reference to saved statistics.
         PlayerSaveData data = JsonReadWriteSystem.LoadDeathStatisticData();
 
+        UpdateDeathText(data);
+        UpdateKillsText();
+        UpdateTimerText();
+
+        JsonReadWriteSystem.SaveDeathStatisticData(m_deaths, m_kills);
+    }
+
+    void UpdateDeathText(PlayerSaveData data)
+    {
         // Increment value and set text.
         m_deaths = data.m_totalDeaths;
         m_deaths++;
         m_deathsText.text = m_deaths.ToString();
+    }
 
+    void UpdateKillsText()
+    {
         // Set text.
         m_killsText.text = m_kills.ToString();
+    }
 
-        JsonReadWriteSystem.SaveDeathStatisticData(m_deaths, m_kills);
-
-        m_gameTimeText.text = FloatToTimer(m_gameTime);
+    void UpdateTimerText()
+    {
+        m_stopwatch.Stop();
+        m_gameTimeText.text = FloatToTimer((float) m_stopwatch.Elapsed.TotalSeconds);
     }
 
     public static void IncrementKillCount()
@@ -44,9 +72,6 @@ public class GameOverStatManager : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(unformatTimer / 60);
         int seconds = Mathf.FloorToInt(unformatTimer % 60);
-
-        Debug.Log(minutes);
-        Debug.Log(seconds);
 
         string formatString = string.Format("{0:00}:{1:00}", minutes, seconds);
         return formatString;
