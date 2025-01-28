@@ -9,12 +9,15 @@ public class PlayerShootLogic : MonoBehaviour
     // Player Transform.
     [SerializeField] Transform m_playerTrans;
 
+    [Header("Knife Fire")]
     // Point projectile spawns from.
     [SerializeField] Transform m_firePointTrans;
 
     InputAction m_attackAction;
 
     [SerializeField] float m_fireForce;
+    [SerializeField] int m_amountOfForcesToApply;
+    int m_forcesLeft;
 
     [Header("Knife Return")]
 
@@ -25,6 +28,7 @@ public class PlayerShootLogic : MonoBehaviour
 
     Rigidbody2D m_knifeRb;
     HingeJoint2D m_knifeHingeJoint; // I LOVE UNITY!!!!!!!
+    SpriteRenderer m_knifeRenderer;
     KnifeFollowMouse m_knifeFollowMouse;
     KnifeEnemyAttachLogic m_knifeAttachLogic;
 
@@ -61,6 +65,7 @@ public class PlayerShootLogic : MonoBehaviour
         // Get components.
         m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
         m_knifeHingeJoint = m_knifeReference.GetComponent<HingeJoint2D>();
+        m_knifeRenderer = m_knifeReference.GetComponent<SpriteRenderer>();
 
         // Get scripts.
         m_knifeFollowMouse = m_knifeReference.GetComponent<KnifeFollowMouse>();
@@ -91,6 +96,16 @@ public class PlayerShootLogic : MonoBehaviour
         if (m_isReturning)
         {
             ReturnKnife();
+        }
+
+        if (m_forcesLeft > 0)
+        {
+            // Get direction bullet needs to travel.
+            Vector3 bulletDir = (m_firePointTrans.position - m_playerTrans.position).normalized;
+
+            m_knifeRb.AddForce(bulletDir * m_fireForce, ForceMode2D.Impulse);
+
+            m_forcesLeft--;
         }
     }
 
@@ -140,13 +155,11 @@ public class PlayerShootLogic : MonoBehaviour
         // Enable existing knife object.
         SetRopeSpriteRenderer(true);
 
-        // Fixes what I belive to be a bug with hinge joints.
-        m_knifeHingeJoint.enabled = false;
-        m_knifeHingeJoint.enabled = true;
+        m_knifeRb.bodyType = RigidbodyType2D.Dynamic;
 
         // Fire projectile in direction. Rotated to face direction.
         m_knifeRb.linearVelocity = Vector3.zero; // Reset velocity to ensure accurate force application.
-        m_knifeRb.AddForce(bulletDir * m_fireForce, ForceMode2D.Impulse);
+        m_forcesLeft = m_amountOfForcesToApply;
     }
 
     public void StartKnifeReturn()
@@ -172,7 +185,7 @@ public class PlayerShootLogic : MonoBehaviour
         // Knife hit destination
         if (Vector3.Distance(m_knifeReference.transform.position, m_playerTrans.position) <= m_returnMagnitude)
         {
-
+            m_knifeRb.bodyType = RigidbodyType2D.Static;
             SetRopeSpriteRenderer(false);
 
             m_isReturning = false;
@@ -246,6 +259,8 @@ public class PlayerShootLogic : MonoBehaviour
     // Function is limited in usability but makes overall code more readable.
     void SetRopeSpriteRenderer(bool isEnabled)
     {
+        m_knifeRenderer.enabled = isEnabled;
+
         foreach (SpriteRenderer spr in m_allRopeRenderers)
         {
             spr.enabled = isEnabled;
