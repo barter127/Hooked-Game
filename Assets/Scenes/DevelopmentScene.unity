@@ -5837,6 +5837,7 @@ GameObject:
   - component: {fileID: 1025052415}
   - component: {fileID: 1025052413}
   - component: {fileID: 1025052414}
+  - component: {fileID: 1025052416}
   m_Layer: 3
   m_Name: Movable Anchor
   m_TagString: Untagged
@@ -5881,13 +5882,13 @@ HingeJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1618778966}
+  m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.424, y: -0.359}
+  m_ConnectedAnchor: {x: 0.234, y: -0.173}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -5906,12 +5907,25 @@ Transform:
   m_GameObject: {fileID: 1025052412}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.424, y: -0.359, z: 0}
+  m_LocalPosition: {x: 0.234, y: -0.173, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1618778962}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1025052416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025052412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 980a46e06b0d55e43a01ed74bd770117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_transformToFollow: {fileID: 1618778962}
 --- !u!1 &1093332047
 GameObject:
   m_ObjectHideFlags: 0
@@ -14325,7 +14339,7 @@ GameObject:
   - component: {fileID: 1297675079}
   m_Layer: 6
   m_Name: Rope Segment (2)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36316,7 +36330,7 @@ GameObject:
   - component: {fileID: 1480320354}
   m_Layer: 6
   m_Name: Rope Segment (5)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36873,7 +36887,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1629291003}
-  - {fileID: 1025052415}
   - {fileID: 1354410482}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37095,6 +37108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerTrans: {fileID: 1618778962}
   m_firePointTrans: {fileID: 12930689}
+  m_allRopeRenderers: []
   m_knifeReference: {fileID: 364701830}
   m_ropeReference: {fileID: 463248630}
   m_returnSpeed: 12
@@ -37453,7 +37467,7 @@ GameObject:
   - component: {fileID: 1670532341}
   m_Layer: 6
   m_Name: Rope Segment (3)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37840,7 +37854,7 @@ GameObject:
   - component: {fileID: 1718940752}
   m_Layer: 6
   m_Name: Rope Segment (4)
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39256,6 +39270,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2446011958875146724, guid: 77f0468356dcb264fb50d478d884e09b, type: 3}
+      propertyPath: m_TagString
+      value: Rope
+      objectReference: {fileID: 0}
     - target: {fileID: 2761298923156792400, guid: 77f0468356dcb264fb50d478d884e09b, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -39332,6 +39350,7 @@ SceneRoots:
   - {fileID: 1409543577}
   - {fileID: 1803052489}
   - {fileID: 1618778962}
+  - {fileID: 1025052415}
   - {fileID: 1178326287}
   - {fileID: 612632423}
   - {fileID: 787399130}

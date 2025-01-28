@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
+using System.Collections.Generic;
 
 public class PlayerShootLogic : MonoBehaviour
 {
@@ -14,8 +14,11 @@ public class PlayerShootLogic : MonoBehaviour
 
     InputAction m_attackAction;
 
-    [Header ("Knife Return")]
+    [SerializeField] float m_fireForce;
 
+    [Header("Knife Return")]
+
+    public List<SpriteRenderer> m_allRopeRenderers = new List<SpriteRenderer>();
     // Knife Prefab.
     [SerializeField] GameObject m_knifeReference;
     [SerializeField] GameObject m_ropeReference;
@@ -62,6 +65,14 @@ public class PlayerShootLogic : MonoBehaviour
         // Get scripts.
         m_knifeFollowMouse = m_knifeReference.GetComponent<KnifeFollowMouse>();
         m_knifeAttachLogic = m_knifeReference.GetComponent<KnifeEnemyAttachLogic>();
+
+        // Get all rope renderers add to array.
+        GameObject[] ropeObjects = GameObject.FindGameObjectsWithTag("Rope");
+
+        foreach (GameObject go in ropeObjects)
+        {
+            m_allRopeRenderers.Add(go.GetComponent<SpriteRenderer>());
+        }
     }
 
     private void Update()
@@ -127,8 +138,7 @@ public class PlayerShootLogic : MonoBehaviour
         Vector3 bulletDir = (m_firePointTrans.position - m_playerTrans.position).normalized;
 
         // Enable existing knife object.
-        m_knifeReference.SetActive(true);
-        m_ropeReference.SetActive(true);
+        SetRopeSpriteRenderer(true);
 
         // Fixes what I belive to be a bug with hinge joints.
         m_knifeHingeJoint.enabled = false;
@@ -136,7 +146,7 @@ public class PlayerShootLogic : MonoBehaviour
 
         // Fire projectile in direction. Rotated to face direction.
         m_knifeRb.linearVelocity = Vector3.zero; // Reset velocity to ensure accurate force application.
-        m_knifeRb.AddForce(bulletDir * 30, ForceMode2D.Impulse);
+        m_knifeRb.AddForce(bulletDir * m_fireForce, ForceMode2D.Impulse);
     }
 
     public void StartKnifeReturn()
@@ -162,9 +172,8 @@ public class PlayerShootLogic : MonoBehaviour
         // Knife hit destination
         if (Vector3.Distance(m_knifeReference.transform.position, m_playerTrans.position) <= m_returnMagnitude)
         {
-            
-            m_knifeReference.SetActive(false);
-            m_ropeReference.SetActive(false);
+
+            SetRopeSpriteRenderer(false);
 
             m_isReturning = false;
             M_HasFired = false;
@@ -232,5 +241,14 @@ public class PlayerShootLogic : MonoBehaviour
         ApplyRopeDamage();
 
         m_tickCountdownStarted = false;
+    }
+
+    // Function is limited in usability but makes overall code more readable.
+    void SetRopeSpriteRenderer(bool isEnabled)
+    {
+        foreach (SpriteRenderer spr in m_allRopeRenderers)
+        {
+            spr.enabled = isEnabled;
+        }
     }
 }
