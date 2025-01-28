@@ -2537,7 +2537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &612632423
 Transform:
   m_ObjectHideFlags: 0
@@ -14385,7 +14385,7 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
+  m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0.45}
   m_ConnectedAnchor: {x: -0.0000003882206, y: -0.61000013}
   m_UseConnectedAnchor: 1
@@ -14396,7 +14396,7 @@ HingeJoint2D:
   m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_UpperAngle: 360
 --- !u!61 &1297675080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36376,7 +36376,7 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
+  m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0.45}
   m_ConnectedAnchor: {x: 0.00000020629543, y: -0.60299957}
   m_UseConnectedAnchor: 1
@@ -36387,7 +36387,7 @@ HingeJoint2D:
   m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_UpperAngle: 360
 --- !u!61 &1480320355
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36866,6 +36866,7 @@ GameObject:
   - component: {fileID: 1618778968}
   - component: {fileID: 1618778964}
   - component: {fileID: 1618778963}
+  - component: {fileID: 1618778970}
   m_Layer: 3
   m_Name: Character
   m_TagString: Player
@@ -37060,6 +37061,26 @@ MonoBehaviour:
   m_maxHealth: 6
   m_healthScript: {fileID: 1178326286}
   m_GameOverUI: {fileID: 157157166}
+--- !u!232 &1618778970
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618778961}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 364701833}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 0
+  m_Distance: 6
+  m_MaxDistanceOnly: 1
 --- !u!1 &1629291002
 GameObject:
   m_ObjectHideFlags: 0
@@ -37108,12 +37129,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerTrans: {fileID: 1618778962}
   m_firePointTrans: {fileID: 12930689}
+  m_fireForce: 65
+  m_amountOfForcesToApply: 20
   m_allRopeRenderers: []
   m_knifeReference: {fileID: 364701830}
   m_ropeReference: {fileID: 463248630}
   m_returnSpeed: 12
   m_returnMagnitude: 0.5
-  m_ropeMaxHealth: 0
+  m_ropeMaxHealth: 1000
   m_ropeDamageDistance: 4.6
 --- !u!114 &1629291005
 MonoBehaviour:
@@ -37501,7 +37524,7 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
+  m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0.45}
   m_ConnectedAnchor: {x: -0.00000039040617, y: -0.6}
   m_UseConnectedAnchor: 1
@@ -37512,7 +37535,7 @@ HingeJoint2D:
   m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_UpperAngle: 360
 --- !u!50 &1670532342
 Rigidbody2D:
   serializedVersion: 5
@@ -37900,7 +37923,7 @@ HingeJoint2D:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
+  m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0.45}
   m_ConnectedAnchor: {x: -0.0000009857964, y: -0.60300076}
   m_UseConnectedAnchor: 1
@@ -37911,7 +37934,7 @@ HingeJoint2D:
   m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_UpperAngle: 360
 --- !u!61 &1718940753
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39283,9 +39306,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3026251413107136939, guid: 77f0468356dcb264fb50d478d884e09b, type: 3}
+      propertyPath: m_UseLimits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026251413107136939, guid: 77f0468356dcb264fb50d478d884e09b, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 1025052413}
+    - target: {fileID: 3026251413107136939, guid: 77f0468356dcb264fb50d478d884e09b, type: 3}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 360
+      objectReference: {fileID: 0}
     - target: {fileID: 3280089090436010589, guid: 77f0468356dcb264fb50d478d884e09b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.20000008

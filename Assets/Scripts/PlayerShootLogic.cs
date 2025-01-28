@@ -107,6 +107,11 @@ public class PlayerShootLogic : MonoBehaviour
 
             m_forcesLeft--;
         }
+
+        if (m_knifeRb.bodyType == RigidbodyType2D.Kinematic)
+        {
+            m_knifeRb.MovePosition(m_playerTrans.position);
+        }
     }
 
     #region Handle Input Sys
@@ -185,7 +190,7 @@ public class PlayerShootLogic : MonoBehaviour
         // Knife hit destination
         if (Vector3.Distance(m_knifeReference.transform.position, m_playerTrans.position) <= m_returnMagnitude)
         {
-            m_knifeRb.bodyType = RigidbodyType2D.Static;
+            m_knifeRb.bodyType = RigidbodyType2D.Kinematic;
             SetRopeSpriteRenderer(false);
 
             m_isReturning = false;
@@ -193,8 +198,7 @@ public class PlayerShootLogic : MonoBehaviour
         }
         else
         {
-            // Use Rigidbody2D to move knife
-            m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
+            // Use Rigidbody2D to move knife;
             Vector2 direction = (m_playerTrans.position - m_knifeReference.transform.position).normalized;
             m_knifeRb.linearVelocity = direction * m_returnSpeed;
         }
