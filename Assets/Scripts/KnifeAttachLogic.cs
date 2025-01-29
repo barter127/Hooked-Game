@@ -111,6 +111,8 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
 
     public void DetachEnemy()
     {
+        m_isConnected = false;
+
         m_distanceJoint.connectedBody = null;
         m_distanceJoint.enabled = false;
     }

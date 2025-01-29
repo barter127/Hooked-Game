@@ -1744,7 +1744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84024531183f48449aa2b08e9473a25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachCooldownTimer: 0
+  attachCooldownTimer: 0.2
   m_hitFX: {fileID: 1845960914982522068, guid: b1c4ff2b9e41ab540b3e3c438d344147, type: 3}
   m_spawnOffset: {x: 0, y: 1.5, z: 0}
 --- !u!114 &364701837
@@ -2537,7 +2537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &612632423
 Transform:
   m_ObjectHideFlags: 0
@@ -37154,7 +37154,7 @@ MonoBehaviour:
   m_ropeReference: {fileID: 463248630}
   m_returnSpeed: 12
   m_returnMagnitude: 0.5
-  m_ropeMaxHealth: 1000
+  m_ropeMaxHealth: 6
   m_ropeDamageDistance: 4.6
 --- !u!114 &1629291005
 MonoBehaviour:
