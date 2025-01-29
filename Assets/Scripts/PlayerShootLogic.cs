@@ -145,6 +145,8 @@ public class PlayerShootLogic : MonoBehaviour
             m_isReturning = true;
             
             // Disable Knife Logic. Maybe this could be a method?
+            m_knifeAttachLogic.DetachEnemy();
+
             m_knifeAttachLogic.enabled = false;
             m_knifeFollowMouse.enabled = false;
         }
@@ -160,6 +162,7 @@ public class PlayerShootLogic : MonoBehaviour
 
         // Enable existing knife object.
         SetRopeSpriteRenderer(true);
+        m_knifeAttachLogic.enabled = true;
 
         m_knifeRb.bodyType = RigidbodyType2D.Dynamic;
 
@@ -201,7 +204,12 @@ public class PlayerShootLogic : MonoBehaviour
         {
             // Use Rigidbody2D to move knife;
             Vector2 direction = (m_playerTrans.position - m_knifeReference.transform.position).normalized;
-            m_knifeRb.linearVelocity = direction * m_returnSpeed;
+
+            if (m_knifeRb.bodyType == RigidbodyType2D.Dynamic)
+            {
+                m_knifeRb.linearVelocity = direction * m_returnSpeed;
+            }
+            
         }
 
     }

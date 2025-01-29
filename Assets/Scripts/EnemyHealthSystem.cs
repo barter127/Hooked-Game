@@ -75,11 +75,15 @@ public class EnemyHealthSystem : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Tag check might be unessecary and cause me headaches later.
-        if (collision.gameObject.CompareTag("Obstacle") && m_canTakeDamage)
-        {
-            ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier, m_attached);
 
-            StartCoroutine(PauseDamageDetection());
+        if (m_canTakeDamage)
+        {
+            if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
+            {
+                ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier, m_attached);
+
+                StartCoroutine(PauseDamageDetection());
+            }
         }
     }
 
@@ -97,7 +101,7 @@ public class EnemyHealthSystem : MonoBehaviour
         // Only shake cam if appropriate.
         if (attached)
         {
-            VFXManager.ShakeCamera(0.2f);
+            //VFXManager.ShakeCamera(0.2f);
         }
 
         // Destory on 0 health.
