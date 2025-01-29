@@ -16,25 +16,4 @@ public class CameraMovement : MonoBehaviour
             transform.position = targetPos;
         }
     }
-
-    public IEnumerator ShakeCamera(float duration)
-    {
-        Vector2 startPos = transform.position;
-
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-
-            // Create multiplier based on animation curve.
-            float shakeMultiplier = m_animationCurve.Evaluate(elapsedTime/duration);
-
-            // Shake X and Y axis without affecting z axis.
-            Vector2 shakePos = startPos + Random.insideUnitCircle * shakeMultiplier;
-            transform.position =  new Vector3(shakePos.x, shakePos.y, transform.position.z);
-            
-            yield return null;
-        }
-    }
 }
