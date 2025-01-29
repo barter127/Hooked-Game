@@ -67,7 +67,7 @@ public class TopDownCharacterController : MonoBehaviour
         // Update the animator speed to ensure that we revert to idle if the player doesn't move.
         m_animator.SetFloat("Speed", m_playerDirection.magnitude);
 
-        if (!PlayerShootLogic.M_HasFired)
+        if (!PlayerShootLogic.m_hasFired)
         {
             // Get mouse position in world space
             Vector3 mousePosition = Input.mousePosition;

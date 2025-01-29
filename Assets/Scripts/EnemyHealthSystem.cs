@@ -74,7 +74,6 @@ public class EnemyHealthSystem : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
         // Tag check might be unessecary and cause me headaches later.
         if (collision.gameObject.CompareTag("Obstacle") && m_canTakeDamage)
         {
@@ -90,12 +89,15 @@ public class EnemyHealthSystem : MonoBehaviour
         Instantiate(m_bloodFX, transform.position, Quaternion.identity);
 
         m_currentHealth -= damage;
+
         UpdateEnemyHealthBar();
+
+        VFXManager.SpawnBloodFX(transform.position);
 
         // Only shake cam if appropriate.
         if (attached)
         {
-            m_camMovement.StartShake();
+            VFXManager.ShakeCamera(0.2f);
         }
 
         // Destory on 0 health.

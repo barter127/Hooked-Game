@@ -27,7 +27,6 @@ public class PlayerShootLogic : MonoBehaviour
     [SerializeField] GameObject m_ropeReference;
 
     Rigidbody2D m_knifeRb;
-    HingeJoint2D m_knifeHingeJoint; // I LOVE UNITY!!!!!!!
     SpriteRenderer m_knifeRenderer;
     KnifeFollowMouse m_knifeFollowMouse;
     KnifeEnemyAttachLogic m_knifeAttachLogic;
@@ -38,7 +37,7 @@ public class PlayerShootLogic : MonoBehaviour
     [SerializeField] float m_returnMagnitude;
 
     // Maybe switch to get private set this is SCARY.
-    public static bool M_HasFired { get; private set; } = false;
+    public static bool m_hasFired { get; private set; } = false;
 
     bool m_isReturning;
 
@@ -54,30 +53,30 @@ public class PlayerShootLogic : MonoBehaviour
 
     void Start()
     {
-        // Knife object starts loaded.
-        M_HasFired = true;
+        // Get all rope renderers GOs.
+        GameObject[] ropeObjects = GameObject.FindGameObjectsWithTag("Rope");
 
-        // Return knife on start (prolly covered by fade in).
-        m_isReturning = true;
+        // Get the SpriteRenderers and add to the list.
+        foreach (GameObject go in ropeObjects)
+        {
+            m_allRopeRenderers.Add(go.GetComponent<SpriteRenderer>());
+        }
 
         m_ropeHealth = m_ropeMaxHealth;
 
         // Get components.
         m_knifeRb = m_knifeReference.GetComponent<Rigidbody2D>();
-        m_knifeHingeJoint = m_knifeReference.GetComponent<HingeJoint2D>();
         m_knifeRenderer = m_knifeReference.GetComponent<SpriteRenderer>();
 
         // Get scripts.
         m_knifeFollowMouse = m_knifeReference.GetComponent<KnifeFollowMouse>();
         m_knifeAttachLogic = m_knifeReference.GetComponent<KnifeEnemyAttachLogic>();
 
-        // Get all rope renderers add to array.
-        GameObject[] ropeObjects = GameObject.FindGameObjectsWithTag("Rope");
+        // Initialise rope vars and appearance.
+        m_hasFired = true;
+        m_isReturning = true;
 
-        foreach (GameObject go in ropeObjects)
-        {
-            m_allRopeRenderers.Add(go.GetComponent<SpriteRenderer>());
-        }
+        SetRopeSpriteRenderer(false);
     }
 
     private void Update()
@@ -98,6 +97,7 @@ public class PlayerShootLogic : MonoBehaviour
             ReturnKnife();
         }
 
+        // Check if forces should still be applied
         if (m_forcesLeft > 0)
         {
             // Get direction bullet needs to travel.
@@ -108,6 +108,7 @@ public class PlayerShootLogic : MonoBehaviour
             m_forcesLeft--;
         }
 
+        // When not visible move knifeRb with the player.
         if (m_knifeRb.bodyType == RigidbodyType2D.Kinematic)
         {
             m_knifeRb.MovePosition(m_playerTrans.position);
@@ -135,7 +136,7 @@ public class PlayerShootLogic : MonoBehaviour
     // Attack Button Pressed.
     void Attack(InputAction.CallbackContext context)
     {
-        if (!M_HasFired)
+        if (!m_hasFired)
         {
             FireKnife();
         }
@@ -152,7 +153,7 @@ public class PlayerShootLogic : MonoBehaviour
     // On click spawn knife and fire in mouse direction.
     void FireKnife()
     {
-        M_HasFired = true;
+        m_hasFired = true;
 
         // Get direction bullet needs to travel.
         Vector3 bulletDir = (m_firePointTrans.position - m_playerTrans.position).normalized;
@@ -194,7 +195,7 @@ public class PlayerShootLogic : MonoBehaviour
             SetRopeSpriteRenderer(false);
 
             m_isReturning = false;
-            M_HasFired = false;
+            m_hasFired = false;
         }
         else
         {
