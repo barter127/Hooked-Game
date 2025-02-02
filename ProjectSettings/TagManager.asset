@@ -12,6 +12,7 @@ TagManager:
   - Knife
   - Music Player
   - Rope
+  - Heal Item
   layers:
   - Default
   - TransparentFX

@@ -62,6 +62,8 @@ public class HealthManager : MonoBehaviour
     {
         m_currentHealth += increase;
         m_currentHealth = Mathf.Clamp(m_currentHealth, 0, m_maxHealth);
+
+        m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
     }
 
     // Increase players max health and current health by param.
@@ -93,5 +95,19 @@ public class HealthManager : MonoBehaviour
         }
 
         m_currentHealth += currentIncrease;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Heal Item") && m_currentHealth != m_maxHealth)
+        {
+            HealingAmount healVal = collision.gameObject.GetComponent<HealingAmount>();
+
+            Heal(healVal.HealValue);
+            print(healVal.HealValue);
+
+            // Destoy Heal Item.
+            Destroy(collision.gameObject);
+        }
     }
 }
