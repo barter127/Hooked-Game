@@ -6,35 +6,33 @@ public class VFXManager : MonoBehaviour
     /// <summary>
     /// Holds all methods for visual FX.
     /// </summary>
-
     static GameObject m_bloodFX;
     [SerializeField] AnimationCurve m_cameraShakeCurve;
 
-    
-    VFXManager instance;
+    static VFXManager instance;
 
     void Start()
     {
         instance = this;
 
-        // Will break if file is moved.
-        m_bloodFX = GameObject.Find("Assets / Prefabs / FX / Blood FX.prefab");
-        //m_camMovement = GameObject.Find("Camera").GetComponent<CameraMovement>();
+        // Load the Blood FX prefab from the Resources folder.
+        m_bloodFX = Resources.Load<GameObject>("Prefabs/FX/Blood FX");
     }
 
-    //public static void ShakeCamera(float duration)
-    //{
-    //    instance.StartCoroutine(instance.ShakeCameraRoutine(duration));
-    //}
-
+    // Instantiate blood particle system at position.
     public static void SpawnBloodFX(Vector3 spawnPosition)
     {
-        if (m_bloodFX ??= null)
+        if (m_bloodFX != null)
         {
             Instantiate(m_bloodFX, spawnPosition, Quaternion.identity);
         }
+        else
+        {
+            Debug.Log("Blood FX prefab was lost");
+        }
     }
 
+    // Shakes camera in random direction
     IEnumerator ShakeCameraRoutine(float duration)
     {
         Vector2 startPos = transform.position;
@@ -48,29 +46,31 @@ public class VFXManager : MonoBehaviour
             // Create multiplier based on animation curve.
             float shakeMultiplier = m_cameraShakeCurve.Evaluate(elapsedTime / duration);
 
-            // Shake X and Y axis without affecting z axis.
+            // Shake X and Y axis without affecting the z axis.
             Vector2 shakePos = startPos + Random.insideUnitCircle * shakeMultiplier;
             transform.position = new Vector3(shakePos.x, shakePos.y, transform.position.z);
 
             yield return null;
         }
+
+        // Reset position after shaking.
+        transform.position = new Vector3(startPos.x, startPos.y, transform.position.z);
     }
-    // FIXXXXX!!!!
 
-    //// Assumes sprites colour is already white
-    //public static void FlashRed(SpriteRenderer spr, float duration)
-    //{ 
-    //    instance.StartCoroutine(instance.FlashRedRoutine(spr, duration));
+    // Method to start coroutine for damage flash
+    public static void FlashRed(SpriteRenderer spr, float duration)
+    {
+        instance.StartCoroutine(instance.FlashRedRoutine(spr, duration));
+    }
 
-    //}
+    // Coroutine to flash red.
+    private IEnumerator FlashRedRoutine(SpriteRenderer spr, float duration)
+    {
+        Color initialColour = spr.color;
+        spr.color = Color.red;
 
-    //private static IEnumerator FlashRedRoutine(SpriteRenderer spr, float duration)
-    //{
-    //    Color initialColour = spr.color;
-    //    spr.color = Color.red;
+        yield return new WaitForSeconds(duration);
 
-    //    yield return new WaitForSeconds(duration);
-
-    //    spr.color = initialColour;
-    //}
+        spr.color = initialColour;
+    }
 }

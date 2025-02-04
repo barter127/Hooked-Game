@@ -19,8 +19,8 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
     // Enemy RB
     Rigidbody2D m_enemyRigidbody;
 
-    KnifeFollowMouse m_knifeFollowMouse;
-    PlayerShootLogic m_playerShootLogic;
+    public KnifeFollowMouse m_knifeFollowMouse;
+    public PlayerShootLogic m_playerShootLogic;
 
     // Prevents attach being too quick.
     [SerializeField] float attachCooldownTimer;
@@ -36,7 +36,8 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
 
         m_knifeFollowMouse = GetComponent<KnifeFollowMouse>();
 
-        m_playerShootLogic = GetComponent<PlayerShootLogic>();
+        GameObject gunObj = GameObject.Find("Gun");
+        m_playerShootLogic = gunObj.GetComponent<PlayerShootLogic>();
 
         m_distanceJoint.enabled = false;
     }
