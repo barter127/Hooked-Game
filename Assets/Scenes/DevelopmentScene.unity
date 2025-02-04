@@ -1693,7 +1693,7 @@ DistanceJoint2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364701830}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 0}
@@ -1744,6 +1744,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84024531183f48449aa2b08e9473a25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_knifeFollowMouse: {fileID: 0}
+  m_playerShootLogic: {fileID: 0}
   attachCooldownTimer: 0.2
   m_hitFX: {fileID: 1845960914982522068, guid: b1c4ff2b9e41ab540b3e3c438d344147, type: 3}
   m_spawnOffset: {x: 0, y: 1.5, z: 0}
@@ -2537,7 +2539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &612632423
 Transform:
   m_ObjectHideFlags: 0
@@ -5501,7 +5503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &787399129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14107,7 +14109,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cameraShakeCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.972973
+      outSlope: 0.972973
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.15416667
+      value: 0.15
+      inSlope: -0.05256069
+      outSlope: -0.05256069
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13793105
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.17733991
+      outSlope: -0.17733991
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -30463,39 +30492,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerTrans: {fileID: 1618778962}
-  m_animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1.1209922
-      outSlope: 1.1209922
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.13381004
-      value: 0.15
-      inSlope: 0.0033919092
-      outSlope: 0.0033919092
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.07160473
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -0.17317218
-      outSlope: -0.17317218
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1430804846
 GameObject:
   m_ObjectHideFlags: 0
@@ -37342,7 +37338,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1.25
-  m_LinearDamping: 3
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -39522,6 +39518,8 @@ SceneRoots:
   - {fileID: 1803052489}
   - {fileID: 1618778962}
   - {fileID: 1025052415}
+  - {fileID: 463248632}
+  - {fileID: 364701838}
   - {fileID: 1178326287}
   - {fileID: 612632423}
   - {fileID: 787399130}
@@ -39533,9 +39531,7 @@ SceneRoots:
   - {fileID: 1153879656}
   - {fileID: 708318023}
   - {fileID: 619151132}
-  - {fileID: 364701838}
   - {fileID: 1139348556}
-  - {fileID: 463248632}
   - {fileID: 1701239601}
   - {fileID: 1292253234}
   - {fileID: 782515278}

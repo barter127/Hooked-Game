@@ -3,7 +3,7 @@ using System.IO;
 
 public class JsonReadWriteSystem : MonoBehaviour
 {
-    public static void SaveDeathStatisticData(int totalDeaths, int totalKills)
+    public static void SaveStatisticData(int totalDeaths, int totalKills)
     {
         PlayerSaveData data = new PlayerSaveData();
         data.m_totalDeaths = totalDeaths;
@@ -13,7 +13,7 @@ public class JsonReadWriteSystem : MonoBehaviour
         File.WriteAllText(Application.dataPath + "/PlayerSaveDataFile.json", json);
     }
 
-    public static PlayerSaveData LoadDeathStatisticData()
+    public static PlayerSaveData LoadStatisticData()
     {
         string json = File.ReadAllText(Application.dataPath + "/PlayerSaveDataFile.json");
         PlayerSaveData data = JsonUtility.FromJson<PlayerSaveData>(json);

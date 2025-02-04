@@ -34,13 +34,13 @@ public class GameOverStatManager : MonoBehaviour
     void OnEnable()
     {
         // Get reference to saved statistics.
-        PlayerSaveData data = JsonReadWriteSystem.LoadDeathStatisticData();
+        PlayerSaveData data = JsonReadWriteSystem.LoadStatisticData();
 
         UpdateDeathText(data);
         UpdateKillsText();
         UpdateTimerText();
 
-        JsonReadWriteSystem.SaveDeathStatisticData(m_deaths, m_kills);
+        JsonReadWriteSystem.SaveStatisticData(m_deaths, m_kills);
     }
 
     void UpdateDeathText(PlayerSaveData data)

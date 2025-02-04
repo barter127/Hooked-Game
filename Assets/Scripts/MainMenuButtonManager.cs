@@ -31,6 +31,11 @@ public class MainMenuButtonManager : MonoBehaviour
         m_controlsPanel.SetActive(true);
     }
 
+    public void StatsButtonClicked()
+    {
+
+    }
+
     public void XButtonClicked()
     {
         // Suboptimal but allows method to be reused.
