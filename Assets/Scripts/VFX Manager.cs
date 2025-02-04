@@ -4,8 +4,9 @@ using UnityEngine;
 public class VFXManager : MonoBehaviour
 {
     /// <summary>
-    /// Holds all methods for visual FX.
+    /// Holds all static methods for visual FX.
     /// </summary>
+
     static GameObject m_bloodFX;
     [SerializeField] AnimationCurve m_cameraShakeCurve;
 

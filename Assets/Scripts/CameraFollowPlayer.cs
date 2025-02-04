@@ -5,8 +5,6 @@ public class CameraMovement : MonoBehaviour
 {
     // Player location reference.
     [SerializeField] Transform m_playerTrans;
-    // Controls shake intensity.
-    [SerializeField] AnimationCurve m_animationCurve;
 
     void Update()
     {
