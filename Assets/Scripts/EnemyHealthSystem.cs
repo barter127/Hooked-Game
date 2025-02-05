@@ -76,7 +76,7 @@ public class EnemyHealthSystem : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (m_canTakeDamage || m_attached)
+        if (m_attached && m_canTakeDamage)
         {
             // Tag check might be unessecary and cause me headaches later.
             if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
@@ -98,10 +98,9 @@ public class EnemyHealthSystem : MonoBehaviour
         UpdateEnemyHealthBar();
 
         VFXManager.SpawnBloodFX(transform.position);
-        VFXManager.FlashRed(m_spriteRenderer ,0.2f);
         
 
-        // Only shake cam if appropriate.
+        // Allow only one enemy to shake camera.
         if (attached)
         {
             VFXManager.ShakeCamera(0.2f);
@@ -116,6 +115,12 @@ public class EnemyHealthSystem : MonoBehaviour
             // Maybe switch to object pooling.
             Destroy(gameObject);
         }
+
+        // Tries to set destroyed component otherwise. 
+        else
+        {
+            VFXManager.FlashRed(m_spriteRenderer, 0.2f);
+        }
     }
 
     // Update health bar.
@@ -126,7 +131,7 @@ public class EnemyHealthSystem : MonoBehaviour
         m_healthBar.fillAmount = healthPercentage;
     }
 
-    // 
+    // Because of ricocheting rbs AI could instadie. Temporarily sets bool to false.
     IEnumerator PauseDamageDetection()
     {
         m_canTakeDamage = false;

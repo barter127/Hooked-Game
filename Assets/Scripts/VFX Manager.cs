@@ -67,20 +67,23 @@ public class VFXManager : MonoBehaviour
     // Method to start coroutine for damage flash
     public static void FlashRed(SpriteRenderer spr, float duration)
     {
+        // Stop current coroutine
+        instance.StopCoroutine(instance.FlashRedRoutine(spr, duration));
+
+        // Start/Renew the new one.
         instance.StartCoroutine(instance.FlashRedRoutine(spr, duration));
     }
 
-    // Coroutine to flash red.
+    // Currently only works for sprites with colour white. Had issue if multiple coroutines ran at a time.
     private IEnumerator FlashRedRoutine(SpriteRenderer spr, float duration)
     {
         if (spr != null)
         {
-            Color initialColour = spr.color;
             spr.color = Color.red;
 
             yield return new WaitForSeconds(duration);
 
-            spr.color = initialColour;
+            spr.color = Color.white;
         }
     }
 }

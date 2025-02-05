@@ -43,7 +43,8 @@ public class PauseGame : MonoBehaviour
     // Pause and display UI if not paused. Unpause and remove UI if paused.
     void Pause()
     {
-        if (!m_isPaused)
+        // Check if paused or if game has been frozen for any other reason (death).
+        if (!m_isPaused && Time.timeScale != 0)
         {
             m_isPaused = true;
 
