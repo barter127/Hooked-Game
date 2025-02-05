@@ -13,7 +13,7 @@ public class GameOverStatManager : MonoBehaviour
     Stopwatch m_stopwatch;
 
     static int m_deaths;
-    static float m_gameTime;
+    static float m_totalInGameTime; // Time across all play sessions.
     static int m_kills;
 
     [Header ("Text References")]
@@ -38,9 +38,9 @@ public class GameOverStatManager : MonoBehaviour
 
         UpdateDeathText(data);
         UpdateKillsText();
-        UpdateTimerText();
+        UpdateTimerText(data);
 
-        JsonReadWriteSystem.SaveStatisticData(m_deaths, m_kills);
+        JsonReadWriteSystem.SaveStatisticData(m_deaths, m_kills, m_totalInGameTime);
     }
 
     void UpdateDeathText(PlayerSaveData data)
@@ -57,10 +57,13 @@ public class GameOverStatManager : MonoBehaviour
         m_killsText.text = m_kills.ToString();
     }
 
-    void UpdateTimerText()
+    void UpdateTimerText(PlayerSaveData data)
     {
         m_stopwatch.Stop();
         m_gameTimeText.text = FloatToTimer((float) m_stopwatch.Elapsed.TotalSeconds);
+
+        m_totalInGameTime = data.m_totalInGameSeconds;
+        m_totalInGameTime += (float) m_stopwatch.Elapsed.TotalSeconds;
     }
 
     public static void IncrementKillCount()

@@ -13,6 +13,7 @@ public class MainMenuButtonManager : MonoBehaviour
     [SerializeField] GameObject m_mainMenuPanel;
     [SerializeField] GameObject m_optionsPanel;
     [SerializeField] GameObject m_controlsPanel;
+    [SerializeField] GameObject m_statPanel;
 
     public void StartButtonClicked()
     {
@@ -33,7 +34,8 @@ public class MainMenuButtonManager : MonoBehaviour
 
     public void StatsButtonClicked()
     {
-
+        m_mainMenuPanel.SetActive(false);
+        m_statPanel.SetActive(true);
     }
 
     public void XButtonClicked()
@@ -42,6 +44,7 @@ public class MainMenuButtonManager : MonoBehaviour
         // Performance loss is fractional don't bother optimising.
         m_optionsPanel.SetActive(false);
         m_controlsPanel.SetActive(false);
+        m_statPanel.SetActive(false);
 
         m_mainMenuPanel.SetActive(true);
     }

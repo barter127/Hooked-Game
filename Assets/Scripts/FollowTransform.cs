@@ -18,6 +18,9 @@ public class FollowTransform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = m_transformToFollow.position + m_offsetFromTarget;
+        if (m_transformToFollow != null)
+        {
+            transform.position = m_transformToFollow.position + m_offsetFromTarget;
+        }
     }
 }
