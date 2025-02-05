@@ -17,7 +17,7 @@ public class VFXManager : MonoBehaviour
         instance = this;
 
         // Load the Blood FX prefab from the Resources folder.
-        m_bloodFX = Resources.Load<GameObject>("Prefabs/FX/Blood FX");
+        m_bloodFX = GameObject.Find("Prefabs/FX/Blood FX");
     }
 
     // Instantiate blood particle system at position.
@@ -33,8 +33,14 @@ public class VFXManager : MonoBehaviour
         }
     }
 
-    // Shakes camera in random direction
-    IEnumerator ShakeCameraRoutine(float duration)
+    // Method to call camshake coroutine.
+    public static void ShakeCamera(float duration)
+    {
+        instance.StartCoroutine(instance.ShakeCameraRoutine(duration));
+    }
+
+    // Coroutine to shake camera in random direction for duration seconds.
+    private IEnumerator ShakeCameraRoutine(float duration)
     {
         Vector2 startPos = transform.position;
 
@@ -67,11 +73,14 @@ public class VFXManager : MonoBehaviour
     // Coroutine to flash red.
     private IEnumerator FlashRedRoutine(SpriteRenderer spr, float duration)
     {
-        Color initialColour = spr.color;
-        spr.color = Color.red;
+        if (spr != null)
+        {
+            Color initialColour = spr.color;
+            spr.color = Color.red;
 
-        yield return new WaitForSeconds(duration);
+            yield return new WaitForSeconds(duration);
 
-        spr.color = initialColour;
+            spr.color = initialColour;
+        }
     }
 }

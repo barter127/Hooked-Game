@@ -20,32 +20,12 @@ public class HealthManager : MonoBehaviour
         m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Damage")
-        {
-            TakeDamage(1);
-        }
-        
-        else if (collision.tag == "Max Health")
-        {
-            AddMaxHealth(1);
-        }
-
-        else if (collision.tag == "Heal")
-        {
-            Heal(1);
-        }
-
-        // Update UI.
-        m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
-    }
-
     // Deal damage to player & Update UI.
     void TakeDamage(int damage)
     {
         // Damage will generally always be 1 but -= var offers flexibility.
         m_currentHealth -= damage;
+        m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
 
         if (m_currentHealth <= 0)
         {
@@ -81,6 +61,8 @@ public class HealthManager : MonoBehaviour
         {
             m_currentHealth += maxIncrease;
         }
+
+        m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
     }
 
     // Increase players max health by maxIncrease and currentHealth by currentIncrease.
@@ -95,6 +77,8 @@ public class HealthManager : MonoBehaviour
         }
 
         m_currentHealth += currentIncrease;
+
+        m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -104,10 +88,19 @@ public class HealthManager : MonoBehaviour
             HealingAmount healVal = collision.gameObject.GetComponent<HealingAmount>();
 
             Heal(healVal.HealValue);
-            print(healVal.HealValue);
 
             // Destoy Heal Item.
             Destroy(collision.gameObject);
+        }
+
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(1);
+        }
+
+        else if (collision.gameObject.CompareTag("Max Health"))
+        {
+            AddMaxHealth(1);
         }
     }
 }

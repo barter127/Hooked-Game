@@ -14,6 +14,7 @@ public class EnemyHealthSystem : MonoBehaviour
 
     // --- Components ---
     Rigidbody2D m_rigidbody;
+    SpriteRenderer m_spriteRenderer;
 
     // Inconsistent component referencing but GetComponent acts weirdly and can get the wrong Image. 
     [SerializeField] Image m_healthBar;
@@ -43,6 +44,7 @@ public class EnemyHealthSystem : MonoBehaviour
         m_currentHealth = m_maxHealth;
 
         m_rigidbody = GetComponent<Rigidbody2D>();
+        m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -74,10 +76,9 @@ public class EnemyHealthSystem : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Tag check might be unessecary and cause me headaches later.
-
-        if (m_canTakeDamage)
+        if (m_canTakeDamage || m_attached)
         {
+            // Tag check might be unessecary and cause me headaches later.
             if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
             {
                 ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier, m_attached);
@@ -97,11 +98,13 @@ public class EnemyHealthSystem : MonoBehaviour
         UpdateEnemyHealthBar();
 
         VFXManager.SpawnBloodFX(transform.position);
+        VFXManager.FlashRed(m_spriteRenderer ,0.2f);
+        
 
         // Only shake cam if appropriate.
         if (attached)
         {
-            //VFXManager.ShakeCamera(0.2f);
+            VFXManager.ShakeCamera(0.2f);
         }
 
         // Destory on 0 health.
