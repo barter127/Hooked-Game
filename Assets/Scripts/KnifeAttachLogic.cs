@@ -36,6 +36,7 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
 
         m_knifeFollowMouse = GetComponent<KnifeFollowMouse>();
 
+        // Could get GO through SerializeField but wouldn't be used anywhere else.
         GameObject gunObj = GameObject.Find("Gun");
         m_playerShootLogic = gunObj.GetComponent<PlayerShootLogic>();
 

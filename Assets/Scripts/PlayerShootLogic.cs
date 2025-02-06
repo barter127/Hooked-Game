@@ -2,9 +2,16 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PlayerShootLogic : MonoBehaviour
 {
+    /// <summary>
+    ///  Handles the rope shoot logic
+    ///  Turns of rope and knife rendering
+    ///  Initialises Rope health UI and uses it's methods
+    /// </summary>
+
     #region Variables
     // Player Transform.
     [SerializeField] Transform m_playerTrans;
@@ -15,17 +22,25 @@ public class PlayerShootLogic : MonoBehaviour
 
     InputAction m_attackAction;
 
+    // Force applied when firing
     [SerializeField] float m_fireForce;
     [SerializeField] int m_amountOfForcesToApply;
+
+    // Rope Health Bar References
+    [SerializeField] GameObject m_ropeHealthPanel;
+    [SerializeField] RopeHealthLogic m_ropeHealthLogic;
     int m_forcesLeft;
 
     [Header("Knife Return")]
 
-    public List<SpriteRenderer> m_allRopeRenderers = new List<SpriteRenderer>();
+    // A list of all the rope renderers.
+    List<SpriteRenderer> m_allRopeRenderers = new List<SpriteRenderer>();
+
     // Knife Prefab.
     [SerializeField] GameObject m_knifeReference;
     [SerializeField] GameObject m_ropeReference;
 
+    // Knife Components
     Rigidbody2D m_knifeRb;
     SpriteRenderer m_knifeRenderer;
     KnifeFollowMouse m_knifeFollowMouse;
@@ -36,7 +51,6 @@ public class PlayerShootLogic : MonoBehaviour
     // Distance needed to return knife.
     [SerializeField] float m_returnMagnitude;
 
-    // Maybe switch to get private set this is SCARY.
     public static bool m_hasFired { get; private set; } = false;
 
     bool m_isReturning;
@@ -73,7 +87,7 @@ public class PlayerShootLogic : MonoBehaviour
         m_knifeAttachLogic = m_knifeReference.GetComponent<KnifeEnemyAttachLogic>();
 
         // Initialise rope vars and appearance.
-        m_hasFired = true;
+        m_hasFired = false;
         m_isReturning = true;
 
         SetRopeSpriteRenderer(false);
@@ -138,17 +152,20 @@ public class PlayerShootLogic : MonoBehaviour
     {
         if (!m_hasFired)
         {
+            Debug.Log("HI");
+
             FireKnife();
         }
         else
         {
-            m_isReturning = true;
-            
-            // Disable Knife Logic. Maybe this could be a method?
-            m_knifeAttachLogic.DetachEnemy();
+            Debug.Log("Return");
+            // Prevents recalling the knife if attached to a wall or enemy.
+            if (!m_knifeAttachLogic.m_isConnected)
+            {
+                Debug.Log("Actual return");
 
-            m_knifeAttachLogic.enabled = false;
-            m_knifeFollowMouse.enabled = false;
+                StartKnifeReturn();
+            }
         }
     }
 
@@ -169,6 +186,8 @@ public class PlayerShootLogic : MonoBehaviour
         // Fire projectile in direction. Rotated to face direction.
         m_knifeRb.linearVelocity = Vector3.zero; // Reset velocity to ensure accurate force application.
         m_forcesLeft = m_amountOfForcesToApply;
+
+        m_ropeHealthPanel.SetActive(true);
     }
 
     public void StartKnifeReturn()
@@ -181,6 +200,8 @@ public class PlayerShootLogic : MonoBehaviour
 
         // Ensure knife values are correct.
         m_knifeAttachLogic.DetatchEnemy();
+
+        m_ropeHealthPanel.SetActive(false);
     }
 
     // Move towards player. Delete at destination.
