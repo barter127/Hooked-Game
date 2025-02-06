@@ -23,6 +23,8 @@ public class StraightToPathfinding : MonoBehaviour
 
     // Idle jitter
     bool m_inIdleMovement = false;
+    [SerializeField] float m_idleMoveRate;
+    [SerializeField] float m_idleMoveDistance;
     Coroutine m_idleMoveIntervals;
     Vector2 m_idleMoveTarget;
 
@@ -97,11 +99,11 @@ public class StraightToPathfinding : MonoBehaviour
 
     IEnumerator IdleMoveIntervals()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(m_idleMoveRate);
 
         // Create new target pos.
-        m_idleMoveTarget = new Vector2 (transform.position.x + Random.insideUnitCircle.x * 2, 
-                                        transform.position.y + Random.insideUnitCircle.y * 2);
+        m_idleMoveTarget = new Vector2 (transform.position.x + Random.insideUnitCircle.x * m_idleMoveDistance, 
+                                        transform.position.y + Random.insideUnitCircle.y * m_idleMoveDistance);
 
         m_inIdleMovement = true;
         m_idleMoveIntervals = null;
@@ -168,6 +170,14 @@ public class StraightToPathfinding : MonoBehaviour
     void ChangeState(AIState newState)
     {
         m_currentState = newState;
+
+        switch (newState)
+        {
+            case AIState.Moving:
+                // Prevents clash with idle movement and target movement.
+                m_inIdleMovement = false;
+                break;
+        }
     }
 
     #endregion
