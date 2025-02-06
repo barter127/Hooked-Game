@@ -14,6 +14,8 @@ public class StraightToPathfinding : MonoBehaviour
     [SerializeField] Transform m_targetTransform;
     [SerializeField] float m_speed;
 
+    Rigidbody2D m_rigidbody;
+
     // Movement bools (restricts movement)
     bool m_canMove = true;
 
@@ -39,13 +41,12 @@ public class StraightToPathfinding : MonoBehaviour
 
     void Start()
     {
+        m_rigidbody = GetComponent<Rigidbody2D>();
         m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        Debug.Log(m_currentState);
-
         // Target is valid.
         if (m_targetTransform != null)
         {
@@ -54,7 +55,9 @@ public class StraightToPathfinding : MonoBehaviour
             {
                 CheckDirectionToFace(transform.position.x > m_idleMoveTarget.x);
 
-                transform.position = Vector2.MoveTowards(transform.position, m_idleMoveTarget, m_speed * Time.deltaTime);
+                // Move to target.
+                Vector2 movePos = Vector2.MoveTowards(transform.position, m_idleMoveTarget, m_speed * Time.deltaTime);
+                m_rigidbody.MovePosition(movePos);
 
                 // AI hit target position.
                 if (Vector2.Distance(transform.position, m_idleMoveTarget) < 0.01f)
@@ -77,7 +80,8 @@ public class StraightToPathfinding : MonoBehaviour
         if (m_currentState == AIState.Moving && m_canMove)
         {
             // Move at consistent rate towards target.
-            transform.position = Vector2.MoveTowards(transform.position, m_targetTransform.position, m_speed * Time.fixedDeltaTime);
+            Vector2 movePos = Vector2.MoveTowards(transform.position, m_targetTransform.position, m_speed * Time.fixedDeltaTime);
+            m_rigidbody.MovePosition(movePos);
         }
         else if (m_currentState == AIState.Idle)
         {
