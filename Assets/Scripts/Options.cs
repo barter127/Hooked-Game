@@ -1,12 +1,10 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Options : MonoBehaviour
 {
-    public float m_musicVolume { get; private set; }
-    public float m_sfxVolume { get; private set; }
-
     // Audio Player.
     public AudioSource m_musicSource;
 
@@ -20,17 +18,29 @@ public class Options : MonoBehaviour
         m_musicSlider.onValueChanged.AddListener(OnMusicSliderValueChanged);
         m_sfxSlider.onValueChanged.AddListener(OnSFXSliderValueChanged);
 
-        // Set initial volume values.
-        m_musicVolume = m_musicSlider.value;
-        m_sfxVolume = m_sfxSlider.value;
+        // Subscribe to the activeSceneChanged event
+        SceneManager.activeSceneChanged += ChangedActiveScene;
+
+        SettingsData settingsData = JsonReadWriteSystem.LoadSettingsData();
+
+        // File doesn't exist (probably because first time playing)
+        if (settingsData == null)
+        {
+            SettingsData defaultSettings = new SettingsData();
+
+            defaultSettings.musicVolume = 0.5f;
+            defaultSettings.sfxVolume = 0.5f;
+
+            JsonReadWriteSystem.SaveSettingsData(defaultSettings);
+
+        }
 
         // Find the music player and set the volume again.
         GameObject musicPlayer = GameObject.FindWithTag("Music Player");
         m_musicSource = musicPlayer.GetComponent<AudioSource>();
-        m_musicSource.volume = m_musicVolume;
 
-        // Subscribe to the activeSceneChanged event
-        SceneManager.activeSceneChanged += ChangedActiveScene;
+        m_musicSource.volume = JsonReadWriteSystem.GetMusicVolume();
+        m_musicSlider.value = m_musicSource.volume;
     }
 
     void ChangedActiveScene(Scene current, Scene next)
@@ -38,18 +48,18 @@ public class Options : MonoBehaviour
         // Find the music player and set the volume again.
         GameObject musicPlayer = GameObject.FindWithTag("Music Player");
         m_musicSource = musicPlayer.GetComponent<AudioSource>();
-        m_musicSource.volume = m_musicVolume;
+        //m_musicSource.volume = JsonReadWriteSystem.GetMusicVolume();
     }
 
     void OnMusicSliderValueChanged(float value)
     {
-        m_musicVolume = value;
-        m_musicSource.volume = m_musicVolume;
+        m_musicSource.volume = value;
+
+        JsonReadWriteSystem.SetMusicVolume(value);
     }
 
     void OnSFXSliderValueChanged(float value)
     {
         Debug.Log("SFX Slider Value Changed: " + value);
-        // Add your custom logic here for the SFX slider
     }
 }

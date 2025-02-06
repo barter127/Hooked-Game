@@ -900,7 +900,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 8
+  m_Radius: 6
 --- !u!50 &209903536
 Rigidbody2D:
   serializedVersion: 5
@@ -997,7 +997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camMovement: {fileID: 1409543581}
   m_healthBar: {fileID: 1730227181}
-  m_maxHealth: 50
+  m_maxHealth: 200
   m_canTakeDamage: 1
   m_bloodFX: {fileID: 6732259602974365115, guid: df8c081d7459d564985f85bac4f7b74e, type: 3}
 --- !u!114 &209903539
@@ -1014,7 +1014,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 5917171068558311975, guid: aedd39d1e346dbf4188ddbb22f4a83e6, type: 3}
   m_target: {fileID: 1618778962}
-  m_fireTimerLength: 4
+  m_fireTimerLength: 2.5
+  m_pauseLength: 0.15
   m_firePoint: {fileID: 1816768526}
 --- !u!114 &209903540
 MonoBehaviour:
@@ -1030,7 +1031,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_targetTransform: {fileID: 1618778962}
   m_speed: 1.8
-  m_inView: 0
+  m_idleMoveRate: 0
+  m_idleMoveDistance: 0
 --- !u!4 &209903541
 Transform:
   m_ObjectHideFlags: 0
@@ -1040,13 +1042,13 @@ Transform:
   m_GameObject: {fileID: 209903532}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.38, y: 2.73, z: -3.1145985}
+  m_LocalPosition: {x: -5.7, y: 3.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 28681702}
   - {fileID: 1816768526}
-  m_Father: {fileID: 995480251}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &235653437
 GameObject:
@@ -6013,7 +6015,6 @@ Transform:
   m_Children:
   - {fileID: 1139348556}
   - {fileID: 1407629168}
-  - {fileID: 209903541}
   - {fileID: 1145514285}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20208,7 +20209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_targetTransform: {fileID: 1618778962}
   m_speed: 2
-  m_inView: 0
+  m_idleMoveRate: 0
+  m_idleMoveDistance: 0
 --- !u!4 &1407629168
 Transform:
   m_ObjectHideFlags: 0
@@ -39068,7 +39070,7 @@ Transform:
   m_GameObject: {fileID: 1816768525}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.026999474, y: -0.28067446, z: -2.9072678}
+  m_LocalPosition: {x: 0.06, y: -0.28067446, z: -2.9072678}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39938,6 +39940,8 @@ SceneRoots:
   - {fileID: 364701838}
   - {fileID: 612632423}
   - {fileID: 787399130}
+  - {fileID: 209903541}
+  - {fileID: 995480251}
   - {fileID: 615537640}
   - {fileID: 1659169397}
   - {fileID: 1153879656}
@@ -39947,4 +39951,3 @@ SceneRoots:
   - {fileID: 1292253234}
   - {fileID: 782515278}
   - {fileID: 1632505578}
-  - {fileID: 995480251}
