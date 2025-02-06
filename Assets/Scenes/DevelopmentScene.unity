@@ -1214,10 +1214,10 @@ RectTransform:
   - {fileID: 1864328446}
   m_Father: {fileID: 615537640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.022499999, y: 0.87233335}
-  m_AnchorMax: {x: 0.328, y: 0.9733333}
-  m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: -0.24320221, y: 0.2848997}
+  m_AnchorMin: {x: 0, y: 0.89455575}
+  m_AnchorMax: {x: 0.30925003, y: 1}
+  m_AnchoredPosition: {x: 1, y: 0.1000061}
+  m_SizeDelta: {x: -3.2432022, y: -1.7151003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &283817584
 MonoBehaviour:
@@ -2032,14 +2032,14 @@ RectTransform:
   m_GameObject: {fileID: 439222451}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.530851, y: 0.5060443, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 615537640}
+  m_Father: {fileID: 589339489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -107.60458, y: -173.29999}
+  m_AnchoredPosition: {x: -57.12199, y: -1.1639099}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &439222453
@@ -2534,13 +2534,14 @@ GameObject:
   - component: {fileID: 589339489}
   - component: {fileID: 589339491}
   - component: {fileID: 589339490}
+  - component: {fileID: 589339492}
   m_Layer: 5
   m_Name: Rope Health Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &589339489
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2552,7 +2553,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.8837677, y: 1.9761113, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1654856160}
+  - {fileID: 1649915078}
+  - {fileID: 439222452}
   m_Father: {fileID: 615537640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -2598,6 +2602,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589339488}
   m_CullTransparentMesh: 1
+--- !u!114 &589339492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589339488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e691dd4094acc438b08ab0da3025ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_healthBar: {fileID: 1649915079}
 --- !u!1 &601121669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,9 +2897,6 @@ RectTransform:
   - {fileID: 157157167}
   - {fileID: 11659563}
   - {fileID: 589339489}
-  - {fileID: 1654856160}
-  - {fileID: 1649915078}
-  - {fileID: 439222452}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -37395,12 +37409,13 @@ MonoBehaviour:
   m_firePointTrans: {fileID: 12930689}
   m_fireForce: 65
   m_amountOfForcesToApply: 20
-  m_allRopeRenderers: []
+  m_ropeHealthPanel: {fileID: 589339488}
+  m_ropeHealthLogic: {fileID: 589339492}
   m_knifeReference: {fileID: 364701830}
   m_ropeReference: {fileID: 463248630}
   m_returnSpeed: 12
   m_returnMagnitude: 0.5
-  m_ropeMaxHealth: 6
+  m_ropeMaxHealth: 8000
   m_ropeDamageDistance: 4.6
 --- !u!114 &1629291005
 MonoBehaviour:
@@ -37853,14 +37868,14 @@ RectTransform:
   m_GameObject: {fileID: 1649915077}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.41666666, y: 0.41666666, z: 0.41666666}
+  m_LocalScale: {x: 0.2211879, y: 0.2108518, z: 0.41666666}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 615537640}
+  m_Father: {fileID: 589339489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 37.5}
+  m_AnchoredPosition: {x: 0, y: 14.292728}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649915079
@@ -37928,14 +37943,14 @@ RectTransform:
   m_GameObject: {fileID: 1654856159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.41666666, y: 0.41666666, z: 0.41666666}
+  m_LocalScale: {x: 0.2211879, y: 0.2108518, z: 0.41666666}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 615537640}
+  m_Father: {fileID: 589339489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 37.5}
+  m_AnchoredPosition: {x: 0, y: 14.292728}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1654856161

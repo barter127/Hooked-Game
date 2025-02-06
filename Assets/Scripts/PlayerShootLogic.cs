@@ -93,12 +93,12 @@ public class PlayerShootLogic : MonoBehaviour
         SetRopeSpriteRenderer(false);
     }
 
-    private void Update()
+    void Update()
     {
         // Only check if rope should be damaged when attached.
         if (m_knifeAttachLogic.m_isConnected)
         {
-            CheckRopeDamage();
+            ApplyRopeDamage();
         }
         
     }
@@ -235,26 +235,13 @@ public class PlayerShootLogic : MonoBehaviour
 
     }
 
-    // If player is too far from knife apply rope damage based on distance or intensity of forces
+    // Apply rope damage based on distance
     // Return Knife if rope health is 0.
-    // Alot of nesting but I don't think it's excessive.
-    void CheckRopeDamage()
-    {
-        // Distance between player and knife.
-        float distance = Vector3.Distance(m_playerTrans.position, m_knifeReference.transform.position);
-        if (distance > m_ropeDamageDistance)
-        {
-            if (!m_tickCountdownStarted)
-            {
-                ApplyRopeDamage();
-            }
-        }
-    }
-
-    // Apply damage to the rope
     void ApplyRopeDamage()
     {
-        m_ropeHealth -= 1;
+        float distance = Vector3.Distance(m_playerTrans.position, m_knifeReference.transform.position);
+
+        m_ropeHealth -= distance;
 
         float healthDecimal = m_ropeHealth / m_ropeMaxHealth;
         m_ropeHealthLogic.UpdateRopeHealthBar(healthDecimal);
