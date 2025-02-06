@@ -5,6 +5,7 @@ public class EnemyFire : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] Transform m_target;
     [SerializeField] float m_fireTimerLength;
+    [SerializeField] float m_pauseLength;
     float m_fireTimer;
 
     [SerializeField] Transform m_firePoint;
@@ -21,9 +22,9 @@ public class EnemyFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_fireTimer <= 0 && m_movement.m_inView)
+        if (m_fireTimer <= 0 && m_movement.m_currentState == StraightToPathfinding.AIState.Moving)
         {
-            m_movement.PauseAIMovement(0.25f);
+            m_movement.PauseAIMovement(m_pauseLength);
 
             FireBullet();
 

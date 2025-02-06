@@ -80,9 +80,12 @@ public class VFXManager : MonoBehaviour
         if (spr != null)
         {
             spr.color = Color.red;
+        }
 
             yield return new WaitForSeconds(duration);
 
+        if (spr != null)
+        {
             spr.color = Color.white;
         }
     }

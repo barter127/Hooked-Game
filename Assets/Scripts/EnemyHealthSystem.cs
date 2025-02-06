@@ -58,12 +58,13 @@ public class EnemyHealthSystem : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         // Enemy has collided with knife obj.
-        if (collision.CompareTag("Knife"))
+        if (collision.CompareTag("Knife") && PlayerShootLogic.m_hasFired)
         {
             StatisticsScript stats = collision.gameObject.GetComponent<StatisticsScript>();
 
             if (stats != null)
             {
+                Debug.Log("HI");
                 m_attached = true;
                 ApplyDamage(stats.damage, m_attached);
             }
@@ -81,6 +82,7 @@ public class EnemyHealthSystem : MonoBehaviour
             // Tag check might be unessecary and cause me headaches later.
             if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
             {
+                Debug.Log("GYATT");
                 ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier, m_attached);
 
                 StartCoroutine(PauseDamageDetection());

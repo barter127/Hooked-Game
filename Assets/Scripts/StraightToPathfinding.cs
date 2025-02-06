@@ -10,28 +10,104 @@ public class StraightToPathfinding : MonoBehaviour
     /// Ability to pause movement for x time.
     /// </summary>
 
+    // Movement and target
     [SerializeField] Transform m_targetTransform;
     [SerializeField] float m_speed;
 
-    public bool m_inView = false;
+    // Movement bools (restricts movement)
     bool m_canMove = true;
 
+    // Direction to face.
     bool m_isFacingRight = false;
     SpriteRenderer m_spriteRenderer;
+
+    // Idle jitter
+    bool m_inIdleMovement = false;
+    Coroutine m_idleMoveIntervals;
+    Vector2 m_idleMoveTarget;
+
+    // State Machine.
+    public enum AIState
+    {
+        Idle,
+        Moving,
+        Stationary
+    }
+    public AIState m_currentState { get; private set; }
 
     void Start()
     {
         m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    void Update()
+    {
+        Debug.Log(m_currentState);
+
+        // Target is valid.
+        if (m_targetTransform != null)
+        {
+            // If in Idle Movement.
+            if (m_inIdleMovement)
+            {
+                CheckDirectionToFace(transform.position.x > m_idleMoveTarget.x);
+
+                transform.position = Vector2.MoveTowards(transform.position, m_idleMoveTarget, m_speed * Time.deltaTime);
+
+                // AI hit target position.
+                if (Vector2.Distance(transform.position, m_idleMoveTarget) < 0.01f)
+                {
+                    m_inIdleMovement = false;
+                }
+            }
+
+            // Could be else, but without sprite to snap towards player after an idle movement.
+            else if (m_currentState != AIState.Idle)
+            {
+                // Flip sprite if nessecary.
+                CheckDirectionToFace(transform.position.x > m_targetTransform.position.x);
+            }
+        }
+    }
+
     void FixedUpdate()
     {
-        if (m_inView && m_canMove)
+        if (m_currentState == AIState.Moving && m_canMove)
         {
             // Move at consistent rate towards target.
             transform.position = Vector2.MoveTowards(transform.position, m_targetTransform.position, m_speed * Time.fixedDeltaTime);
         }
+        else if (m_currentState == AIState.Idle)
+        {
+
+            IdleMovement();
+            
+        }
     }
+
+    #region Idle Movement
+
+    void IdleMovement()
+    {
+        if (m_idleMoveIntervals == null)
+        {
+            m_idleMoveIntervals = StartCoroutine(IdleMoveIntervals());
+        }
+    }
+
+    IEnumerator IdleMoveIntervals()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        // Create new target pos.
+        m_idleMoveTarget = new Vector2 (transform.position.x + Random.insideUnitCircle.x * 2, 
+                                        transform.position.y + Random.insideUnitCircle.y * 2);
+
+        m_inIdleMovement = true;
+        m_idleMoveIntervals = null;
+    }
+
+    #endregion
 
     #region Handle Vision Circle
 
@@ -39,7 +115,7 @@ public class StraightToPathfinding : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            m_inView = true;
+            ChangeState(AIState.Moving);
         }
     }
 
@@ -47,7 +123,7 @@ public class StraightToPathfinding : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            m_inView = false;
+            ChangeState (AIState.Idle);
         }
     }
 
@@ -62,7 +138,6 @@ public class StraightToPathfinding : MonoBehaviour
 
     IEnumerator PauseMovement(float time)
     {
-        Debug.Log(time);
         m_canMove = false;
 
         yield return new WaitForSeconds(time);
@@ -86,5 +161,14 @@ public class StraightToPathfinding : MonoBehaviour
             Turn();
         }
     }
+    #endregion
+
+    #region State Machine
+
+    void ChangeState(AIState newState)
+    {
+        m_currentState = newState;
+    }
+
     #endregion
 }
