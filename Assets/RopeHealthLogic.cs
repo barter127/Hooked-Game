@@ -41,8 +41,8 @@ public class RopeHealthLogic : MonoBehaviour
         }
     }
 
-    public void UpdateHealthBar()
+    public void UpdateRopeHealthBar(float healthDecimal)
     {
-
+        m_healthBar.fillAmount = healthDecimal;
     }
 }

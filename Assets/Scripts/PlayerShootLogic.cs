@@ -246,17 +246,7 @@ public class PlayerShootLogic : MonoBehaviour
         {
             if (!m_tickCountdownStarted)
             {
-                StartCoroutine(RopeDamageTick());
-            }
-        }
-
-        // Check is not nessecary but adds clarity of intention.
-        else if (distance < m_ropeDamageDistance) 
-        {
-            // Cancel tick timer.
-            if (m_tickCountdownStarted)
-            {
-                StopCoroutine(RopeDamageTick());
+                ApplyRopeDamage();
             }
         }
     }
@@ -264,8 +254,10 @@ public class PlayerShootLogic : MonoBehaviour
     // Apply damage to the rope
     void ApplyRopeDamage()
     {
-        m_ropeHealth -= 2;
-        Debug.Log(m_ropeHealth); // ADD UI!!!!
+        m_ropeHealth -= 1;
+
+        float healthDecimal = m_ropeHealth / m_ropeMaxHealth;
+        m_ropeHealthLogic.UpdateRopeHealthBar(healthDecimal);
 
         if (m_ropeHealth <= 0)
         {
@@ -276,18 +268,6 @@ public class PlayerShootLogic : MonoBehaviour
 
             m_ropeHealth = m_ropeMaxHealth;
         }
-    }
-
-    // Times damage
-    IEnumerator RopeDamageTick()
-    {
-        m_tickCountdownStarted = true;
-
-        yield return new WaitForSeconds(1f);
-
-        ApplyRopeDamage();
-
-        m_tickCountdownStarted = false;
     }
 
     // Function is limited in usability but makes overall code more readable.
