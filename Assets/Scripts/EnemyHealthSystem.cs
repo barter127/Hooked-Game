@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent (typeof(StateMachine))]
 public class EnemyHealthSystem : MonoBehaviour
 {
     /// <summary>
@@ -10,7 +11,7 @@ public class EnemyHealthSystem : MonoBehaviour
     /// Destroy at health <= 0.
     /// </summary>
 
-    [SerializeField] CameraMovement m_camMovement;
+    StateMachine m_stateMachine;
 
     // --- Components ---
     Rigidbody2D m_rigidbody;
@@ -37,12 +38,13 @@ public class EnemyHealthSystem : MonoBehaviour
 
     float m_damageCooldownTime = 0.5f;
 
-
+    // State Machine Reference.
 
     void Start()
     {
         m_currentHealth = m_maxHealth;
 
+        m_stateMachine = GetComponent<StateMachine>();
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -63,6 +65,8 @@ public class EnemyHealthSystem : MonoBehaviour
             // Get script holding DMG nums.
             StatisticsScript stats = collision.gameObject.GetComponent<StatisticsScript>();
 
+            m_stateMachine.ChangeState(StateMachine.AIState.Attached);
+
             if (stats != null)
             {
                 m_attached = true;
@@ -70,8 +74,19 @@ public class EnemyHealthSystem : MonoBehaviour
             }
             else
             {
-                Debug.Log("Enemy stats invalid couldn't apply damage");
+                Debug.Log("Player stats invalid couldn't apply damage");
             }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Knife") && KnifeEnemyAttachLogic.m_isConnected)
+        {
+            Debug.Log("GYATT");
+
+            m_attached = false;
+            m_stateMachine.ChangeState(m_stateMachine.m_lastState);
         }
     }
 

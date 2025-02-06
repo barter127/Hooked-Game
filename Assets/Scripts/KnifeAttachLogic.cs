@@ -10,7 +10,7 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
     /// Handles disconnect logic when too much strain put on rope.
     /// </summary>
 
-    public bool m_isConnected { get; private set; } = false;
+    public static bool m_isConnected { get; private set; } = false;
 
     // Distance joint on self.
     DistanceJoint2D m_distanceJoint;
@@ -19,8 +19,8 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
     // Enemy RB
     Rigidbody2D m_enemyRigidbody;
 
-    public KnifeFollowMouse m_knifeFollowMouse;
-    public PlayerShootLogic m_playerShootLogic;
+    KnifeFollowMouse m_knifeFollowMouse;
+    PlayerShootLogic m_playerShootLogic;
 
     // Prevents attach being too quick.
     [SerializeField] float attachCooldownTimer;
@@ -51,6 +51,8 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
             DetatchEnemy();
             m_playerShootLogic.StartKnifeReturn();
         }
+
+        print(m_isConnected);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -104,7 +106,13 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
     // In a method so can be safely set by other functions.
     public void DetatchEnemy()
     {
+        m_isConnected = false;
+
+        m_distanceJoint.connectedBody = null;
         m_distanceJoint.enabled = false;
+
+        m_enemyRigidbody = null;
+
         StartCoroutine(AttachCooldown());
     }
 
@@ -113,13 +121,5 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
 
         m_isConnected = false;
-    }
-
-    public void DetachEnemy()
-    {
-        m_isConnected = false;
-
-        m_distanceJoint.connectedBody = null;
-        m_distanceJoint.enabled = false;
     }
 }

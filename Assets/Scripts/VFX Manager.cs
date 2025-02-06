@@ -7,7 +7,7 @@ public class VFXManager : MonoBehaviour
     /// Holds all static methods for visual FX.
     /// </summary>
 
-    static GameObject m_bloodFX;
+    static GameObject m_bloodFX = GameObject.Find("Assets/Prefabs/FX/Blood FX.prefab");
     [SerializeField] AnimationCurve m_cameraShakeCurve;
 
     static VFXManager instance;
@@ -15,9 +15,6 @@ public class VFXManager : MonoBehaviour
     void Start()
     {
         instance = this;
-
-        // Load the Blood FX prefab from the Resources folder.
-        m_bloodFX = GameObject.Find("Prefabs/FX/Blood FX");
     }
 
     // Instantiate blood particle system at position.

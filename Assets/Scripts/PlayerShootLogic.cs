@@ -96,7 +96,7 @@ public class PlayerShootLogic : MonoBehaviour
     void Update()
     {
         // Only check if rope should be damaged when attached.
-        if (m_knifeAttachLogic.m_isConnected)
+        if (KnifeEnemyAttachLogic.m_isConnected)
         {
             ApplyRopeDamage();
         }
@@ -152,18 +152,13 @@ public class PlayerShootLogic : MonoBehaviour
     {
         if (!m_hasFired)
         {
-            Debug.Log("HI");
-
             FireKnife();
         }
         else
         {
-            Debug.Log("Return");
             // Prevents recalling the knife if attached to a wall or enemy.
-            if (!m_knifeAttachLogic.m_isConnected)
+            if (!KnifeEnemyAttachLogic.m_isConnected)
             {
-                Debug.Log("Actual return");
-
                 StartKnifeReturn();
             }
         }

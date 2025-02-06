@@ -10,6 +10,10 @@ public class StraightToPathfinding : MonoBehaviour
     /// Ability to pause movement for x time.
     /// </summary>
 
+
+    // State Machine Reference.
+    StateMachine m_stateMachine;
+
     // Movement and target
     [SerializeField] Transform m_targetTransform;
     [SerializeField] float m_speed;
@@ -30,17 +34,10 @@ public class StraightToPathfinding : MonoBehaviour
     Coroutine m_idleMoveIntervals;
     Vector2 m_idleMoveTarget;
 
-    // State Machine.
-    public enum AIState
-    {
-        Idle,
-        Moving,
-        Stationary
-    }
-    public AIState m_currentState { get; private set; }
-
     void Start()
     {
+        m_stateMachine = GetComponent<StateMachine>();
+
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -54,20 +51,10 @@ public class StraightToPathfinding : MonoBehaviour
             if (m_inIdleMovement)
             {
                 CheckDirectionToFace(transform.position.x > m_idleMoveTarget.x);
-
-                // Move to target.
-                Vector2 movePos = Vector2.MoveTowards(transform.position, m_idleMoveTarget, m_speed * Time.deltaTime);
-                m_rigidbody.MovePosition(movePos);
-
-                // AI hit target position.
-                if (Vector2.Distance(transform.position, m_idleMoveTarget) < 0.01f)
-                {
-                    m_inIdleMovement = false;
-                }
             }
 
             // Could be else, but without sprite to snap towards player after an idle movement.
-            else if (m_currentState != AIState.Idle)
+            if (m_stateMachine.m_currentState != StateMachine.AIState.Idle)
             {
                 // Flip sprite if nessecary.
                 CheckDirectionToFace(transform.position.x > m_targetTransform.position.x);
@@ -77,23 +64,36 @@ public class StraightToPathfinding : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (m_currentState == AIState.Moving && m_canMove)
+        if (m_stateMachine.m_currentState == StateMachine.AIState.Moving && m_canMove)
         {
             // Move at consistent rate towards target.
             Vector2 movePos = Vector2.MoveTowards(transform.position, m_targetTransform.position, m_speed * Time.fixedDeltaTime);
             m_rigidbody.MovePosition(movePos);
         }
-        else if (m_currentState == AIState.Idle)
+        else if (m_stateMachine.m_currentState == StateMachine.AIState.Idle)
         {
 
+            IdleMovementTimer();
             IdleMovement();
-            
         }
     }
 
     #region Idle Movement
 
     void IdleMovement()
+    {
+        // Move to target.
+        Vector2 movePos = Vector2.MoveTowards(transform.position, m_idleMoveTarget, m_speed * Time.deltaTime);
+        m_rigidbody.MovePosition(movePos);
+
+        // AI hit target position.
+        if (Vector2.Distance(transform.position, m_idleMoveTarget) < 0.01f)
+        {
+            m_inIdleMovement = false;
+        }
+    }
+
+    void IdleMovementTimer()
     {
         if (m_idleMoveIntervals == null)
         {
@@ -121,7 +121,11 @@ public class StraightToPathfinding : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            ChangeState(AIState.Moving);
+            if (m_stateMachine.m_currentState != StateMachine.AIState.Attached)
+            {
+                m_stateMachine.ChangeState(StateMachine.AIState.Moving);
+                m_idleMoveTarget = transform.position; // Purposeful to stop movement.
+            }
         }
     }
 
@@ -129,7 +133,14 @@ public class StraightToPathfinding : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            ChangeState (AIState.Idle);
+            if (m_stateMachine.m_currentState != StateMachine.AIState.Attached)
+            {
+                m_stateMachine.ChangeState (StateMachine.AIState.Idle);
+                m_inIdleMovement = false;
+                StopCoroutine(IdleMoveIntervals());
+                m_idleMoveTarget = transform.position; // Purposeful to stop movement.
+            }
+
         }
     }
 
@@ -167,22 +178,5 @@ public class StraightToPathfinding : MonoBehaviour
             Turn();
         }
     }
-    #endregion
-
-    #region State Machine
-
-    void ChangeState(AIState newState)
-    {
-        m_currentState = newState;
-
-        switch (newState)
-        {
-            case AIState.Moving:
-                // Prevents clash with idle movement and target movement.
-                m_inIdleMovement = false;
-                break;
-        }
-    }
-
     #endregion
 }
