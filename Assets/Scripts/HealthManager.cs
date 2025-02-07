@@ -10,7 +10,11 @@ public class HealthManager : MonoBehaviour
 
     // IFrames.
     bool m_canTakeDamage = true;
+
+    // Length of INVINCIBLE ity
     [SerializeField] float m_iFrameLength;
+
+    // Number of times VFX will flash.
     [SerializeField] int m_iFrameFlashes;
     SpriteRenderer m_spriteRenderer;
 

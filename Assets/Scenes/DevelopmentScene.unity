@@ -35959,7 +35959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxHealth: 6
   m_iFrameLength: 1
-  m_iFrameFlashes: 0
+  m_iFrameFlashes: 8
   m_healthScript: {fileID: 1178326286}
   m_GameOverUI: {fileID: 157157166}
 --- !u!232 &1618778970
@@ -36090,8 +36090,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerTrans: {fileID: 1618778962}
   m_firePointTrans: {fileID: 12930689}
-  m_fireForce: 65
-  m_amountOfForcesToApply: 20
+  m_fireForce: 40
+  m_amountOfForcesToApply: 15
   m_ropeHealthPanel: {fileID: 589339488}
   m_ropeHealthLogic: {fileID: 589339492}
   m_knifeReference: {fileID: 364701830}
