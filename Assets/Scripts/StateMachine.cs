@@ -8,7 +8,8 @@ public class StateMachine : MonoBehaviour
     {
         Idle,
         Moving,
-        Attached
+        Attached,
+        AttachedWeak
     }
 
     private void Update()
@@ -21,7 +22,11 @@ public class StateMachine : MonoBehaviour
 
     public void ChangeState(AIState newState)
     {
-        m_lastState = m_currentState;
-        m_currentState = newState;
+        if (newState != AIState.Attached && newState != AIState.AttachedWeak)
+        {
+            m_lastState = m_currentState;
+        }
+
+            m_currentState = newState;
     }
 }

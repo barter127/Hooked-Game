@@ -17,6 +17,8 @@ public class StraightToPathfinding : MonoBehaviour
     // Movement and target
     [SerializeField] Transform m_targetTransform;
     [SerializeField] float m_speed;
+    [SerializeField] float m_attachedSpeedMultiplier;
+    [SerializeField] float m_weakSpeedMultiplier;
 
     Rigidbody2D m_rigidbody;
 
@@ -66,17 +68,33 @@ public class StraightToPathfinding : MonoBehaviour
     {
         if (m_stateMachine.m_currentState == StateMachine.AIState.Moving && m_canMove)
         {
-            // Move at consistent rate towards target.
-            Vector2 movePos = Vector2.MoveTowards(transform.position, m_targetTransform.position, m_speed * Time.fixedDeltaTime);
-            m_rigidbody.MovePosition(movePos);
+            // Move at consistent rate towards target. No multipler.
+            AIMoveTowards(1);
         }
         else if (m_stateMachine.m_currentState == StateMachine.AIState.Idle)
         {
-
             IdleMovementTimer();
             IdleMovement();
         }
+        else if (m_stateMachine.m_currentState == StateMachine.AIState.Attached)
+        {
+            // Move at consistent rate towards target. With increase multiplier
+            AIMoveTowards(m_attachedSpeedMultiplier);
+        }
+        else if (m_stateMachine.m_currentState == StateMachine.AIState.AttachedWeak)
+        {
+            // Move at consistent rate towards target. With increase multiplier
+            AIMoveTowards(m_weakSpeedMultiplier);
+        }
     }
+
+    // Might make more customiseable.
+    void AIMoveTowards(float multiplier)
+    {
+        Vector2 direction = (m_targetTransform.position - transform.position).normalized;
+        m_rigidbody.AddForce(direction * m_speed * multiplier);
+    }
+
 
     #region Idle Movement
 
@@ -121,7 +139,8 @@ public class StraightToPathfinding : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (m_stateMachine.m_currentState != StateMachine.AIState.Attached)
+            // Not attached.
+            if (m_stateMachine.m_currentState != StateMachine.AIState.Attached && m_stateMachine.m_currentState != StateMachine.AIState.AttachedWeak)
             {
                 m_stateMachine.ChangeState(StateMachine.AIState.Moving);
                 m_idleMoveTarget = transform.position; // Purposeful to stop movement.
@@ -133,7 +152,8 @@ public class StraightToPathfinding : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (m_stateMachine.m_currentState != StateMachine.AIState.Attached)
+            // Not attached.
+            if (m_stateMachine.m_currentState != StateMachine.AIState.Attached && m_stateMachine.m_currentState != StateMachine.AIState.AttachedWeak)
             {
                 m_stateMachine.ChangeState (StateMachine.AIState.Idle);
                 m_inIdleMovement = false;

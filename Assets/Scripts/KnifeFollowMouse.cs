@@ -8,17 +8,19 @@ public class KnifeFollowMouse : MonoBehaviour
     /// Change acceleration based on mouse distance.
     /// </summary>
 
-    [SerializeField] float m_knifeMaxSpeed = 5f;
-    [SerializeField] float m_knifeAccelRate = 5f;
+    [SerializeField] float m_knifeMaxSpeed;
+    [SerializeField] float m_knifeAccelRate;
 
     // Accpetable distance for knife target.
     [SerializeField] float m_targetDistance;
 
-    bool m_inRange;
-
     public Rigidbody2D m_rigidbody;
     [SerializeField] Transform m_playerTrans;
     Vector3 m_mousePosition;
+
+    // Only apply forces every X seconds.
+    [SerializeField] float m_moveTimerLength;
+    float m_moveTimer;
 
     private void Start()
     {
@@ -30,22 +32,13 @@ public class KnifeFollowMouse : MonoBehaviour
         // Get mouse position in world space. Could be better optimised.
         m_mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         m_mousePosition.z = 0; // Ensure the z-coordinate is 0.
-
-
-        // MIGHT BE UNESSECARY!!!
-        // // Knife within reasonable range of destination.
-        // if (Vector3.Distance(m_playerTrans.position, transform.position) < m_targetDistance)
-        // {
-        //     m_inRange = true;
-        // }
-        // else
-        // {
-        //     m_inRange = false;
-        // }
     }
 
     private void FixedUpdate()
     {
+        if (m_moveTimer <= Time.time)
+        {
+            m_moveTimer = Time.time + m_moveTimerLength;
 
             // Calculate the direction from the current position to the mouse position.
             Vector3 direction = m_mousePosition - transform.position;
@@ -64,5 +57,6 @@ public class KnifeFollowMouse : MonoBehaviour
             // Apply force in the direction of the mouse.
             m_rigidbody.AddForce(xMovement * Vector2.right, ForceMode2D.Force);
             m_rigidbody.AddForce(yMovement * Vector2.up, ForceMode2D.Force);
+        }
     }
 }

@@ -51,16 +51,13 @@ public class EnemyHealthSystem : MonoBehaviour
 
     void FixedUpdate()
     { 
-        if (m_attached)
-        {
-            m_lateRBVelocity = m_rigidbody.linearVelocity.magnitude;
-        }
+        m_lateRBVelocity = m_rigidbody.linearVelocity.magnitude;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         // Enemy has collided with knife obj.
-        if (collision.CompareTag("Knife") && PlayerShootLogic.m_hasFired)
+        if (collision.CompareTag("Knife") && PlayerShootLogic.m_hasFired && m_canTakeDamage)
         {
             // Get script holding DMG nums.
             StatisticsScript stats = collision.gameObject.GetComponent<StatisticsScript>();
@@ -81,12 +78,12 @@ public class EnemyHealthSystem : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Knife") && KnifeEnemyAttachLogic.m_isConnected)
+        if (collision.CompareTag("Knife") && !KnifeEnemyAttachLogic.m_isConnected)
         {
-            Debug.Log("GYATT");
-
             m_attached = false;
             m_stateMachine.ChangeState(m_stateMachine.m_lastState);
+
+            StartCoroutine(PauseDamageDetection());
         }
     }
 
@@ -97,7 +94,11 @@ public class EnemyHealthSystem : MonoBehaviour
             // Tag check might be unessecary and cause me headaches later.
             if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
             {
+                // Deal damage based on velocity before.
                 ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier, m_attached);
+
+                Debug.Log(m_lateRBVelocity * m_velocityDamageMultiplier);
+                Debug.Log(m_lateRBVelocity);
 
                 StartCoroutine(PauseDamageDetection());
             }
@@ -120,6 +121,12 @@ public class EnemyHealthSystem : MonoBehaviour
         if (attached)
         {
             VFXManager.ShakeCamera(0.2f);
+        }
+
+        
+        if (m_currentHealth < m_maxHealth / 2)
+        {
+            m_stateMachine.ChangeState(StateMachine.AIState.AttachedWeak);
         }
 
         // Destory on 0 health.

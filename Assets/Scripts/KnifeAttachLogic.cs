@@ -51,8 +51,6 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
             DetatchEnemy();
             m_playerShootLogic.StartKnifeReturn();
         }
-
-        print(m_isConnected);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

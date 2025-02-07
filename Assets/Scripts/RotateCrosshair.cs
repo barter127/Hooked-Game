@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class RotateCrosshair : MonoBehaviour
 {
     [SerializeField] Transform player;
-    public Vector2 distance;
-    public Vector2 mouseWorldPos;
+    Vector2 distance;
+    Vector2 mouseWorldPos;
 
     void Update()
     {

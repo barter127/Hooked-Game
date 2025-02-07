@@ -154,13 +154,9 @@ public class PlayerShootLogic : MonoBehaviour
         {
             FireKnife();
         }
-        else
+        else if (!KnifeEnemyAttachLogic.m_isConnected)
         {
-            // Prevents recalling the knife if attached to a wall or enemy.
-            if (!KnifeEnemyAttachLogic.m_isConnected)
-            {
                 StartKnifeReturn();
-            }
         }
     }
 

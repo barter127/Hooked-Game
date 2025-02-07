@@ -789,7 +789,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.18561351}
-  m_Size: {x: 0.625, y: 0.94309497}
+  m_Size: {x: 1.15, y: 1.3}
   m_Direction: 0
 --- !u!58 &209903535
 CircleCollider2D:
@@ -807,7 +807,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -826,7 +826,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 6
+  m_Radius: 5
 --- !u!50 &209903536
 Rigidbody2D:
   serializedVersion: 5
@@ -955,7 +955,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_targetTransform: {fileID: 1618778962}
-  m_speed: 1.8
+  m_speed: 3
+  m_attachedSpeedMultiplier: 1.5
+  m_weakSpeedMultiplier: 0.1
   m_idleMoveRate: 1
   m_idleMoveDistance: 4
 --- !u!4 &209903541
@@ -1461,7 +1463,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 1
+  m_LinearDamping: 3
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -1548,11 +1550,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93e12dae4c45a3449ae41b10375864a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_knifeMaxSpeed: 22.5
-  m_knifeAccelRate: 18
+  m_knifeMaxSpeed: 30
+  m_knifeAccelRate: 25
   m_targetDistance: 3.5
   m_rigidbody: {fileID: 364701833}
   m_playerTrans: {fileID: 1618778962}
+  m_moveTimerLength: 0.2
 --- !u!4 &364701838
 Transform:
   m_ObjectHideFlags: 0
