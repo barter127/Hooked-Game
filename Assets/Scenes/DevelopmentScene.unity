@@ -35959,6 +35959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxHealth: 6
   m_iFrameLength: 1
+  m_iFrameFlashes: 0
   m_healthScript: {fileID: 1178326286}
   m_GameOverUI: {fileID: 157157166}
 --- !u!232 &1618778970

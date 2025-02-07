@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
+    // Health
     int m_currentHealth;
     [SerializeField] int m_maxHealth;
 
+    // IFrames.
     bool m_canTakeDamage = true;
     [SerializeField] float m_iFrameLength;
+    [SerializeField] int m_iFrameFlashes;
+    SpriteRenderer m_spriteRenderer;
 
-    // Reference to script controlling UI.
+    // UI.
     [SerializeField] UpdatePlayerHealthUI m_healthScript;
-
     [SerializeField] GameObject m_GameOverUI;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         m_currentHealth = m_maxHealth;
+
+        m_spriteRenderer = GetComponent<SpriteRenderer>();
 
         m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
     }
@@ -56,6 +60,8 @@ public class HealthManager : MonoBehaviour
             m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
 
             StartCoroutine(IFrames(m_iFrameLength));
+
+            VFXManager.IFrames(m_spriteRenderer, m_iFrameFlashes, m_iFrameLength);
 
             if (m_currentHealth <= 0)
             {

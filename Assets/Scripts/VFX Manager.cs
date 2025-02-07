@@ -5,6 +5,7 @@ public class VFXManager : MonoBehaviour
 {
     /// <summary>
     /// Holds all static methods for visual FX.
+    /// I don't like using start coroutine if the coroutine doesn't exist in the class.
     /// </summary>
 
     static GameObject m_bloodFX;
@@ -41,7 +42,7 @@ public class VFXManager : MonoBehaviour
     }
 
     // Coroutine to shake camera in random direction for duration seconds.
-    private IEnumerator ShakeCameraRoutine(float duration)
+    IEnumerator ShakeCameraRoutine(float duration)
     {
         Vector2 startPos = transform.position;
 
@@ -79,7 +80,7 @@ public class VFXManager : MonoBehaviour
     }
 
     // Currently only works for sprites with colour white. Had issue if multiple coroutines ran at a time.
-    private IEnumerator FlashRedRoutine(SpriteRenderer spr, float duration)
+    IEnumerator FlashRedRoutine(SpriteRenderer spr, float duration)
     {
         if (spr != null)
         {
@@ -91,6 +92,27 @@ public class VFXManager : MonoBehaviour
         if (spr != null)
         {
             spr.color = Color.white;
+        }
+    }
+
+    public static void IFrames(SpriteRenderer spr, int numberOfFlashes, float duration)
+    {
+        instance.StartCoroutine(instance.IFramesRoutine(spr, numberOfFlashes, duration));
+    }
+
+    IEnumerator IFramesRoutine(SpriteRenderer spr, int numberOfFlashes, float duration)
+    {
+        Color startColour = spr.color;
+        Color tempColour = spr.color;
+
+        for (int i = 0; i < numberOfFlashes; i++)
+        {
+            tempColour.a = 0.5f;
+            spr.color = tempColour;
+            yield return new WaitForSeconds(duration / (numberOfFlashes * 2));
+
+            spr.color = startColour;
+            yield return new WaitForSeconds(duration / (numberOfFlashes * 2));
         }
     }
     #endregion
