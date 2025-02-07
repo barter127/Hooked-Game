@@ -7,7 +7,7 @@ public class VFXManager : MonoBehaviour
     /// Holds all static methods for visual FX.
     /// </summary>
 
-    static GameObject m_bloodFX = GameObject.Find("Assets/Prefabs/FX/Blood FX.prefab");
+    static GameObject m_bloodFX;
     [SerializeField] AnimationCurve m_cameraShakeCurve;
 
     static VFXManager instance;
@@ -15,18 +15,17 @@ public class VFXManager : MonoBehaviour
     void Start()
     {
         instance = this;
+
+        // If blood doesn't spawn this iw why.
+        m_bloodFX = Resources.Load<GameObject>("Prefabs/FX/Blood FX");
     }
 
     // Instantiate blood particle system at position.
     public static void SpawnBloodFX(Vector3 spawnPosition)
     {
-        if (m_bloodFX != null)
+        if (VFXManager.m_bloodFX != null)
         {
             Instantiate(m_bloodFX, spawnPosition, Quaternion.identity);
-        }
-        else
-        {
-            Debug.Log("Blood FX prefab was lost");
         }
     }
 
