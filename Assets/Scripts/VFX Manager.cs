@@ -20,6 +20,8 @@ public class VFXManager : MonoBehaviour
         m_bloodFX = Resources.Load<GameObject>("Prefabs/FX/Blood FX");
     }
 
+    #region Spawn Particle Sys
+
     // Instantiate blood particle system at position.
     public static void SpawnBloodFX(Vector3 spawnPosition)
     {
@@ -29,6 +31,9 @@ public class VFXManager : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Camera
     // Method to call camshake coroutine.
     public static void ShakeCamera(float duration)
     {
@@ -60,6 +65,9 @@ public class VFXManager : MonoBehaviour
         transform.position = new Vector3(startPos.x, startPos.y, transform.position.z);
     }
 
+    #endregion
+
+    #region Sprite Colour
     // Method to start coroutine for damage flash
     public static void FlashRed(SpriteRenderer spr, float duration)
     {
@@ -85,4 +93,5 @@ public class VFXManager : MonoBehaviour
             spr.color = Color.white;
         }
     }
+    #endregion
 }

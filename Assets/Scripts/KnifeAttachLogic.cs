@@ -58,6 +58,8 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
         // Event can trigger when script is still disabled. Only trigger logic when disabled.
         if (this.enabled)
         {
+
+            Debug.Log("Hi");
             // Verify collider was an enemy.
             if (collision.CompareTag("Enemy") && !m_isConnected)
             {
@@ -111,13 +113,6 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
 
         m_enemyRigidbody = null;
 
-        StartCoroutine(AttachCooldown());
-    }
-
-    IEnumerator AttachCooldown() 
-    {
-        yield return new WaitForSeconds(0.4f);
-
-        m_isConnected = false;
+        this.enabled = false;
     }
 }

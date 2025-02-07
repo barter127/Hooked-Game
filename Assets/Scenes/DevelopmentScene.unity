@@ -1496,7 +1496,7 @@ DistanceJoint2D:
   m_Anchor: {x: -0.000000018426158, y: 0.39779714}
   m_ConnectedAnchor: {x: 0.005075544, y: -0.15226611}
   m_AutoConfigureDistance: 0
-  m_Distance: 0.2
+  m_Distance: 0.1
   m_MaxDistanceOnly: 0
 --- !u!233 &364701835
 HingeJoint2D:
@@ -35958,6 +35958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_maxHealth: 6
+  m_iFrameLength: 1
   m_healthScript: {fileID: 1178326286}
   m_GameOverUI: {fileID: 157157166}
 --- !u!232 &1618778970
