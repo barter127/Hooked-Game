@@ -11,9 +11,6 @@ public class KnifeFollowMouse : MonoBehaviour
     [SerializeField] float m_knifeMaxSpeed;
     [SerializeField] float m_knifeAccelRate;
 
-    // Accpetable distance for knife target.
-    [SerializeField] float m_targetDistance;
-
     public Rigidbody2D m_rigidbody;
     [SerializeField] Transform m_playerTrans;
     Vector3 m_mousePosition;

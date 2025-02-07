@@ -17,6 +17,7 @@ public class StraightToPathfinding : MonoBehaviour
     // Movement and target
     [SerializeField] Transform m_targetTransform;
     [SerializeField] float m_speed;
+    [SerializeField] float m_idleSpeed;
     [SerializeField] float m_attachedSpeedMultiplier;
     [SerializeField] float m_weakSpeedMultiplier;
 
@@ -101,7 +102,7 @@ public class StraightToPathfinding : MonoBehaviour
     void IdleMovement()
     {
         // Move to target.
-        Vector2 movePos = Vector2.MoveTowards(transform.position, m_idleMoveTarget, m_speed * Time.deltaTime);
+        Vector2 movePos = Vector2.MoveTowards(transform.position, m_idleMoveTarget, m_idleSpeed * Time.deltaTime);
         m_rigidbody.MovePosition(movePos);
 
         // AI hit target position.
