@@ -13418,21 +13418,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f6b42bc60c0294b85134a2da51c9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_camTransform: {fileID: 1409543577}
   m_cameraShakeCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 19.45946
-      outSlope: 19.45946
+      inSlope: 1.2972974
+      outSlope: 1.2972974
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.15416667
-      value: 3
+      value: 0.2
       inSlope: -0.05256069
       outSlope: -0.05256069
       tangentMode: 0
@@ -13442,8 +13443,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -3.5467982
-      outSlope: -3.5467982
+      inSlope: -0.23645322
+      outSlope: -0.23645322
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
