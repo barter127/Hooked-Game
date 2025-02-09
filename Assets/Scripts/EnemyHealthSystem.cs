@@ -67,7 +67,7 @@ public class EnemyHealthSystem : MonoBehaviour
             if (stats != null)
             {
                 m_attached = true;
-                ApplyDamage(stats.damage, m_attached);
+                ApplyDamage(stats.damage);
             }
             else
             {
@@ -95,7 +95,7 @@ public class EnemyHealthSystem : MonoBehaviour
             if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
             {
                 // Deal damage based on velocity before.
-                ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier, m_attached);
+                ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier);
 
                 StartCoroutine(PauseDamageDetection());
             }
@@ -103,7 +103,7 @@ public class EnemyHealthSystem : MonoBehaviour
     }
 
     // Minus damage from health and update health bar.
-    void ApplyDamage(float damage, bool attached)
+    void ApplyDamage(float damage)
     {
         Instantiate(m_bloodFX, transform.position, Quaternion.identity);
 
@@ -112,22 +112,12 @@ public class EnemyHealthSystem : MonoBehaviour
         UpdateEnemyHealthBar();
 
         VFXManager.SpawnBloodFX(transform.position);
-        
+
 
         // Allow only one enemy to shake camera.
         if (m_attached)
         {
             VFXManager.ShakeCamera(0.2f);
-
-            Debug.Log("SHAKE");
-        }
-
-        Debug.Log("should shake " + m_attached);
-
-        
-        if (m_currentHealth < m_maxHealth / 2)
-        {
-            m_stateMachine.ChangeState(StateMachine.AIState.AttachedWeak);
         }
 
         // Destory on 0 health.
@@ -140,7 +130,13 @@ public class EnemyHealthSystem : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // Tries to set destroyed component otherwise. 
+        // At below half health. Switch to weak variant.
+        else if (m_currentHealth < m_maxHealth / 2)
+        {
+            m_stateMachine.ChangeState(StateMachine.AIState.AttachedWeak);
+        }
+
+        // Apply DMG VFX. 
         else
         {
             VFXManager.FlashRed(m_spriteRenderer, 0.2f);

@@ -39,10 +39,10 @@ public class EnemyFire : MonoBehaviour
             }
             else if (m_stateMachine.m_currentState == StateMachine.AIState.Attached)
             {
-                Debug.Log("HEY");
-
                 FireBullet();
-                m_fireTimer = m_fireTimerLength;
+
+                // Fires twice as fast.
+                m_fireTimer = m_fireTimerLength / 2;
             }
         }
         // Only tick down in vision range.
