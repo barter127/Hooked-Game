@@ -145,6 +145,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_timeToMove: 3
+  m_lerpSpeed: 0
 --- !u!1 &6279923118123445775
 GameObject:
   m_ObjectHideFlags: 0

@@ -67,7 +67,7 @@ public class EnemyHealthSystem : MonoBehaviour
             if (stats != null)
             {
                 m_attached = true;
-                ApplyDamage(stats.damage);
+                ApplyDamage(StatisticsScript.m_damage);
             }
             else
             {

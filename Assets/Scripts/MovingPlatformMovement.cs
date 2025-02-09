@@ -10,7 +10,8 @@ public class MovingPlatformMovement : MonoBehaviour
 
     [Header("Rate of Movement")]
     [SerializeField] AnimationCurve m_movementCurve;
-    [SerializeField] float m_timeToMove;
+    [SerializeField] float m_timeToMove = 1;
+    [SerializeField] float m_lerpSpeed = 1;
     float m_elapsedTime;
     bool m_movingToEnd;
 
@@ -37,6 +38,8 @@ public class MovingPlatformMovement : MonoBehaviour
         {
             m_elapsedTime = 0;
             m_movingToEnd = !m_movingToEnd;
+
+            return;
         }
 
 
@@ -50,6 +53,6 @@ public class MovingPlatformMovement : MonoBehaviour
             transform.position = Vector3.Lerp(m_endPos, m_startPos, percentComplete);
         }
 
-        m_elapsedTime += Time.deltaTime;
+        m_elapsedTime += Time.deltaTime * m_lerpSpeed;
     }
 }
