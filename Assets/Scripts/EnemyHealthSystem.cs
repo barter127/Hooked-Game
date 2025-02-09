@@ -97,9 +97,6 @@ public class EnemyHealthSystem : MonoBehaviour
                 // Deal damage based on velocity before.
                 ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier, m_attached);
 
-                Debug.Log(m_lateRBVelocity * m_velocityDamageMultiplier);
-                Debug.Log(m_lateRBVelocity);
-
                 StartCoroutine(PauseDamageDetection());
             }
         }
@@ -118,10 +115,14 @@ public class EnemyHealthSystem : MonoBehaviour
         
 
         // Allow only one enemy to shake camera.
-        if (attached)
+        if (m_attached)
         {
             VFXManager.ShakeCamera(0.2f);
+
+            Debug.Log("SHAKE");
         }
+
+        Debug.Log("should shake " + m_attached);
 
         
         if (m_currentHealth < m_maxHealth / 2)

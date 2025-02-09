@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class EnemyFire : MonoBehaviour
 {
@@ -27,15 +28,24 @@ public class EnemyFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_fireTimer <= 0 && m_stateMachine.m_currentState == StateMachine.AIState.Moving)
+        if (m_fireTimer <= 0)
         {
-            m_movement.PauseAIMovement(m_pauseLength);
+            if (m_stateMachine.m_currentState == StateMachine.AIState.Moving)
+            {
+                m_movement.PauseAIMovement(m_pauseLength);
 
-            FireBullet();
-
-            m_fireTimer = m_fireTimerLength;
+                FireBullet();
+                m_fireTimer = m_fireTimerLength;
+            }
+            else if (m_stateMachine.m_currentState == StateMachine.AIState.Attached)
+            {
+                FireBullet();
+                m_fireTimer = m_fireTimerLength;
+            }
         }
-        else m_fireTimer -= Time.deltaTime;
+        // Only tick down in vision range.
+        else if (m_stateMachine.m_currentState == StateMachine.AIState.Moving)
+            m_fireTimer -= Time.deltaTime;
     }
 
     void FireBullet()

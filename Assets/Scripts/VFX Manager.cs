@@ -8,7 +8,11 @@ public class VFXManager : MonoBehaviour
     /// I don't like using start coroutine if the coroutine doesn't exist in the class.
     /// </summary>
 
+    // Particles
     static GameObject m_bloodFX;
+
+    // Camera
+    [SerializeField] Transform m_camTransform;
     [SerializeField] AnimationCurve m_cameraShakeCurve;
 
     static VFXManager instance;
@@ -44,7 +48,7 @@ public class VFXManager : MonoBehaviour
     // Coroutine to shake camera in random direction for duration seconds.
     IEnumerator ShakeCameraRoutine(float duration)
     {
-        Vector2 startPos = transform.position;
+        Vector2 startPos = m_camTransform.position;
 
         float elapsedTime = 0f;
 
@@ -57,13 +61,13 @@ public class VFXManager : MonoBehaviour
 
             // Shake X and Y axis without affecting the z axis.
             Vector2 shakePos = startPos + Random.insideUnitCircle * shakeMultiplier;
-            transform.position = new Vector3(shakePos.x, shakePos.y, transform.position.z);
+            m_camTransform.position = new Vector3(shakePos.x, shakePos.y, -10);
 
             yield return null;
         }
 
         // Reset position after shaking.
-        transform.position = new Vector3(startPos.x, startPos.y, transform.position.z);
+        m_camTransform.position = new Vector3(startPos.x, startPos.y, -10);
     }
 
     #endregion
