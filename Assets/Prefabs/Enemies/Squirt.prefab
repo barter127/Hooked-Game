@@ -72,6 +72,7 @@ MonoBehaviour:
   m_obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
+  m_chargeForceMultiplier: 8
   m_startCharge: 0
 --- !u!114 &1849471585928498228
 MonoBehaviour:
@@ -100,7 +101,7 @@ MonoBehaviour:
   m_healthBar: {fileID: 5245946618877859809}
   m_maxHealth: 250
   m_canTakeDamage: 1
-  m_bloodFX: {fileID: 6732259602974365115, guid: df8c081d7459d564985f85bac4f7b74e, type: 3}
+  m_coin: {fileID: 6491406336463671046, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
 --- !u!212 &4367429980277752358
 SpriteRenderer:
   m_ObjectHideFlags: 0

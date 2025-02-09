@@ -27,7 +27,7 @@ public class EnemyHealthSystem : MonoBehaviour
     bool m_attached = false;
     [SerializeField] bool m_canTakeDamage = true;
 
-    [SerializeField] GameObject m_bloodFX;
+    [SerializeField] GameObject m_coin;
 
     // Multiplies damage from rb velocity.
     float m_velocityDamageMultiplier = 10;
@@ -101,14 +101,13 @@ public class EnemyHealthSystem : MonoBehaviour
     // Minus damage from health and update health bar.
     void ApplyDamage(float damage)
     {
-        Instantiate(m_bloodFX, transform.position, Quaternion.identity);
-
         m_currentHealth -= damage;
 
         UpdateEnemyHealthBar();
 
         VFXManager.SpawnBloodFX(transform.position);
 
+        // Prevent damage occuring too quickly because of ricochet.
         StartCoroutine(PauseDamageDetection());
 
 
@@ -124,7 +123,9 @@ public class EnemyHealthSystem : MonoBehaviour
             // Update Game Over Stats
             GameOverStatManager.IncrementKillCount();
 
-            // Maybe switch to object pooling.
+            EmitCoins();
+
+            // Dead. Bleh X.X
             Destroy(gameObject);
         }
 
@@ -157,5 +158,15 @@ public class EnemyHealthSystem : MonoBehaviour
         yield return new WaitForSeconds(m_damageCooldownTime);
 
         m_canTakeDamage = true;
+    }
+
+    void EmitCoins()
+    {
+        float coinsToSpawn = Random.Range(1, 8);
+
+        for (int i = 0; i < coinsToSpawn; i++)
+        {
+            Instantiate(m_coin, transform.position, Quaternion.identity);
+        }
     }
 }

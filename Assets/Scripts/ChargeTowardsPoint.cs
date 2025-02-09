@@ -21,6 +21,8 @@ public class ChargeTowardsPoint : MonoBehaviour
     // Layer with obstacles.
     [SerializeField] LayerMask m_obstacleLayer;
 
+    [SerializeField] float m_chargeForceMultiplier;
+
     float m_chargeTimer;
 
     // Components
@@ -57,11 +59,13 @@ public class ChargeTowardsPoint : MonoBehaviour
         }
 
         // In range
-        if (m_targetVector.magnitude < m_chargeRange)
+        if (m_targetVector.magnitude < m_chargeRange && m_stateMachine.m_currentState == StateMachine.AIState.Attached)
         {
             // Called every frame but statemachine ignores most requests.
-            //m_stateMachine.ChangeState(StateMachine.AIState.Moving);
+            m_stateMachine.ChangeState(StateMachine.AIState.Moving);
         }
+
+        #region State Machine Checks
 
         if (m_stateMachine.m_currentState == StateMachine.AIState.Moving)
         {
@@ -75,13 +79,19 @@ public class ChargeTowardsPoint : MonoBehaviour
 
         else if (m_stateMachine.m_currentState == StateMachine.AIState.Attached)
         {
-            CheckChargeLOS(100 ,false);
+            m_chargeTimer -= Time.deltaTime;
+
+            // Charges if clear LOS, Resets Timer.
+            CheckChargeLOS(m_chargeForceMultiplier ,false);
         }
 
         else if (m_chargeTimer != m_rateOfCharges)
         {
+            m_stateMachine.ChangeState(StateMachine.AIState.Idle);
             m_chargeTimer = m_rateOfCharges;
         }
+
+        #endregion
     }
 
     #region Charging
@@ -117,6 +127,8 @@ public class ChargeTowardsPoint : MonoBehaviour
         }
 
         m_rigidbody.AddForce(m_targetVector * m_chargeForce * chargeMultiplier);
+
+        Debug.Log("CHARGE");
     }
 
     #endregion

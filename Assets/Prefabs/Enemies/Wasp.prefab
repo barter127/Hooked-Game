@@ -54,6 +54,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_targetTransform: {fileID: 0}
   m_speed: 2
+  m_idleSpeed: 0
+  m_attachedSpeedMultiplier: 0
+  m_weakSpeedMultiplier: 0
   m_idleMoveRate: 0
   m_idleMoveDistance: 0
 --- !u!114 &7812807652493682793
@@ -71,7 +74,7 @@ MonoBehaviour:
   m_healthBar: {fileID: 8940556526513930216}
   m_maxHealth: 50
   m_canTakeDamage: 1
-  m_bloodFX: {fileID: 6732259602974365115, guid: df8c081d7459d564985f85bac4f7b74e, type: 3}
+  m_coin: {fileID: 6491406336463671046, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
 --- !u!212 &8549963727742119530
 SpriteRenderer:
   m_ObjectHideFlags: 0
