@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.LightTransport;
 using UnityEngine.Rendering;
 
-public class EnemyFire : MonoBehaviour
+public class EnemyFireAtTarget : MonoBehaviour
 {
     StateMachine m_stateMachine;
 
@@ -25,7 +25,13 @@ public class EnemyFire : MonoBehaviour
     void Start()
     {
         m_stateMachine = GetComponent<StateMachine>();
-        m_movement = GetComponent<StraightToPathfinding>();
+        m_movement = GetComponent<StraightToPathfinding>(); // Assumes GO has a movement component.
+
+        // If no default target set to player.
+        if (m_target == null)
+        {
+            m_target = TransformReferenceHolder.m_player.transform;
+        }
 
         m_fireTimer = m_fireTimerLength;
     }

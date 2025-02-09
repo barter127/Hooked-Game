@@ -41,6 +41,12 @@ public class StraightToPathfinding : MonoBehaviour
     {
         m_stateMachine = GetComponent<StateMachine>();
 
+        // If no default target set to player.
+        if (m_targetTransform == null)
+        {
+            m_targetTransform = TransformReferenceHolder.m_player.transform;
+        }
+
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
