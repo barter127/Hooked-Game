@@ -14,9 +14,9 @@ public class EnemyFire : MonoBehaviour
     [SerializeField] float m_fireTimerLength;
     float m_fireTimer;
 
-    [SerializeField] float m_angleBetweenBullets;
+    [SerializeField] float m_angleBetweenBullets = 5;
 
-    [SerializeField] float m_pauseLength;
+    [SerializeField] float m_pauseLength = 0.15f;
 
     [SerializeField] Transform m_firePoint;
     StraightToPathfinding m_movement;
@@ -39,7 +39,7 @@ public class EnemyFire : MonoBehaviour
             {
                 m_movement.PauseAIMovement(m_pauseLength);
 
-                FireDoublebullet();
+                FireSinglebullet();
                 m_fireTimer = m_fireTimerLength;
             }
             else if (m_stateMachine.m_currentState == StateMachine.AIState.Attached)
@@ -59,10 +59,15 @@ public class EnemyFire : MonoBehaviour
         // Randomise Firing Type.
         bool doubleShot = Random.Range(0, 2) == 1;
 
-        Vector3 bulletDir = (m_target.position - transform.position).normalized;
+        if (doubleShot)
+        {
+            FireDoublebullet();
+        }
 
-        GameObject bulletReference = Instantiate(bullet, m_firePoint.position, Quaternion.identity);
-        bulletReference.GetComponent<BulletMovement>().SetDirection(bulletDir);
+        else
+        {
+            FireSinglebullet();
+        }
     }
 
     void FireSinglebullet()

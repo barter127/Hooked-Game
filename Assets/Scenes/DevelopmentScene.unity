@@ -937,9 +937,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720213f22cd83bc4182cd8e334c5922f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5917171068558311975, guid: aedd39d1e346dbf4188ddbb22f4a83e6, type: 3}
   m_target: {fileID: 1618778962}
+  bullet: {fileID: 5917171068558311975, guid: aedd39d1e346dbf4188ddbb22f4a83e6, type: 3}
   m_fireTimerLength: 2.5
+  m_angleBetweenBullets: 15
   m_pauseLength: 0.15
   m_firePoint: {fileID: 1816768526}
 --- !u!114 &209903540
