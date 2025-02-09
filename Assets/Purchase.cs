@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,7 +25,15 @@ public class Purchase : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            StatisticsScript.BuyUpgrade(m_price, m_damage, m_speed);
+            // I prefer check here as it's linked to Particle FXs
+            if (StatisticsScript.m_coinCount >= m_price)
+            {
+                StatisticsScript.BuyUpgrade(m_price, m_damage, m_speed);
+                m_itemBought.Invoke();
+                // Spawn FX on Player.
+
+                Destroy(gameObject);
+            }
         }
     }
 }
