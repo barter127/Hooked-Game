@@ -8,6 +8,8 @@ public class Purchase : MonoBehaviour
     [SerializeField] int m_damage;
     [SerializeField] int m_speed;
 
+    public UnityEvent m_itemBought;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

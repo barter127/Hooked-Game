@@ -12,8 +12,6 @@ public class StatisticsScript : MonoBehaviour
     public void IncrementCoinCounter()
     {
         m_coinCount++;
-
-        Debug.Log("COLLECTION AW YEAH!");
     }
 
     public static void BuyUpgrade(int price, int damage, int speed)
@@ -30,5 +28,10 @@ public class StatisticsScript : MonoBehaviour
             Debug.Log(m_damage);
             Debug.Log(m_speed);
         }
+    }
+
+    public void UpdateStatisticsUI()
+    {
+        m_coinText.text = m_coinCount.ToString();
     }
 }

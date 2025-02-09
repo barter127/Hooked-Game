@@ -19,7 +19,10 @@ public class CoinLogic : MonoBehaviour
             m_targetTransform = TransformReferenceHolder.m_player.transform;
         }
 
-        m_coinCollected.AddListener(GameObject.Find("Game Manager").GetComponent<StatisticsScript>().IncrementCoinCounter);
+
+        StatisticsScript statisticsScript = GameObject.Find("Game Manager").GetComponent<StatisticsScript>();
+        m_coinCollected.AddListener(statisticsScript.IncrementCoinCounter);
+        m_coinCollected.AddListener(statisticsScript.UpdateStatisticsUI);
 
         //m_coinCollected.AddListener()
 
