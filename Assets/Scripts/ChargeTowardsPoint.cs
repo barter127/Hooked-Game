@@ -26,6 +26,7 @@ public class ChargeTowardsPoint : MonoBehaviour
     // Components
     Rigidbody2D m_rigidbody;
     SpriteRenderer m_spriteRenderer;
+    StateMachine m_stateMachine;
 
     Vector3 m_targetVector;
 
@@ -43,6 +44,7 @@ public class ChargeTowardsPoint : MonoBehaviour
 
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_spriteRenderer = GetComponent<SpriteRenderer>();
+        m_stateMachine = GetComponent<StateMachine>();
     }
 
     // Update is called once per frame
@@ -54,25 +56,26 @@ public class ChargeTowardsPoint : MonoBehaviour
             m_targetVector = m_targetTransform.position - transform.position;
         }
 
-        DrawLOS(m_targetVector);
-
         // In range
         if (m_targetVector.magnitude < m_chargeRange)
+        {
+            // Called every frame but statemachine ignores most requests.
+            //m_stateMachine.ChangeState(StateMachine.AIState.Moving);
+        }
+
+        if (m_stateMachine.m_currentState == StateMachine.AIState.Moving)
         {
             m_chargeTimer -= Time.deltaTime;
 
             CheckDirectionToFace(m_targetVector.x < 0);
 
-            // Charge timer up.
-            if (m_chargeTimer <= 0) 
-            {
-                // If has line of sight.
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, m_targetVector, m_targetVector.magnitude, m_obstacleLayer);
-                if (hit.collider == null)
-                {
-                    Charge();
-                }
-            }
+            // Charges if clear LOS, Resets Timer.
+            CheckChargeLOS(1, true);
+        }
+
+        else if (m_stateMachine.m_currentState == StateMachine.AIState.Attached)
+        {
+            CheckChargeLOS(100 ,false);
         }
 
         else if (m_chargeTimer != m_rateOfCharges)
@@ -81,35 +84,42 @@ public class ChargeTowardsPoint : MonoBehaviour
         }
     }
 
-    void Charge()
+    #region Charging
+
+    void CheckChargeLOS(float chargeMultiplier, bool chargeTowards)
     {
-        m_startCharge = true; // Set false in animation script.
-
-        m_chargeTimer = m_rateOfCharges;
-
-        m_targetVector = m_targetTransform.position - transform.position;
-        m_rigidbody.AddForce(m_targetVector * m_chargeForce);
-    }
-
-    // Suboptimal as resuses logic but is self contained.
-    void DrawLOS(Vector3 targetPos)
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetPos, targetPos.magnitude, m_obstacleLayer);
-
-        // In range.
-        if (targetPos.magnitude < m_chargeRange)
+        // Charge timer up.
+        if (m_chargeTimer <= 0)
         {
-            // Has Line of Sight.
+            // If has line of sight.
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, m_targetVector, m_targetVector.magnitude, m_obstacleLayer);
             if (hit.collider == null)
             {
-                Debug.DrawRay(transform.position, targetPos, Color.green);
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, targetPos, Color.red);
+                Charge(chargeMultiplier, chargeTowards);
             }
         }
     }
+
+    void Charge(float chargeMultiplier, bool chargeTowards)
+    {
+        m_startCharge = true; // Set false in animation script.
+
+        // Reset Timer
+        m_chargeTimer = m_rateOfCharges;
+
+        // Get target direction (with magnitude)
+        m_targetVector = m_targetTransform.position - transform.position;
+
+        if (!chargeTowards)
+        {
+            // Flip Target Vector. (charges away)
+            m_targetVector *= -1;
+        }
+
+        m_rigidbody.AddForce(m_targetVector * m_chargeForce * chargeMultiplier);
+    }
+
+    #endregion
 
     #region Direction to Face
     void Turn()

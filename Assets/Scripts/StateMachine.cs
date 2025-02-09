@@ -20,16 +20,23 @@ public class StateMachine : MonoBehaviour
     public AIState m_currentState { get; private set; }
     public AIState m_lastState { get; private set; }
 
+
+    private void Update()
+    {
+       Debug.Log (m_currentState);
+    }
     public void ChangeState(AIState newState)
     {
         // Prevent reverting back to attach state.
         if (newState != AIState.Attached && newState != AIState.AttachedWeak)
         {
             m_lastState = newState;
-
-            Debug.Log(m_lastState);
         }
 
-        m_currentState = newState;
+
+        if (newState != m_currentState)
+        {
+            m_currentState = newState;
+        }
     }
 }

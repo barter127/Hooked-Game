@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7957752815835629429}
+  - component: {fileID: 6913178696190339661}
   - component: {fileID: 1144406485177435207}
   - component: {fileID: 1849471585928498228}
   - component: {fileID: 5146743111788971649}
@@ -40,6 +41,18 @@ Transform:
   - {fileID: 4342751244503316900}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6913178696190339661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6300486519505678561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776d98b85a8f50e41884639fdcb5760a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1144406485177435207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,8 +217,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: -0.03940344, y: 0.0051398277}
+  m_Size: {x: 1.311799, y: 1.311799}
   m_Direction: 0
 --- !u!95 &3500145449419192725
 Animator:

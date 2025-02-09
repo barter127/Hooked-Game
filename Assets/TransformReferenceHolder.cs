@@ -6,7 +6,7 @@ public class TransformReferenceHolder : MonoBehaviour
 
     void Awake()
     {
-        GameObject.Find("Character");
-        m_player = GetComponent<Transform>();
+        GameObject player = GameObject.Find("Character");
+        m_player = player.GetComponent<Transform>();
     }
 }

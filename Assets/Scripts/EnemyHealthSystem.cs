@@ -82,8 +82,6 @@ public class EnemyHealthSystem : MonoBehaviour
         {
             m_attached = false;
             m_stateMachine.ChangeState(m_stateMachine.m_lastState);
-
-            StartCoroutine(PauseDamageDetection());
         }
     }
 
@@ -96,8 +94,6 @@ public class EnemyHealthSystem : MonoBehaviour
             {
                 // Deal damage based on velocity before.
                 ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier);
-
-                StartCoroutine(PauseDamageDetection());
             }
         }
     }
@@ -112,6 +108,8 @@ public class EnemyHealthSystem : MonoBehaviour
         UpdateEnemyHealthBar();
 
         VFXManager.SpawnBloodFX(transform.position);
+
+        StartCoroutine(PauseDamageDetection());
 
 
         // Allow only one enemy to shake camera.

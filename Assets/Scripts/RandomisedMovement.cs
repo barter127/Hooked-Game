@@ -40,6 +40,11 @@ public class RandomisedMovement : MonoBehaviour
 
     private void Update()
     {
+        ChargeRandomDirection();
+    }
+
+    void ChargeRandomDirection()
+    {
         if (nextMovement <= 0)
         {
             m_startCharge = true;
