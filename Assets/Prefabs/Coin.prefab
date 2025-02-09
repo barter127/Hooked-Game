@@ -49,8 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f72da462db6ff11408dbaaa0309434f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_coinCollected:
+    m_PersistentCalls:
+      m_Calls: []
   m_rigidbody: {fileID: 1875733448099694299}
   m_targetTransform: {fileID: 0}
+  m_statsScript: {fileID: 0}
   m_speed: 3
 --- !u!114 &7209719285572387793
 MonoBehaviour:

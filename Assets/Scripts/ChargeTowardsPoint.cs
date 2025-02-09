@@ -32,7 +32,7 @@ public class ChargeTowardsPoint : MonoBehaviour
 
     Vector3 m_targetVector;
 
-    public bool m_startCharge = false; // For animator.
+    [HideInInspector] public bool m_startCharge = false; // For animator.
     bool m_isFacingRight;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -59,7 +59,7 @@ public class ChargeTowardsPoint : MonoBehaviour
         }
 
         // In range
-        if (m_targetVector.magnitude < m_chargeRange && m_stateMachine.m_currentState == StateMachine.AIState.Attached)
+        if (m_targetVector.magnitude < m_chargeRange && m_stateMachine.m_currentState == StateMachine.AIState.Idle)
         {
             // Called every frame but statemachine ignores most requests.
             m_stateMachine.ChangeState(StateMachine.AIState.Moving);
@@ -127,8 +127,6 @@ public class ChargeTowardsPoint : MonoBehaviour
         }
 
         m_rigidbody.AddForce(m_targetVector * m_chargeForce * chargeMultiplier);
-
-        Debug.Log("CHARGE");
     }
 
     #endregion
