@@ -8,7 +8,7 @@ public class FollowTransform : MonoBehaviour
     /// </summary>
 
     public Transform m_transformToFollow;
-    Vector3 m_offsetFromTarget;
+    [SerializeField] Vector3 m_offsetFromTarget;
 
     void Start()
     {

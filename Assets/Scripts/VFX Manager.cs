@@ -8,12 +8,13 @@ public class VFXManager : MonoBehaviour
     /// I don't like using start coroutine if the coroutine doesn't exist in the class.
     /// </summary>
 
-    // Particles
-    static GameObject m_bloodFX;
-
-    // Camera
+    [Header ("Camera")]
     [SerializeField] Transform m_camTransform;
     [SerializeField] AnimationCurve m_cameraShakeCurve;
+
+    [Header("FX")]
+    static GameObject m_bloodFX;
+    static GameObject m_sparkleFX;
 
     static VFXManager instance;
 
@@ -21,8 +22,11 @@ public class VFXManager : MonoBehaviour
     {
         instance = this;
 
-        // If blood doesn't spawn this iw why.
-        m_bloodFX = Resources.Load<GameObject>("Prefabs/FX/Blood FX");
+        // If FX doesn't spawn this is why. Pain in the ass but they need to be static vars.
+        m_bloodFX = Resources.Load<GameObject>("FX/Blood FX");
+        m_sparkleFX = Resources.Load<GameObject>("FX/Sparkle FX");
+
+        Debug.Log(m_sparkleFX != null);
     }
 
     #region Spawn Particle Sys
@@ -33,6 +37,20 @@ public class VFXManager : MonoBehaviour
         if (VFXManager.m_bloodFX != null)
         {
             Instantiate(m_bloodFX, spawnPosition, Quaternion.identity);
+        }
+    }
+
+    // Instantiate Sparkle Flipbook at location. Follow follow transform till animation ends.
+    public static void SpawnSparkleFX(Vector3 spawnPos, Transform followTransform)
+    {
+        if (VFXManager.m_sparkleFX != null)
+        {
+            // Spawn FX on Player.
+            GameObject spawnedHitFX = Instantiate(m_sparkleFX, spawnPos, Quaternion.identity);
+
+            // Set follow transform.
+            FollowTransform follow = spawnedHitFX.GetComponent<FollowTransform>();
+            follow.m_transformToFollow = followTransform;
         }
     }
 

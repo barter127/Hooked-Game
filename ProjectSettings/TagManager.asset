@@ -13,6 +13,7 @@ TagManager:
   - Music Player
   - Rope
   - Heal Item
+  - Buyable
   layers:
   - Default
   - TransparentFX
