@@ -84,9 +84,18 @@ public class EnemySpawner : MonoBehaviour
     // Also contains checks for spawn cap.
     #region Spawn Methods
 
+    // Spawn Random Enemy at Random position in spawn bounds.
     void SpawnRandomEnemy()
     {
-        
+        int randomEnemy = Random.Range(0, 4);
+
+        switch (randomEnemy)
+        {
+            case 0: if (m_hornetSpawnCount < m_hornetSpawnLimit) SpawnHornet(); break;
+            case 1: if (m_waspSpawnCount < m_waspSpawnLimit) SpawnWasp(); break;
+            case 2: if (m_squirtSpawnCount < m_squirtSpawnLimit) SpawnSquirt(); break;
+            case 3: if (m_dipSpawnCount < m_dipSpawnLimit) SpawnDip(); break;
+        }
     }
 
     void SpawnHornet()
