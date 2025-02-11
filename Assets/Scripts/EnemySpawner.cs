@@ -9,6 +9,15 @@ public class EnemySpawner : MonoBehaviour
     float m_nextSpawnTime;
     bool m_canSpawn = true;
 
+    //enum EnemyVariants
+    //{
+    //    Hornet,
+    //    Wasp,
+    //    Squirt,
+    //    Dip
+    //}
+
+    // References to Enemy GOs.
     [Header("Enemy Prefabs")]
     [SerializeField] GameObject m_hornet;
     [SerializeField] GameObject m_wasp;
@@ -16,8 +25,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject m_dip;
 
     [Header("Enemy Spawn Limits")]
-    // Spawn Limit how many enemies can be in scene at once.
-    // Spawn count how many enemies are currently in scene.
+    // Spawn limit: how many enemies can be in scene at once.
+    // Spawn count: how many enemies are currently in scene.
 
     [SerializeField] int m_hornetSpawnLimit;
     int m_hornetSpawnCount;
@@ -31,8 +40,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] int m_dipSpawnLimit;
     int m_dipSpawnCount;
 
-    [Header("Spawn Bounds")]
     // Areas enemies can spawn. Assumes spawn area is square.
+    [Header("Spawn Bounds")]
     [SerializeField] Transform m_topLeft;           [SerializeField] Transform m_topRight;
     [SerializeField] Transform m_bottomLeft;        [SerializeField] Transform m_bottomRight;
 
@@ -63,7 +72,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    // Get a random vector within the bounds of the scene.
+    // Get a random vector within the bounds of the spawn location.
     Vector3 RandomiseSpawnLocation()
     {
         float randX = Random.Range(m_minX, m_maxX);
@@ -74,6 +83,11 @@ public class EnemySpawner : MonoBehaviour
 
     // Also contains checks for spawn cap.
     #region Spawn Methods
+
+    void SpawnRandomEnemy()
+    {
+        
+    }
 
     void SpawnHornet()
     {

@@ -95,6 +95,8 @@ public class EnemyHealthSystem : MonoBehaviour
 
         UpdateEnemyHealthBar();
 
+        // Apply DMG FX.
+        VFXManager.FlashRed(m_spriteRenderer, 0.2f);
         VFXManager.SpawnBloodFX(transform.position);
 
         // Prevent damage occuring too quickly because of ricochet.
@@ -113,7 +115,7 @@ public class EnemyHealthSystem : MonoBehaviour
             // Update Game Over Stats
             GameOverStatManager.IncrementKillCount();
 
-            EmitCoins();
+            EmitCoins(1, 10);
 
             // Dead. Bleh X.X
             Destroy(gameObject);
@@ -123,12 +125,6 @@ public class EnemyHealthSystem : MonoBehaviour
         else if (m_currentHealth < m_maxHealth / 2)
         {
             m_stateMachine.ChangeState(StateMachine.AIState.AttachedWeak);
-        }
-
-        // Apply DMG VFX. 
-        else
-        {
-            VFXManager.FlashRed(m_spriteRenderer, 0.2f);
         }
     }
 
