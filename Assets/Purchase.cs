@@ -44,7 +44,7 @@ public class Purchase : MonoBehaviour
             if (StatisticsScript.m_coinCount >= m_price)
             {
                 StatisticsScript.BuyUpgrade(m_price, m_damage, m_speed);
-                m_itemBought.Invoke();
+                m_itemBought.Invoke();  
 
                 // Spawn at pos. Follow Player.
                 VFXManager.SpawnSparkleFX(TransformReferenceHolder.m_player.position, TransformReferenceHolder.m_player);
