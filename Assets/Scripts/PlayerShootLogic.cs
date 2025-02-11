@@ -52,9 +52,9 @@ public class PlayerShootLogic : MonoBehaviour
     // Distance needed to return knife.
     [SerializeField] float m_returnMagnitude;
 
-    public static bool m_hasFired { get; private set; } = false;
+    public static bool m_hasFired { get; private set; }
 
-    bool m_isReturning;
+    public static bool m_isReturning { get; private set; }
 
     [Header("Rope Damage")]
     float m_ropeHealth;

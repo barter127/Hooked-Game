@@ -57,27 +57,16 @@ public class EnemyHealthSystem : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         // Enemy has collided with knife obj.
-        if (collision.CompareTag("Knife") && PlayerShootLogic.m_hasFired && m_canTakeDamage)
+        if (collision.CompareTag("Knife") && m_canTakeDamage && !PlayerShootLogic.m_isReturning)
         {
-            // Get script holding DMG nums.
-            StatisticsScript stats = collision.gameObject.GetComponent<StatisticsScript>();
-
-            m_stateMachine.ChangeState(StateMachine.AIState.Attached);
-
-            if (stats != null)
-            {
-                m_attached = true;
-                ApplyDamage(StatisticsScript.m_damage);
-            }
-            else
-            {
-                Debug.Log("Player stats invalid couldn't apply damage");
-            }
+            m_attached = true;
+            ApplyDamage(StatisticsScript.m_damage);
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
+        // Watch to see if knife has returned. Set vars appropriately. Prevents too much coupling.
         if (collision.CompareTag("Knife") && !KnifeEnemyAttachLogic.m_isConnected)
         {
             m_attached = false;
@@ -92,13 +81,14 @@ public class EnemyHealthSystem : MonoBehaviour
             // Tag check might be unessecary and cause me headaches later.
             if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("Enemy"))
             {
-                // Deal damage based on velocity before.
+                // Deal damage based on velocity just before.
+                // If current velocity is used the damage will be negligble as the Rb has stopped.
                 ApplyDamage(m_lateRBVelocity * m_velocityDamageMultiplier);
             }
         }
     }
 
-    // Minus damage from health and update health bar.
+    // Minus damage from health and update enemy health bar.
     void ApplyDamage(float damage)
     {
         m_currentHealth -= damage;
@@ -150,7 +140,7 @@ public class EnemyHealthSystem : MonoBehaviour
         m_healthBar.fillAmount = healthPercentage;
     }
 
-    // Because of ricocheting rbs AI could instadie. Temporarily sets bool to false.
+    // Because of ricocheting rbs AI could insta die. Temporarily sets m_canTakeDamage bool to false.
     IEnumerator PauseDamageDetection()
     {
         m_canTakeDamage = false;
@@ -160,9 +150,10 @@ public class EnemyHealthSystem : MonoBehaviour
         m_canTakeDamage = true;
     }
 
-    void EmitCoins()
+    // Spawn a random amount of coins based on parameters (inclusive).
+    void EmitCoins(int min, int max)
     {
-        float coinsToSpawn = Random.Range(1, 8);
+        float coinsToSpawn = Random.Range(min, max);
 
         for (int i = 0; i < coinsToSpawn; i++)
         {
