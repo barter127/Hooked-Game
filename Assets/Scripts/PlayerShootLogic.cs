@@ -179,26 +179,28 @@ public class PlayerShootLogic : MonoBehaviour
         m_knifeRb.linearVelocity = Vector3.zero; // Reset velocity to ensure accurate force application.
         m_forcesLeft = m_amountOfForcesToApply;
 
+        m_ropeHealth = m_ropeMaxHealth;
         m_ropeHealthPanel.SetActive(true);
     }
 
+    // Set vars appropriately to get knife to return to player.
     public void StartKnifeReturn()
     {
         m_isReturning = true;
+
+        m_knifeRb.bodyType = RigidbodyType2D.Dynamic;
+
+        // Ensure enemy is not longer on rope.
+        m_knifeAttachLogic.DetatchEnemy();
 
         // Disable Knife Logic. Maybe this could be a method?
         m_knifeAttachLogic.enabled = false;
         m_knifeFollowMouse.enabled = false;
 
-        // Ensure knife values are correct.
-        m_knifeAttachLogic.DetatchEnemy();
-
         m_ropeHealthPanel.SetActive(false);
-
-        Debug.Log("HHSFHUSHJN:JFOISJNFI@O");
     }
 
-    // Move towards player. Delete at destination.
+    // Move towards player. Disable at destination.
     void ReturnKnife()
     {
         // Get direction bullet needs to travel.
