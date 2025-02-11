@@ -10,6 +10,7 @@ public class PlayerShootLogic : MonoBehaviour
     ///  Handles the rope shoot logic
     ///  Turns of rope and knife rendering
     ///  Initialises Rope health UI and uses it's methods
+    ///  Applies Rope Damage When Nessecary
     /// </summary>
 
     #region Variables
@@ -156,7 +157,7 @@ public class PlayerShootLogic : MonoBehaviour
         }
         else if (!KnifeEnemyAttachLogic.m_isConnected)
         {
-                StartKnifeReturn();
+            StartKnifeReturn();
         }
     }
 
@@ -193,6 +194,8 @@ public class PlayerShootLogic : MonoBehaviour
         m_knifeAttachLogic.DetatchEnemy();
 
         m_ropeHealthPanel.SetActive(false);
+
+        Debug.Log("HHSFHUSHJN:JFOISJNFI@O");
     }
 
     // Move towards player. Delete at destination.
@@ -221,9 +224,7 @@ public class PlayerShootLogic : MonoBehaviour
             {
                 m_knifeRb.linearVelocity = direction * m_returnSpeed;
             }
-            
         }
-
     }
 
     // Apply rope damage based on distance
@@ -248,6 +249,7 @@ public class PlayerShootLogic : MonoBehaviour
         }
     }
 
+    // Enables and Disables Rope Sprite Renderers.
     // Function is limited in usability but makes overall code more readable.
     void SetRopeSpriteRenderer(bool isEnabled)
     {

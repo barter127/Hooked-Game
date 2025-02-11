@@ -48,6 +48,8 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
         // Remove distance joint when enemy dies or disconnects from rope.
         if (m_enemyRigidbody == null && m_isConnected)
         {
+            Debug.Log("sasyfras");
+
             DetatchEnemy();
             m_playerShootLogic.StartKnifeReturn();
         }
