@@ -80,8 +80,6 @@ public class EnemySpawner : MonoBehaviour
         if (m_hornetSpawnCount < m_hornetSpawnLimit)
         {
             m_hornetSpawnCount++;
-
-            Debug.Log(m_hornetSpawnCount);
             Instantiate(m_hornet, RandomiseSpawnLocation(), Quaternion.identity);
         }
     }
@@ -90,8 +88,6 @@ public class EnemySpawner : MonoBehaviour
     {
         if (m_waspSpawnCount < m_waspSpawnLimit)
         {
-
-
             m_waspSpawnCount++;
             Instantiate(m_wasp, RandomiseSpawnLocation(), Quaternion.identity);
         }
@@ -110,15 +106,10 @@ public class EnemySpawner : MonoBehaviour
     {
         if (m_dipSpawnCount < m_dipSpawnLimit)
         {
-           
-
             m_dipSpawnCount++;
-
-            Debug.Log(m_dipSpawnCount);
             Instantiate(m_dip, RandomiseSpawnLocation(), Quaternion.identity);
         }
     }
-
 
     #endregion
 }
