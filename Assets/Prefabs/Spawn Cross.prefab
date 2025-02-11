@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6130728288750035553}
   - component: {fileID: 5127447503526556845}
   - component: {fileID: 8974168127568978631}
+  - component: {fileID: 5944083136457607810}
   m_Layer: 0
   m_Name: Spawn Cross
   m_TagString: Untagged
@@ -110,3 +111,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5944083136457607810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461933106520783986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de79ed6bda567a44f8700b2a936a409c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

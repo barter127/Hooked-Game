@@ -87,7 +87,7 @@ public class PlayerShootLogic : MonoBehaviour
         m_knifeAttachLogic = m_knifeReference.GetComponent<KnifeEnemyAttachLogic>();
 
         // Initialise rope vars and appearance.
-        m_hasFired = false;
+        m_hasFired = true;
         m_isReturning = true;
 
         SetRopeSpriteRenderer(false);

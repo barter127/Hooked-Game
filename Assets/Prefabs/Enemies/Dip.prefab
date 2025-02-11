@@ -262,7 +262,7 @@ MonoBehaviour:
   m_healthBar: {fileID: 1038480308303934233}
   m_maxHealth: 100
   m_canTakeDamage: 1
-  m_coin: {fileID: 6491406336463671046, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
+  m_coin: {fileID: 4535951778496019544, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
 --- !u!50 &7036161145382980364
 Rigidbody2D:
   serializedVersion: 5

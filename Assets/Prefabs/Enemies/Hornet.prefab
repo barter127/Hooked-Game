@@ -94,7 +94,7 @@ MonoBehaviour:
   m_healthBar: {fileID: 619488046720172354}
   m_maxHealth: 200
   m_canTakeDamage: 1
-  m_coin: {fileID: 6491406336463671046, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
+  m_coin: {fileID: 4535951778496019544, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
 --- !u!114 &2386527930790974430
 MonoBehaviour:
   m_ObjectHideFlags: 0
