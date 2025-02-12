@@ -24,8 +24,6 @@ public class TopDownCharacterController : MonoBehaviour
     [Header("Movement parameters")]
     // Rate the player accelerates at.
     [SerializeField] float m_playerAccelRate;
-    // The maximum speed the player can move.
-    [SerializeField] float m_playerMaxSpeed = 1000f;
 
     #endregion
 
@@ -44,11 +42,11 @@ public class TopDownCharacterController : MonoBehaviour
     {
         // Get difference between targetSpeed and maxSpeed
         // Adjust velocity based off of this for more satisfying movement.
-        float xTarget = m_playerDirection.x * m_playerMaxSpeed;
+        float xTarget = m_playerDirection.x * StatisticsScript.m_speed;
         float xSpeedDif = xTarget - m_rigidbody.linearVelocity.x;
         float xMovement = xSpeedDif * m_playerAccelRate;
 
-        float yTarget = m_playerDirection.y * m_playerMaxSpeed;
+        float yTarget = m_playerDirection.y * StatisticsScript.m_speed;
         float ySpeedDif = yTarget - m_rigidbody.linearVelocity.y;
         float yMovement = ySpeedDif * m_playerAccelRate;
 

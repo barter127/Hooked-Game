@@ -10,6 +10,7 @@ public class Purchase : MonoBehaviour
     [Header("References")]
     // Price Text on object.
     [SerializeField] TextMeshPro m_moneyText;
+    [SerializeField] GameObject m_gameOverPanel;
 
     // Certain children will need to be turned off such as renderer and movement logic.
     [SerializeField] GameObject m_goToTurnOff;
@@ -30,6 +31,7 @@ public class Purchase : MonoBehaviour
     [SerializeField] int m_damage;
     [SerializeField] int m_speed;
     [SerializeField] int m_maxHealth;
+    [SerializeField] bool m_win;
 
     public UnityEvent m_itemBought;
 
@@ -48,6 +50,11 @@ public class Purchase : MonoBehaviour
             // I prefer check here as it's linked to a Particle FXs animation.
             if (StatisticsScript.m_coinCount >= m_price)
             {
+                if (m_win)
+                {
+                    Win();
+                }
+
                 // Handle centralised statistics.
                 StatisticsScript.BuyUpgrade(m_price, m_damage, m_speed);
 
@@ -78,5 +85,10 @@ public class Purchase : MonoBehaviour
 
         m_goToTurnOff.SetActive(true);
         m_avalible = true;
+    }
+
+    void Win()
+    {
+
     }
 }

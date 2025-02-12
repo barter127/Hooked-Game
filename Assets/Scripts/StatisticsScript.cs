@@ -7,8 +7,8 @@ public class StatisticsScript : MonoBehaviour
     /// Holds statistic values and multiplers for player.
     /// </summary>
 
-    public static float m_damage;
-    public static float m_speed;
+    public static float m_damage { get; private set; } = 5;
+    public static float m_speed { get; private set; }  = 12;
     public static int m_coinCount { get; private set; } = 100;
 
     [SerializeField] TextMeshProUGUI m_coinText;

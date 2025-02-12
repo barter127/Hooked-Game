@@ -66,10 +66,10 @@ public class EnemyHealthSystem : MonoBehaviour
         m_currentHealth = m_maxHealth;
 
         // Everyday we stray further from God.
-        m_enemySpawner = GameObject.Find("Enemy Spawn Manager").GetComponent<EnemySpawner>();
+        // m_enemySpawner = GameObject.Find("Enemy Spawn Manager").GetComponent<EnemySpawner>();
 
         // Set subscriber based on event. So enemy spawner knows when the specific enemy dies
-        SetDeathEventSubscriber();
+        // SetDeathEventSubscriber();
 
     }
 
@@ -85,6 +85,7 @@ public class EnemyHealthSystem : MonoBehaviour
         {
             m_attached = true;
             ApplyDamage(StatisticsScript.m_damage);
+            m_stateMachine.ChangeState(StateMachine.AIState.Attached);
         }
     }
 
@@ -209,7 +210,5 @@ public class EnemyHealthSystem : MonoBehaviour
 
             default: Debug.Log("Enemy type not correctly assigned" + gameObject.name); break;
         }
-
-        Debug.Log("Freddy Fazburger");
     }
 }

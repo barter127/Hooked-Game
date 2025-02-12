@@ -90,7 +90,7 @@ public class EnemyFireAtTarget : MonoBehaviour
         // Get shooting direction.
         Vector3 aimingDir = (m_target.position - transform.position).normalized;
 
-        // Find angle of aiming directions vector.
+        // Find angle of aiming direction vector.
         float attackAngle = Mathf.Atan2(aimingDir.y, aimingDir.x);
 
         // This could be more customiseable but focusing on other AI.

@@ -1,5 +1,4 @@
 using UnityEngine;
-using static StraightToPathfinding;
 
 public class StateMachine : MonoBehaviour
 {
