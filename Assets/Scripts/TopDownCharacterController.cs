@@ -20,7 +20,6 @@ public class TopDownCharacterController : MonoBehaviour
     
     //The direction that the player is moving in.
     Vector2 m_playerDirection;
-   
 
     [Header("Movement parameters")]
     // Rate the player accelerates at.
@@ -44,7 +43,7 @@ public class TopDownCharacterController : MonoBehaviour
     private void FixedUpdate()
     {
         // Get difference between targetSpeed and maxSpeed
-        // Adjust velocity based off of this.
+        // Adjust velocity based off of this for more satisfying movement.
         float xTarget = m_playerDirection.x * m_playerMaxSpeed;
         float xSpeedDif = xTarget - m_rigidbody.linearVelocity.x;
         float xMovement = xSpeedDif * m_playerAccelRate;
