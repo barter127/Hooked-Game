@@ -187,8 +187,8 @@ public class EnemyHealthSystem : MonoBehaviour
     // Rolls random number drops corresponding item on death (or nothing).
     void DropItem()
     {
-        float randomNum = Random.Range(0, 20);
-
+        int randomNum = Random.Range(0, 10);
+        Debug.Log(randomNum);
 
         // Convert to switch if more items can be dropped.
         if (randomNum == 0)

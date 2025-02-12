@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_coin: {fileID: 4535951778496019544, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
+  m_healingItem: {fileID: 1565176429568429077, guid: 1dba479258c742f498fa635a05a5d470, type: 3}
   m_rigidbody: {fileID: 8878845474412184645}
   m_spriteRenderer: {fileID: 8549963727742119530}
   m_healthBar: {fileID: 8940556526513930216}

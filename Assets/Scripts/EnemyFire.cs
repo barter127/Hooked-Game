@@ -56,7 +56,6 @@ public class EnemyFireAtTarget : MonoBehaviour
                 m_fireTimer = m_fireTimerLength / 2;
             }
         }
-        // Only tick down in vision range.
         else m_fireTimer -= Time.deltaTime;
     }
 
