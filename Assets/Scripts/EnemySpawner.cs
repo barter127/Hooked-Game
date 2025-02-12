@@ -9,14 +9,6 @@ public class EnemySpawner : MonoBehaviour
     float m_nextSpawnTime;
     bool m_canSpawn = true;
 
-    //enum EnemyVariants
-    //{
-    //    Hornet,
-    //    Wasp,
-    //    Squirt,
-    //    Dip
-    //}
-
     // References to Enemy GOs.
     [Header("Enemy Prefabs")]
     [SerializeField] GameObject m_hornet;
@@ -68,8 +60,10 @@ public class EnemySpawner : MonoBehaviour
         {
             m_nextSpawnTime = m_spawnRate + Time.time;
 
-            SpawnDip();
+            SpawnRandomEnemy();
         }
+
+        Debug.Log(m_dipSpawnCount);
     }
 
     // Get a random vector within the bounds of the spawn location.
@@ -91,10 +85,10 @@ public class EnemySpawner : MonoBehaviour
 
         switch (randomEnemy)
         {
-            case 0: if (m_hornetSpawnCount < m_hornetSpawnLimit) SpawnHornet(); break;
-            case 1: if (m_waspSpawnCount < m_waspSpawnLimit) SpawnWasp(); break;
-            case 2: if (m_squirtSpawnCount < m_squirtSpawnLimit) SpawnSquirt(); break;
-            case 3: if (m_dipSpawnCount < m_dipSpawnLimit) SpawnDip(); break;
+            case 0: SpawnHornet(); break;
+            case 1: SpawnWasp(); break;
+            case 2: SpawnSquirt(); break;
+            case 3: SpawnDip(); break;
         }
     }
 
@@ -107,6 +101,11 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    public void DecrementHornetCount()
+    {
+        m_hornetSpawnCount--;
+    }
+
     void SpawnWasp()
     {
         if (m_waspSpawnCount < m_waspSpawnLimit)
@@ -114,6 +113,11 @@ public class EnemySpawner : MonoBehaviour
             m_waspSpawnCount++;
             Instantiate(m_wasp, RandomiseSpawnLocation(), Quaternion.identity);
         }
+    }
+
+    public void DecrementWaspCount()
+    {
+        m_waspSpawnCount--;
     }
 
     void SpawnSquirt()
@@ -125,6 +129,11 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    public void DecrementSquirtCount()
+    {
+        m_squirtSpawnCount--;
+    }
+
     void SpawnDip()
     {
         if (m_dipSpawnCount < m_dipSpawnLimit)
@@ -132,6 +141,11 @@ public class EnemySpawner : MonoBehaviour
             m_dipSpawnCount++;
             Instantiate(m_dip, RandomiseSpawnLocation(), Quaternion.identity);
         }
+    }
+
+    public void DecrementDipCount()
+    {
+        m_dipSpawnCount--;
     }
 
     #endregion

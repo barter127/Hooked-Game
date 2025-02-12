@@ -25,8 +25,6 @@ public class VFXManager : MonoBehaviour
         // If FX doesn't spawn this is why. Pain in the ass but they need to be static vars.
         m_bloodFX = Resources.Load<GameObject>("FX/Blood FX");
         m_sparkleFX = Resources.Load<GameObject>("FX/Sparkle FX");
-
-        Debug.Log(m_sparkleFX != null);
     }
 
     #region Spawn Particle Sys

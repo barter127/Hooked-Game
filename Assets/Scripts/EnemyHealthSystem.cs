@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+
 
 [RequireComponent (typeof(StateMachine))]
 public class EnemyHealthSystem : MonoBehaviour
@@ -11,23 +13,25 @@ public class EnemyHealthSystem : MonoBehaviour
     /// Destroy at health <= 0.
     /// </summary>
 
-    StateMachine m_stateMachine;
+    // Coin prefab
+    [SerializeField] GameObject m_coin;
 
-    // --- Components ---
-    Rigidbody2D m_rigidbody;
-    SpriteRenderer m_spriteRenderer;
-
-    // Inconsistent component referencing but GetComponent acts weirdly and can get the wrong Image. 
+    [Header ("Components")]
+    [SerializeField] Rigidbody2D m_rigidbody;
+    [SerializeField] SpriteRenderer m_spriteRenderer;
     [SerializeField] Image m_healthBar;
 
-    // --- Gameplay Vars ---
+    // Hold AI current State + Chnage State method.
+    [SerializeField] StateMachine m_stateMachine;
+
+    [SerializeField] EnemySpawner m_enemySpawner;
+
+    [Header ("Gameplay Vars")]
     float m_currentHealth;
     [SerializeField] float m_maxHealth;
 
     bool m_attached = false;
     [SerializeField] bool m_canTakeDamage = true;
-
-    [SerializeField] GameObject m_coin;
 
     // Multiplies damage from rb velocity.
     float m_velocityDamageMultiplier = 10;
@@ -38,15 +42,34 @@ public class EnemyHealthSystem : MonoBehaviour
 
     float m_damageCooldownTime = 0.5f;
 
+    // -- Spawner Communication --
+
+    public enum EnemyType
+    {
+        Hornet,
+        Wasp,
+        Squirt,
+        Dip,
+        None // Just incase.
+    }
+
+    // Enemy type of the owner of this script.
+    public EnemyType m_ownerEnemyType;
+
+    public UnityEvent m_onDeathEvent;
+
     // State Machine Reference.
 
     void Start()
     {
         m_currentHealth = m_maxHealth;
 
-        m_stateMachine = GetComponent<StateMachine>();
-        m_rigidbody = GetComponent<Rigidbody2D>();
-        m_spriteRenderer = GetComponent<SpriteRenderer>();
+        // Everyday we stray further from God.
+        m_enemySpawner = GameObject.Find("Enemy Spawn Manager").GetComponent<EnemySpawner>();
+
+        // Set subscriber based on event. So enemy spawner knows when the specific enemy dies
+        SetDeathEventSubscriber();
+
     }
 
     void FixedUpdate()
@@ -117,6 +140,8 @@ public class EnemyHealthSystem : MonoBehaviour
 
             EmitCoins(1, 10);
 
+            m_onDeathEvent.Invoke();
+
             // Dead. Bleh X.X
             Destroy(gameObject);
         }
@@ -155,5 +180,20 @@ public class EnemyHealthSystem : MonoBehaviour
         {
             Instantiate(m_coin, transform.position, Quaternion.identity);
         }
+    }
+
+    void SetDeathEventSubscriber()
+    {
+        switch (m_ownerEnemyType)
+        {
+            case EnemyType.Hornet: m_onDeathEvent.AddListener(m_enemySpawner.DecrementHornetCount); break;
+            case EnemyType.Wasp: m_onDeathEvent.AddListener(m_enemySpawner.DecrementWaspCount); break;
+            case EnemyType.Squirt: m_onDeathEvent.AddListener(m_enemySpawner.DecrementSquirtCount); break;
+            case EnemyType.Dip: m_onDeathEvent.AddListener(m_enemySpawner.DecrementDipCount); break;
+
+            default: Debug.Log("Enemy type not correctly assigned" + gameObject.name); break;
+        }
+
+        Debug.Log("Freddy Fazburger");
     }
 }

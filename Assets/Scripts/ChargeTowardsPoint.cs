@@ -21,7 +21,7 @@ public class ChargeTowardsPoint : MonoBehaviour
     // Layer with obstacles.
     [SerializeField] LayerMask m_obstacleLayer;
 
-    [SerializeField] float m_chargeForceMultiplier;
+    [SerializeField] float m_attachedForceMultiplier;
 
     float m_chargeTimer;
 
@@ -82,7 +82,7 @@ public class ChargeTowardsPoint : MonoBehaviour
             m_chargeTimer -= Time.deltaTime;
 
             // Charges if clear LOS, Resets Timer.
-            CheckChargeLOS(m_chargeForceMultiplier ,false);
+            CheckChargeLOS(m_attachedForceMultiplier ,false);
         }
 
         else if (m_chargeTimer != m_rateOfCharges)

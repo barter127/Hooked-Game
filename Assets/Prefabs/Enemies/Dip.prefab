@@ -259,10 +259,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f685b498dac87409bb356ad8d821e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_stateMachine: {fileID: 3021557754642235482}
+  m_coin: {fileID: 4535951778496019544, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
+  m_rigidbody: {fileID: 7036161145382980364}
+  m_spriteRenderer: {fileID: 5342926275557412065}
   m_healthBar: {fileID: 1038480308303934233}
   m_maxHealth: 100
   m_canTakeDamage: 1
-  m_coin: {fileID: 4535951778496019544, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
+  m_ownerEnemyType: 3
+  m_onDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &7036161145382980364
 Rigidbody2D:
   serializedVersion: 5

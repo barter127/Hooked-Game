@@ -57,8 +57,8 @@ MonoBehaviour:
   m_targetTransform: {fileID: 0}
   m_speed: 15
   m_idleSpeed: 2
-  m_attachedSpeedMultiplier: 7
-  m_weakSpeedMultiplier: 0.1
+  m_attachedSpeedMultiplier: 4
+  m_weakSpeedMultiplier: 0
   m_idleMoveRate: 1
   m_idleMoveDistance: 4
 --- !u!114 &287982659804753808
@@ -91,10 +91,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f685b498dac87409bb356ad8d821e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_coin: {fileID: 4535951778496019544, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
+  m_rigidbody: {fileID: 1645135631315867076}
+  m_spriteRenderer: {fileID: 6965303579924641362}
   m_healthBar: {fileID: 619488046720172354}
+  m_stateMachine: {fileID: 2386527930790974430}
+  m_enemySpawner: {fileID: 0}
   m_maxHealth: 200
   m_canTakeDamage: 1
-  m_coin: {fileID: 4535951778496019544, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
+  m_ownerEnemyType: 0
+  m_onDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2386527930790974430
 MonoBehaviour:
   m_ObjectHideFlags: 0

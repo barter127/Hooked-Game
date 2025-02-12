@@ -122,8 +122,9 @@ GameObject:
   - component: {fileID: 1736187376621778723}
   - component: {fileID: 5843120428108584776}
   - component: {fileID: 6923453997046192244}
+  - component: {fileID: 1259603851452619968}
   m_Layer: 0
-  m_Name: Gaper
+  m_Name: Gaper (NOT IMPLEMENTED)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f685b498dac87409bb356ad8d821e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_camMovement: {fileID: 0}
+  m_stateMachine: {fileID: 1259603851452619968}
+  m_coin: {fileID: 4535951778496019544, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
+  m_rigidbody: {fileID: 6923453997046192244}
+  m_spriteRenderer: {fileID: 5843120428108584776}
   m_healthBar: {fileID: 4898127305091348775}
   m_maxHealth: 150
   m_canTakeDamage: 1
@@ -361,12 +365,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3145328045451892686, guid: 84d2f2b55a16d4b488ba9e91f3fe39b3, type: 3}
+  m_Sprite: {fileID: 109310481, guid: 02baef1e3b55f5941b5bb2d2e6e377a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.6875, y: 0.96875}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -399,6 +403,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1259603851452619968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3109590172839865125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776d98b85a8f50e41884639fdcb5760a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5567636548116183354
 GameObject:
   m_ObjectHideFlags: 0
