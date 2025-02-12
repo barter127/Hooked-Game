@@ -33,6 +33,7 @@ public class HealthManager : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // Collider heals and player isn't at max health.
         if (collision.gameObject.CompareTag("Heal Item") && m_currentHealth != m_maxHealth)
         {
             HealingAmount healVal = collision.gameObject.GetComponent<HealingAmount>();
@@ -43,7 +44,8 @@ public class HealthManager : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        else if (collision.gameObject.CompareTag("Enemy"))
+        // If collider deals damage
+        else if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Damage"))
         {
             TakeDamage(1);
         }

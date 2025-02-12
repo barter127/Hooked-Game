@@ -67,12 +67,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_targetTransform: {fileID: 0}
   m_chargeForce: 225
-  m_rateOfCharges: 2.4
+  m_maxChargeTimer: 2.8
   m_chargeRange: 7.5
   m_obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
-  m_chargeForceMultiplier: 3
+  m_attachedForceMultiplier: 3
   m_startCharge: 0
 --- !u!114 &1849471585928498228
 MonoBehaviour:
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_coin: {fileID: 4535951778496019544, guid: 947477b68700bcd419b6b6e5d4dfe2f1, type: 3}
+  m_healingItem: {fileID: 0}
   m_rigidbody: {fileID: 5415790299400404415}
   m_spriteRenderer: {fileID: 4367429980277752358}
   m_healthBar: {fileID: 5245946618877859809}

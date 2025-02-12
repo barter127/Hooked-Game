@@ -13,8 +13,9 @@ public class EnemyHealthSystem : MonoBehaviour
     /// Destroy at health <= 0.
     /// </summary>
 
-    // Coin prefab
+    [Header ("Enemy Drops")]
     [SerializeField] GameObject m_coin;
+    [SerializeField] GameObject m_healingItem;
 
     [Header ("Components")]
     [SerializeField] Rigidbody2D m_rigidbody;
@@ -138,6 +139,7 @@ public class EnemyHealthSystem : MonoBehaviour
             // Update Game Over Stats
             GameOverStatManager.IncrementKillCount();
 
+            DropItem();
             EmitCoins(1, 10);
 
             m_onDeathEvent.Invoke();
@@ -182,6 +184,20 @@ public class EnemyHealthSystem : MonoBehaviour
         }
     }
 
+    // Rolls random number drops corresponding item on death (or nothing).
+    void DropItem()
+    {
+        float randomNum = Random.Range(0, 20);
+
+
+        // Convert to switch if more items can be dropped.
+        if (randomNum == 0)
+        {
+            Instantiate(m_healingItem, transform.position, Quaternion.identity);
+        }
+    }
+
+    // Subscribe a method to the spawner event so the spawner variables can be decremented.
     void SetDeathEventSubscriber()
     {
         switch (m_ownerEnemyType)
