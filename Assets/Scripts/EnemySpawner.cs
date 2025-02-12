@@ -62,8 +62,6 @@ public class EnemySpawner : MonoBehaviour
 
             SpawnRandomEnemy();
         }
-
-        Debug.Log(m_dipSpawnCount);
     }
 
     // Get a random vector within the bounds of the spawn location.

@@ -594,7 +594,7 @@ TextureImporter:
         x: 32
         y: 224
         width: 16
-        height: 32
+        height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -614,9 +614,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 224
+        y: 240
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -637,10 +637,10 @@ TextureImporter:
         serializedVersion: 2
         x: 32
         y: 208
-        width: 18
+        width: 16
         height: 16
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -658,11 +658,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 243
+        y: 240
         width: 16
-        height: 13
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -682,9 +682,9 @@ TextureImporter:
         x: 64
         y: 224
         width: 16
-        height: 19
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -702,11 +702,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 80
-        y: 243
+        y: 240
         width: 16
-        height: 13
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -726,9 +726,9 @@ TextureImporter:
         x: 80
         y: 224
         width: 16
-        height: 19
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -745,12 +745,12 @@ TextureImporter:
       name: tileset_arranged_28
       rect:
         serializedVersion: 2
-        x: 81
+        x: 80
         y: 208
-        width: 15
+        width: 16
         height: 16
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -767,10 +767,10 @@ TextureImporter:
       name: tileset_arranged_29
       rect:
         serializedVersion: 2
-        x: 50
+        x: 48
         y: 208
-        width: 12
-        height: 16
+        width: 16
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -855,9 +855,9 @@ TextureImporter:
       name: tileset_arranged_33
       rect:
         serializedVersion: 2
-        x: 97
+        x: 96
         y: 224
-        width: 15
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -3099,9 +3099,9 @@ TextureImporter:
       name: tileset_arranged_135
       rect:
         serializedVersion: 2
-        x: 62
+        x: 64
         y: 208
-        width: 18
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -3113,6 +3113,50 @@ TextureImporter:
       bones: []
       spriteID: 2fe0c7ad883b8e346b0a0adeefc2c425
       internalID: -536330878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_arranged_136
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 226
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a470650d941b047a81dc3fff0a6e57
+      internalID: -1796203022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_arranged_137
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 243
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd916006a0bb4b046ae8e4b104d251eb
+      internalID: 1395409927
       vertices: []
       indices: 
       edges: []
@@ -3173,6 +3217,8 @@ TextureImporter:
       tileset_arranged_133: -340984828
       tileset_arranged_134: -693441756
       tileset_arranged_135: -536330878
+      tileset_arranged_136: -1796203022
+      tileset_arranged_137: 1395409927
       tileset_arranged_14: -1733754306
       tileset_arranged_15: -1308152116
       tileset_arranged_16: -741400858

@@ -727,6 +727,7 @@ MonoBehaviour:
   m_price: 5
   m_damage: 5
   m_speed: 2
+  m_maxHealth: 0
   m_itemBought:
     m_PersistentCalls:
       m_Calls:
@@ -742,6 +743,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_healthManager: {fileID: 0}
 --- !u!1 &213282985
 GameObject:
   m_ObjectHideFlags: 0
