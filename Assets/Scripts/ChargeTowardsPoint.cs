@@ -14,16 +14,17 @@ public class ChargeTowardsPoint : MonoBehaviour
     [SerializeField] Transform m_targetTransform;
     // Force of charge.
     [SerializeField] float m_chargeForce;
+
     // Time between each charge in seconds.
-    [SerializeField] float m_rateOfCharges;
+    [SerializeField] float m_maxChargeTimer;
+    float m_chargeTimer;
+
     // Furthest distance can charge from.
     [SerializeField] float m_chargeRange;
     // Layer with obstacles.
     [SerializeField] LayerMask m_obstacleLayer;
 
     [SerializeField] float m_attachedForceMultiplier;
-
-    float m_chargeTimer;
 
     // Components
     Rigidbody2D m_rigidbody;
@@ -43,6 +44,9 @@ public class ChargeTowardsPoint : MonoBehaviour
         {
             m_targetTransform = TransformReferenceHolder.m_player.transform;
         }
+
+        // Ensure enemies don't charge on spawn.
+        m_chargeTimer = m_maxChargeTimer;
 
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_spriteRenderer = GetComponent<SpriteRenderer>();
@@ -85,10 +89,11 @@ public class ChargeTowardsPoint : MonoBehaviour
             CheckChargeLOS(m_attachedForceMultiplier ,false);
         }
 
-        else if (m_chargeTimer != m_rateOfCharges)
+        // If player is out of range set timer to max. (Gives reaction time)
+        else if (m_chargeTimer != m_maxChargeTimer)
         {
             m_stateMachine.ChangeState(StateMachine.AIState.Idle);
-            m_chargeTimer = m_rateOfCharges;
+            m_chargeTimer = m_maxChargeTimer;
         }
 
         #endregion
@@ -101,6 +106,8 @@ public class ChargeTowardsPoint : MonoBehaviour
         // Charge timer up.
         if (m_chargeTimer <= 0)
         {
+            m_chargeTimer = m_maxChargeTimer;
+
             // If has line of sight.
             RaycastHit2D hit = Physics2D.Raycast(transform.position, m_targetVector, m_targetVector.magnitude, m_obstacleLayer);
             if (hit.collider == null)
@@ -113,9 +120,6 @@ public class ChargeTowardsPoint : MonoBehaviour
     void Charge(float chargeMultiplier, bool chargeTowards)
     {
         m_startCharge = true; // Set false in animation script.
-
-        // Reset Timer
-        m_chargeTimer = m_rateOfCharges;
 
         // Get target direction (with magnitude)
         m_targetVector = m_targetTransform.position - transform.position;
