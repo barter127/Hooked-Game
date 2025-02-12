@@ -25,10 +25,15 @@ public class Purchase : MonoBehaviour
 
     [Header ("Stats")]
     [SerializeField] int m_price;
+
+    // Stat increase.
     [SerializeField] int m_damage;
     [SerializeField] int m_speed;
+    [SerializeField] int m_maxHealth;
 
     public UnityEvent m_itemBought;
+
+    [SerializeField] HealthManager m_healthManager;
 
     void Start()
     {
@@ -40,10 +45,19 @@ public class Purchase : MonoBehaviour
     {
         if (collision.CompareTag("Player") && m_avalible)
         {
-            // I prefer check here as it's linked to Particle FXs
+            // I prefer check here as it's linked to a Particle FXs animation.
             if (StatisticsScript.m_coinCount >= m_price)
             {
+                // Handle centralised statistics.
                 StatisticsScript.BuyUpgrade(m_price, m_damage, m_speed);
+
+                // Handle Player Health
+                if (m_maxHealth > 0)
+                {
+                    m_healthManager.AddMaxHealth(m_maxHealth);
+                }
+
+                // Invoke event to update UI.
                 m_itemBought.Invoke();  
 
                 // Spawn at pos. Follow Player.
@@ -56,6 +70,7 @@ public class Purchase : MonoBehaviour
 
     IEnumerator RespawnAfterSeconds(float length)
     {
+        // So logic can be self contained turned child off instead of destroying GO.
         m_goToTurnOff.SetActive(false);
         m_avalible = false;
 

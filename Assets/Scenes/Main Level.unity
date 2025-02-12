@@ -1005,10 +1005,10 @@ MonoBehaviour:
   m_wasp: {fileID: 1649139909083835580, guid: 8c56d610d5a8e42488e2182ffd1adede, type: 3}
   m_squirt: {fileID: 6300486519505678561, guid: f1114963498210742bdef20b1883058c, type: 3}
   m_dip: {fileID: 7795900428072727865, guid: 5461f6dcd4dda55448e2365e5021148c, type: 3}
-  m_hornetSpawnLimit: 10
-  m_waspSpawnLimit: 5
-  m_squirtSpawnLimit: 6
-  m_dipSpawnLimit: 7
+  m_hornetSpawnLimit: 3
+  m_waspSpawnLimit: 6
+  m_squirtSpawnLimit: 4
+  m_dipSpawnLimit: 10
   m_topLeft: {fileID: 1617550858}
   m_topRight: {fileID: 330603571}
   m_bottomLeft: {fileID: 1405143988}
@@ -2573,10 +2573,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_moneyText: {fileID: 1774971450}
   m_goToTurnOff: {fileID: 699494411}
-  m_respawnOnPurchase: 0
-  m_price: 5
+  m_respawnOnPurchase: 1
+  m_price: 10
   m_damage: 5
-  m_speed: 2
+  m_speed: 0
+  m_maxHealth: 0
   m_itemBought:
     m_PersistentCalls:
       m_Calls:
@@ -2592,6 +2593,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_healthManager: {fileID: 0}
 --- !u!70 &381033896
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11963,9 +11965,10 @@ MonoBehaviour:
   m_moneyText: {fileID: 1949994509}
   m_goToTurnOff: {fileID: 477669993}
   m_respawnOnPurchase: 0
-  m_price: 5
+  m_price: 3
   m_damage: 0
   m_speed: 2
+  m_maxHealth: 0
   m_itemBought:
     m_PersistentCalls:
       m_Calls:
@@ -11981,6 +11984,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_healthManager: {fileID: 0}
 --- !u!70 &1087499479
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -36696,10 +36700,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_moneyText: {fileID: 631663756}
   m_goToTurnOff: {fileID: 63049825}
-  m_respawnOnPurchase: 0
-  m_price: 5
-  m_damage: 5
-  m_speed: 2
+  m_respawnOnPurchase: 1
+  m_price: 15
+  m_damage: 0
+  m_speed: 0
+  m_maxHealth: 2
   m_itemBought:
     m_PersistentCalls:
       m_Calls:
@@ -36715,6 +36720,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_healthManager: {fileID: 864556757}
 --- !u!70 &1848278407
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

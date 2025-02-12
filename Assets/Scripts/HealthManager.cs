@@ -99,11 +99,11 @@ public class HealthManager : MonoBehaviour
     }
 
     // Increase players max health and current health by param.
-    void AddMaxHealth(int maxIncrease)
+    public void AddMaxHealth(int maxIncrease)
     {
         m_maxHealth += maxIncrease;
 
-        // Ensure value is multiple of 2.
+        // Ensure healing value is multiple of 2.
         if (m_maxHealth % 2 != 0)
         {
             m_maxHealth++;
@@ -114,11 +114,15 @@ public class HealthManager : MonoBehaviour
             m_currentHealth += maxIncrease;
         }
 
+        // Clamp Values.
+        m_maxHealth = Mathf.Clamp(m_maxHealth, 1, 16);
+        m_currentHealth = Mathf.Clamp(m_currentHealth, 1, 16);
+
         m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
     }
 
-    // Increase players max health by maxIncrease and currentHealth by currentIncrease.
-    void AddMaxHealth(int maxIncrease, int currentIncrease)
+    // Increase players max health by maxIncrease and heals currentHealth by currentIncrease.
+    public void AddMaxHealth(int maxIncrease, int currentIncrease)
     {
         m_maxHealth += maxIncrease;
 
