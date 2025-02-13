@@ -51,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
         m_minX = m_topLeft.position.x;
         m_maxX = m_topRight.position.x;
         m_minY = m_bottomLeft.position.y;
-        m_minY = m_topLeft.position.y;
+        m_maxY = m_topLeft.position.y;
     }
 
     void Update()
