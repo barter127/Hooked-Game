@@ -87,8 +87,11 @@ public class Purchase : MonoBehaviour
         m_avalible = true;
     }
 
+    // Pretty botched implementation. Would be better with more time.
     void Win()
     {
+        Time.timeScale = 0f;
 
+        m_gameOverPanel.SetActive(true);
     }
 }
