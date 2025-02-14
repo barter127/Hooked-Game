@@ -48,7 +48,7 @@ public class Options : MonoBehaviour
         // Find the music player and set the volume again.
         GameObject musicPlayer = GameObject.FindWithTag("Music Player");
         m_musicSource = musicPlayer.GetComponent<AudioSource>();
-        //m_musicSource.volume = JsonReadWriteSystem.GetMusicVolume();
+        m_musicSource.volume = JsonReadWriteSystem.GetMusicVolume();
     }
 
     void OnMusicSliderValueChanged(float value)

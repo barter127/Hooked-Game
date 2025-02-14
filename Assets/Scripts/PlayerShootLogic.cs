@@ -151,13 +151,17 @@ public class PlayerShootLogic : MonoBehaviour
     // Attack Button Pressed.
     void Attack(InputAction.CallbackContext context)
     {
-        if (!m_hasFired)
+        // stop Knife receiving input while paused
+        if (Time.timeScale != 0)
         {
-            FireKnife();
-        }
-        else if (!KnifeEnemyAttachLogic.m_isConnected)
-        {
-            StartKnifeReturn();
+            if (!m_hasFired)
+            {
+                FireKnife();
+            }
+            else if (!KnifeEnemyAttachLogic.m_isConnected)
+            {
+                StartKnifeReturn();
+            }
         }
     }
 
@@ -235,7 +239,7 @@ public class PlayerShootLogic : MonoBehaviour
     {
         float distance = Vector3.Distance(m_playerTrans.position, m_knifeReference.transform.position);
 
-        m_ropeHealth -= distance;
+        m_ropeHealth -= distance * Time.deltaTime;
 
         float healthDecimal = m_ropeHealth / m_ropeMaxHealth;
         m_ropeHealthLogic.UpdateRopeHealthBar(healthDecimal);

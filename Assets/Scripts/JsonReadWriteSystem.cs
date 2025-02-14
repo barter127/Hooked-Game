@@ -17,6 +17,11 @@ public class JsonReadWriteSystem : MonoBehaviour
 
     public static PlayerSaveData LoadStatisticData()
     {
+        if (!File.Exists(Application.dataPath + "/PlayerSaveDataFile.json"))
+        {
+            return null;
+        }
+
         string json = File.ReadAllText(Application.dataPath + "/PlayerSaveDataFile.json");
         PlayerSaveData data = JsonUtility.FromJson<PlayerSaveData>(json);
         return data;

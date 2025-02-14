@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.LightTransport;
-using UnityEngine.Rendering;
 
 public class EnemyFireAtTarget : MonoBehaviour
 {
