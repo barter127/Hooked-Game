@@ -30,6 +30,15 @@ public class StatisticsScript : MonoBehaviour
         Debug.Log(m_speed);
     }
 
+    public void ResetStatistics()
+    {
+        m_coinCount = 0;
+        m_damage = 5;
+        m_speed = 12;
+
+        UpdateStatisticsUI();
+    }
+
     public void UpdateStatisticsUI()
     {
         m_coinText.text = m_coinCount.ToString();

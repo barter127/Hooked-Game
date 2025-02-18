@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -51,6 +52,8 @@ public class EnemySpawner : MonoBehaviour
         m_maxX = m_topRight.position.x;
         m_minY = m_bottomLeft.position.y;
         m_maxY = m_topLeft.position.y;
+
+       
     }
 
     void Update()
@@ -151,4 +154,12 @@ public class EnemySpawner : MonoBehaviour
     }
 
     #endregion
+
+    public void ResetAllSpawnCounts()
+    {
+        m_hornetSpawnCount = 0;
+        m_waspSpawnCount = 0;
+        m_squirtSpawnCount = 0;
+        m_dipSpawnCount = 0;
+    }
 }

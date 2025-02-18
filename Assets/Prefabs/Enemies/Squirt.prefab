@@ -71,7 +71,7 @@ MonoBehaviour:
   m_chargeRange: 7.5
   m_obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_attachedForceMultiplier: 3
   m_startCharge: 0
 --- !u!114 &1849471585928498228

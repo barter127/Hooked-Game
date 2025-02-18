@@ -150,6 +150,14 @@ public class HealthManager : MonoBehaviour
 
         m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
     }
+
+    public void ResetHealthValues()
+    {
+        m_maxHealth = 6;
+        m_currentHealth = 6;
+
+        m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
+    }
     #endregion
 
     #region SFX

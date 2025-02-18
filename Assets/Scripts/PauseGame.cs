@@ -17,6 +17,10 @@ public class PauseGame : MonoBehaviour
 
     [SerializeField] int m_mainMenu;
 
+    [SerializeField] StatisticsScript m_playerStats;
+    [SerializeField] EnemySpawner m_enemySpawner;
+    [SerializeField] HealthManager m_playerHealthManager;
+
     #region Handle Input Sys
 
     void OnEnable()
@@ -69,6 +73,10 @@ public class PauseGame : MonoBehaviour
 
     public void RestartButtonClicked()
     {
+        // Reset statistics
+        m_playerStats.ResetStatistics();
+        m_enemySpawner.ResetAllSpawnCounts();
+
         // Reload current scene.
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1.0f;

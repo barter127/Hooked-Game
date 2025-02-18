@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1856001}
   - component: {fileID: 1856002}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 5439919}
   - component: {fileID: 5439921}
   - component: {fileID: 5439920}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Streetlight (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1007,7 +1007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 56400291}
   - component: {fileID: 56400292}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2062,7 +2062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 244171369}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Door (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5572,7 +5572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 317882469}
   - component: {fileID: 317882470}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light  (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5867,7 +5867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 328182119}
   - component: {fileID: 328182120}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light  (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6346,11 +6346,11 @@ Transform:
   m_GameObject: {fileID: 385220706}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -674.80865, y: -904.53, z: -3.0207853}
+  m_LocalPosition: {x: -1.6461182, y: 2.2962036, z: -0.023905039}
   m_LocalScale: {x: 1.6875, y: 1.9757991, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 563367284}
+  m_Father: {fileID: 1119190791}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &385220708
 MonoBehaviour:
@@ -11847,7 +11847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526530296}
   - component: {fileID: 526530297}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12070,7 +12070,7 @@ GameObject:
   - component: {fileID: 538759110}
   - component: {fileID: 538759112}
   - component: {fileID: 538759111}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Streetlight (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -12366,6 +12366,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pauseMenu: {fileID: 687171424}
   m_mainMenu: 0
+  m_playerStats: {fileID: 563367279}
+  m_enemySpawner: {fileID: 66615681}
+  m_playerHealthManager: {fileID: 864556757}
 --- !u!114 &563367281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12461,8 +12464,7 @@ Transform:
   m_LocalPosition: {x: 673.16254, y: 906.82623, z: 2.9968803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 385220707}
+  m_Children: []
   m_Father: {fileID: 1119190791}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &575518786
@@ -12475,7 +12477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 575518787}
   - component: {fileID: 575518788}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19283,7 +19285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 723082309}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Level Objects
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -19522,7 +19524,7 @@ GameObject:
   - component: {fileID: 739702643}
   - component: {fileID: 739702645}
   - component: {fileID: 739702644}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Blue Car (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -19668,7 +19670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 764202220}
   - component: {fileID: 764202221}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20018,7 +20020,7 @@ GameObject:
   - component: {fileID: 852781574}
   - component: {fileID: 852781573}
   - component: {fileID: 852781572}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Door Hinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20178,7 +20180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 857489290}
   - component: {fileID: 857489291}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21283,7 +21285,7 @@ MonoBehaviour:
   m_gameOverPanel: {fileID: 1029262562}
   m_goToTurnOff: {fileID: 248733438}
   m_respawnOnPurchase: 1
-  m_price: 250
+  m_price: 75
   m_damage: 0
   m_speed: 0
   m_maxHealth: 0
@@ -22668,7 +22670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1062016066}
   - component: {fileID: 1062016067}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: 'Light '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23115,6 +23117,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 385220707}
   - {fileID: 563367284}
   - {fileID: 952180005}
   - {fileID: 1030734950}
@@ -23237,7 +23240,7 @@ GameObject:
   - component: {fileID: 1184943867}
   - component: {fileID: 1184943866}
   - component: {fileID: 1184943865}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Buildings
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -23278,7 +23281,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.080895334}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -23288,7 +23291,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0625, y: 0.5625}
+  m_Size: {x: 1.0625, y: 0.32967922}
   m_EdgeRadius: 0
 --- !u!212 &1184943866
 SpriteRenderer:
@@ -23370,7 +23373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190632531}
   - component: {fileID: 1190632532}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23454,7 +23457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1260177076}
   - component: {fileID: 1260177077}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light  (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23538,7 +23541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1270766960}
   - component: {fileID: 1270766961}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23871,7 +23874,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1350787272}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Door
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -24004,7 +24007,7 @@ GameObject:
   - component: {fileID: 1395148337}
   - component: {fileID: 1395148339}
   - component: {fileID: 1395148338}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Streetlight (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -24192,7 +24195,7 @@ GameObject:
   - component: {fileID: 1413628673}
   - component: {fileID: 1413628675}
   - component: {fileID: 1413628674}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Blue Car (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -24528,7 +24531,7 @@ GameObject:
   - component: {fileID: 1440820329}
   - component: {fileID: 1440820331}
   - component: {fileID: 1440820330}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Red Car
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -24675,7 +24678,7 @@ GameObject:
   - component: {fileID: 1459703118}
   - component: {fileID: 1459703120}
   - component: {fileID: 1459703119}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Streetlight (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -24936,7 +24939,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1472088405}
   - component: {fileID: 1472088406}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25057,7 +25060,7 @@ GameObject:
   - component: {fileID: 1507005333}
   - component: {fileID: 1507005332}
   - component: {fileID: 1507005331}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Barrel
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -47197,7 +47200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1641295472}
   - component: {fileID: 1641295473}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light  (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47362,7 +47365,7 @@ GameObject:
   - component: {fileID: 1663475084}
   - component: {fileID: 1663475086}
   - component: {fileID: 1663475085}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Streetlight (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -47698,7 +47701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1683078540}
   - component: {fileID: 1683078541}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47995,7 +47998,7 @@ GameObject:
   - component: {fileID: 1706763701}
   - component: {fileID: 1706763700}
   - component: {fileID: 1706763699}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Door Hinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49425,7 +49428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831747312}
   - component: {fileID: 1831747313}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49799,7 +49802,7 @@ GameObject:
   - component: {fileID: 1861623512}
   - component: {fileID: 1861623511}
   - component: {fileID: 1861623510}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Door Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50060,7 +50063,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1883807514}
   - component: {fileID: 1883807515}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light  (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50145,7 +50148,7 @@ GameObject:
   - component: {fileID: 1892548769}
   - component: {fileID: 1892548768}
   - component: {fileID: 1892548766}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Red Car
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -50291,7 +50294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1900775974}
   - component: {fileID: 1900775975}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light  (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50375,7 +50378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1915640889}
   - component: {fileID: 1915640890}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50462,7 +50465,7 @@ GameObject:
   - component: {fileID: 1933347978}
   - component: {fileID: 1933347977}
   - component: {fileID: 1933347981}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Door Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51140,7 +51143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2022980913}
   - component: {fileID: 2022980914}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51224,7 +51227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2028295322}
   - component: {fileID: 2028295323}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: 'Light '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51583,7 +51586,7 @@ GameObject:
   - component: {fileID: 2070808789}
   - component: {fileID: 2070808788}
   - component: {fileID: 2070808787}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Barrels
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -56902,9 +56905,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 723082309}
     m_Modifications:
+    - target: {fileID: 1539131782488274403, guid: 56fcd5921ee3d8442b6203a841c4c416, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1711699953878691642, guid: 56fcd5921ee3d8442b6203a841c4c416, type: 3}
       propertyPath: m_Name
       value: Blue Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711699953878691642, guid: 56fcd5921ee3d8442b6203a841c4c416, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450831360954817969, guid: 56fcd5921ee3d8442b6203a841c4c416, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3930920971256397807, guid: 56fcd5921ee3d8442b6203a841c4c416, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56946,6 +56961,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -86.678
       objectReference: {fileID: 0}
+    - target: {fileID: 7946138244259612729, guid: 56fcd5921ee3d8442b6203a841c4c416, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073186091953796155, guid: 56fcd5921ee3d8442b6203a841c4c416, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -56959,6 +56982,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 723082309}
     m_Modifications:
+    - target: {fileID: 401507862920010741, guid: 7f520bbcf36d0a940bdf5c6f54fac028, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858258470027507231, guid: 7f520bbcf36d0a940bdf5c6f54fac028, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3934612328035436681, guid: 7f520bbcf36d0a940bdf5c6f54fac028, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4113968828097752367, guid: 7f520bbcf36d0a940bdf5c6f54fac028, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.45
@@ -57003,6 +57038,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Car (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4841493012874380761, guid: 7f520bbcf36d0a940bdf5c6f54fac028, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6116770536738857012, guid: 7f520bbcf36d0a940bdf5c6f54fac028, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57016,9 +57059,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 723082309}
     m_Modifications:
+    - target: {fileID: 1846584996147362954, guid: 2f6a07c94f26277488e3c6dafa53e8bd, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6683480107128851857, guid: 2f6a07c94f26277488e3c6dafa53e8bd, type: 3}
       propertyPath: m_Name
       value: Streetlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683480107128851857, guid: 2f6a07c94f26277488e3c6dafa53e8bd, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7004644238114050629, guid: 2f6a07c94f26277488e3c6dafa53e8bd, type: 3}
       propertyPath: m_LocalPosition.x
