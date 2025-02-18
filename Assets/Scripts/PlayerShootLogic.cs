@@ -64,7 +64,12 @@ public class PlayerShootLogic : MonoBehaviour
     [SerializeField] float m_ropeDamageDistance;
 
     bool m_tickCountdownStarted;
-    #endregion
+
+    [Header ("SFX")]
+    [SerializeField] AudioSource m_audioSource;
+    [SerializeField] AudioClip m_shootSFX;
+    [SerializeField] AudioClip m_ropeSnapSFX;
+    #endregion 
 
     void Start()
     {
@@ -185,6 +190,8 @@ public class PlayerShootLogic : MonoBehaviour
 
         m_ropeHealth = m_ropeMaxHealth;
         m_ropeHealthPanel.SetActive(true);
+
+        m_audioSource.PlayOneShot(m_shootSFX);
     }
 
     // Set vars appropriately to get knife to return to player.
@@ -202,6 +209,8 @@ public class PlayerShootLogic : MonoBehaviour
         m_knifeFollowMouse.enabled = false;
 
         m_ropeHealthPanel.SetActive(false);
+
+        m_audioSource.PlayOneShot(m_ropeSnapSFX);
     }
 
     // Move towards player. Disable at destination.

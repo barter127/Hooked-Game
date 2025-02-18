@@ -22,6 +22,13 @@ public class HealthManager : MonoBehaviour
     [SerializeField] UpdatePlayerHealthUI m_healthScript;
     [SerializeField] GameObject m_GameOverUI;
 
+    [Header("SFX")]
+    [SerializeField] AudioSource m_audioSource;
+
+    [SerializeField] AudioClip[] m_hurtSounds;
+    [SerializeField] AudioClip m_healSFX;
+    [SerializeField] AudioClip m_deathSFX;
+
     void Start()
     {
         m_currentHealth = m_maxHealth;
@@ -56,6 +63,7 @@ public class HealthManager : MonoBehaviour
         }
     }
 
+    #region Health Manipulation Methods
     // Deal damage to player & Update UI.
     void TakeDamage(int damage)
     {
@@ -65,6 +73,8 @@ public class HealthManager : MonoBehaviour
             m_currentHealth -= damage;
             m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
 
+            PlayRandomHurtSFX(m_hurtSounds);
+
             StartCoroutine(IFrames(m_iFrameLength));
 
             VFXManager.IFrames(m_spriteRenderer, m_iFrameFlashes, m_iFrameLength);
@@ -73,6 +83,8 @@ public class HealthManager : MonoBehaviour
             {
                 // Freeze Game
                 Time.timeScale = 0;
+
+                m_audioSource.PlayOneShot(m_deathSFX);
 
                 // Death behaviour.
                 m_GameOverUI.SetActive(true);
@@ -94,6 +106,8 @@ public class HealthManager : MonoBehaviour
     {
         m_currentHealth += increase;
         m_currentHealth = Mathf.Clamp(m_currentHealth, 0, m_maxHealth);
+
+        m_audioSource.PlayOneShot(m_healSFX);
 
         m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
     }
@@ -136,4 +150,17 @@ public class HealthManager : MonoBehaviour
 
         m_healthScript.UpdateHealthUI(m_currentHealth, m_maxHealth);
     }
+    #endregion
+
+    #region SFX
+
+    // Play random fx from sfx parameter array.
+    void PlayRandomHurtSFX(AudioClip[] audioArray)
+    {
+        int randomIndex = Random.Range(0, audioArray.Length - 1);
+
+        m_audioSource.PlayOneShot(audioArray[randomIndex]);
+    }
+
+    #endregion
 }

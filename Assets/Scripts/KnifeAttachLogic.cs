@@ -29,6 +29,10 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
     [SerializeField] GameObject m_hitFX;
     [SerializeField] Vector3 m_spawnOffset;
 
+    [Header("SFX")]
+    [SerializeField] AudioSource m_audioSource;
+    [SerializeField] AudioClip m_ropeAttachSFX;
+
     void Awake()
     {
         m_distanceJoint = GetComponent<DistanceJoint2D>();
@@ -72,6 +76,8 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
                 FollowTransform follow = spawnedHitFX.GetComponent<FollowTransform>();
                 follow.m_transformToFollow = transform;
 
+                m_audioSource.PlayOneShot(m_ropeAttachSFX);
+
                 //Enable control of knife.
                 m_knifeFollowMouse.enabled = true;
 
@@ -93,6 +99,8 @@ public class KnifeEnemyAttachLogic : MonoBehaviour
             else if (collision.CompareTag("Obstacle") && !m_isConnected)
             {
                 m_isConnected = true;
+
+                m_audioSource.PlayOneShot(m_ropeAttachSFX);
 
                 // Stick to obstacle.
                 m_rigidbody.bodyType = RigidbodyType2D.Static;

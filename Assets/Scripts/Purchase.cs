@@ -37,6 +37,10 @@ public class Purchase : MonoBehaviour
 
     [SerializeField] HealthManager m_healthManager;
 
+    [Header("SFX")]
+    [SerializeField] AudioSource m_audioSource;
+    [SerializeField] AudioClip m_buySFX;
+
     void Start()
     {
         // Ensure money value is correct.
@@ -69,6 +73,8 @@ public class Purchase : MonoBehaviour
 
                 // Spawn at pos. Follow Player.
                 VFXManager.SpawnSparkleFX(TransformReferenceHolder.m_player.position, TransformReferenceHolder.m_player);
+
+                m_audioSource.PlayOneShot(m_buySFX);
 
                 StartCoroutine(RespawnAfterSeconds(m_respawnTimeLength));
             }

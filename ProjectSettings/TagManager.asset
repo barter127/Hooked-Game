@@ -14,6 +14,7 @@ TagManager:
   - Rope
   - Heal Item
   - Buyable
+  - SFX Player
   layers:
   - Default
   - TransparentFX
