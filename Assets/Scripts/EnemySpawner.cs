@@ -7,7 +7,6 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawn Vars")]
     [SerializeField] float m_spawnRate;
     float m_nextSpawnTime;
-    bool m_canSpawn = true;
 
     // References to Enemy GOs.
     [Header("Enemy Prefabs")]
@@ -56,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (m_canSpawn && m_nextSpawnTime <= Time.time)
+        if (m_nextSpawnTime <= Time.time)
         {
             m_nextSpawnTime = m_spawnRate + Time.time;
 
@@ -96,12 +95,14 @@ public class EnemySpawner : MonoBehaviour
         {
             m_hornetSpawnCount++;
             Instantiate(m_hornet, RandomiseSpawnLocation(), Quaternion.identity);
+            Debug.Log(m_hornetSpawnCount);
         }
     }
 
     public void DecrementHornetCount()
     {
         m_hornetSpawnCount--;
+        Debug.Log(m_hornetSpawnCount);
     }
 
     void SpawnWasp()
@@ -116,6 +117,7 @@ public class EnemySpawner : MonoBehaviour
     public void DecrementWaspCount()
     {
         m_waspSpawnCount--;
+        Debug.Log(m_waspSpawnCount);
     }
 
     void SpawnSquirt()
@@ -130,6 +132,7 @@ public class EnemySpawner : MonoBehaviour
     public void DecrementSquirtCount()
     {
         m_squirtSpawnCount--;
+        Debug.Log(m_squirtSpawnCount);
     }
 
     void SpawnDip()
@@ -144,6 +147,7 @@ public class EnemySpawner : MonoBehaviour
     public void DecrementDipCount()
     {
         m_dipSpawnCount--;
+        Debug.Log(m_dipSpawnCount);
     }
 
     #endregion
