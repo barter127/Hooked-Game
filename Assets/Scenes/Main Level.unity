@@ -22066,7 +22066,7 @@ MonoBehaviour:
   m_hitFX: {fileID: 1845960914982522068, guid: b1c4ff2b9e41ab540b3e3c438d344147, type: 3}
   m_spawnOffset: {x: 0, y: 1.5, z: 0}
   m_audioSource: {fileID: 1026078978}
-  m_ropeAttachSFX: {fileID: 0}
+  m_ropeAttachSFX: {fileID: 8300000, guid: 00719a0f0e5c5f0498eb0bf8d736cc49, type: 3}
 --- !u!114 &1026078976
 MonoBehaviour:
   m_ObjectHideFlags: 0

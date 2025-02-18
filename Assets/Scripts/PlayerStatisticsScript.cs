@@ -9,7 +9,7 @@ public class StatisticsScript : MonoBehaviour
 
     public static float m_damage { get; private set; } = 5;
     public static float m_speed { get; private set; }  = 12;
-    public static int m_coinCount { get; private set; } = 100000;
+    public static int m_coinCount { get; private set; }
 
     [SerializeField] TextMeshProUGUI m_coinText;
 

@@ -40,15 +40,38 @@ public class Options : MonoBehaviour
         m_musicSource = musicPlayer.GetComponent<AudioSource>();
 
         m_musicSource.volume = JsonReadWriteSystem.GetMusicVolume();
-        m_musicSlider.value = m_musicSource.volume;
+
+        // Make slider values match setting values.
+        m_musicSlider.value = JsonReadWriteSystem.GetMusicVolume();
+        m_sfxSlider.value = JsonReadWriteSystem.GetSFXVolume();
+
+       
     }
 
     void ChangedActiveScene(Scene current, Scene next)
+    {
+        FindAndSetMusicPlayerVolume();
+
+        FindAndSetSFXPlayers();
+    }
+
+    void FindAndSetMusicPlayerVolume()
     {
         // Find the music player and set the volume again.
         GameObject musicPlayer = GameObject.FindWithTag("Music Player");
         m_musicSource = musicPlayer.GetComponent<AudioSource>();
         m_musicSource.volume = JsonReadWriteSystem.GetMusicVolume();
+    }
+
+    void FindAndSetSFXPlayers()
+    {
+        AudioSource[] m_sfxPlayers = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+
+        foreach (AudioSource audioSource in m_sfxPlayers)
+        {
+            audioSource.volume = JsonReadWriteSystem.GetSFXVolume();
+        }
+
     }
 
     void OnMusicSliderValueChanged(float value)
@@ -60,6 +83,6 @@ public class Options : MonoBehaviour
 
     void OnSFXSliderValueChanged(float value)
     {
-        Debug.Log("SFX Slider Value Changed: " + value);
+        JsonReadWriteSystem.SetSFXVolume(value);
     }
 }
