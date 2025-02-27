@@ -66,10 +66,10 @@ public class EnemyHealthSystem : MonoBehaviour
         m_currentHealth = m_maxHealth;
 
         // Everyday we stray further from God.
-        m_enemySpawner = GameObject.Find("Enemy Spawn Manager").GetComponent<EnemySpawner>();
+        //m_enemySpawner = GameObject.Find("Enemy Spawn Manager").GetComponent<EnemySpawner>();
 
         // Set subscriber based on event. So enemy spawner knows when the specific enemy dies
-        SetDeathEventSubscriber();
+        //SetDeathEventSubscriber();
 
     }
 
