@@ -15,7 +15,7 @@
 
 <h1 align="center">Hooked</h1>
 
-  <a href="https://github.com/barter127/The-Tables-Turn">
+  <a href="https://github.com/barter127/Hooked-Game">
     <img src="HookedExample.gif" alt="Logo" width="500" height="250">
 
   <p align="center">
@@ -37,14 +37,12 @@
 
 <!-- GETTING STARTED -->
 ## About The Project
+The project was made in Unity 2D using a heavily altered framework. The rope physics are created using a collection of hinge joints for connections inbetween ropes and distance joints to restrict movement and apply force to the player to increase the power fantasy given by the rope. Enemy AI is developed using customiseable modular scripts allowing for easy combination of different AI scripts to create different but familiar enemy archetypes.
 
-The project was made in Unity 3D instead of Unity 2D as the original idea was to mix 3D models with 2D sprites but couldn't be done due to asset limitations and time constraints.<br />
-I would like to explore a similar idea with another project in the future.<br />
-
-To look at the source code, simply fork the repo and open the project with Unity 2022.3.4f1
+To look at the source code, simply fork the repo and open the project with Unity 6000.0.019f1.
 <p align="center">
-<a href="https://github.com/barter127/The-Tables-Turn">
-<img src="Tables Turn 3D Demo.png" alt="Logo" width="750" height="375">
+  <a href="https://github.com/barter127/Hooked-Game">
+    <img src="RopeDemo.gif" alt="Logo" width="500" height="250">
     <br />
     <br />
   </p>
