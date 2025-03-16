@@ -39,7 +39,7 @@
 ## About The Project
 The project was made in Unity 2D using a heavily altered framework. The rope physics are created using a collection of hinge joints for connections inbetween ropes and distance joints to restrict movement and apply force to the player to increase the power fantasy given by the rope. Enemy AI is developed using customiseable modular scripts allowing for easy combination of different AI scripts to create different but familiar enemy archetypes.
 
-To look at the source code, simply fork the repo and open the project with Unity 6000.0.019f1.
+To look at the source code, simply clone the repo and open the project with Unity 6000.0.019f1.
 
 <a href="https://github.com/barter127/Hooked-Game">
   <img src="RopeDemo.gif" alt="Logo" width="500" height="250">
